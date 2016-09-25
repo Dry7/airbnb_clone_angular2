@@ -1,0 +1,42 @@
+.discovery-card {
+    background-color: #f5f5f5;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 344px;
+}
+.space-4 {
+    margin-bottom: 24px;
+}
+.va-container-h {
+    width: 100%;
+}
+.va-container-v {
+    height: 100%;
+}
+.va-container {
+    display: table;
+    position: relative;
+}
+.link-reset {
+    color: inherit;
+}
+a {
+    color: #d43242;
+    text-decoration: none;
+}
+a {
+    background: transparent;
+}
+.va-middle {
+    vertical-align: middle;
+}
+.va-top, .va-middle, .va-bottom {
+    display: table-cell;
+}
+.text-contrast {
+    color: #fff;
+}

@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import {routing, appRoutingProviders} from "./app.routes";
 import { AboutComponent } from './components/about/about.component';
+import { FoundersComponent } from './components/founders/founders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    FoundersComponent
   ],
   imports: [
     BrowserModule,

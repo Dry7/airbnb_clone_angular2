@@ -8,13 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import {routing, appRoutingProviders} from "./app.routes";
 import { AboutComponent } from './components/about/about.component';
 import { FoundersComponent } from './components/founders/founders.component';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    FoundersComponent
+    FoundersComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,

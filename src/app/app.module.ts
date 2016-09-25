@@ -9,6 +9,7 @@ import {routing, appRoutingProviders} from "./app.routes";
 import { AboutComponent } from './components/about/about.component';
 import { FoundersComponent } from './components/founders/founders.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
     HomeComponent,
     AboutComponent,
     FoundersComponent,
-    TopMenuComponent
+    TopMenuComponent,
+    BottomMenuComponent
   ],
   imports: [
     BrowserModule,

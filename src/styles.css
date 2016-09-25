@@ -6844,3 +6844,9 @@ th.show-lg,td.show-lg {
     font-weight: 200;
     font-style: normal
 }
+
+.sidenav-item.active {
+    text-decoration: none;
+    color: #484848;
+    font-weight: bold;
+}

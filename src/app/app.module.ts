@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FoundersComponent } from './components/founders/founders.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
+import { AboutMenuComponent } from './components/about-menu/about-menu.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.compon
     AboutComponent,
     FoundersComponent,
     TopMenuComponent,
-    BottomMenuComponent
+    BottomMenuComponent,
+    AboutMenuComponent
   ],
   imports: [
     BrowserModule,

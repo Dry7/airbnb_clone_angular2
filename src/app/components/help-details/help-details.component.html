@@ -1,0 +1,97 @@
+<app-top-menu></app-top-menu>
+<app-help-search></app-help-search>
+<div id="login-container">
+    <div class="login-box text-center">
+        <div class="va-container va-container-h va-container-v">
+            <div class="va-middle">
+                <div class="space-6">
+                    <h3 class="text_1lobov3-o_O-size_title3_czh5ol-o_O-weight_bold_1mzzwq6-o_O-color_inverse_113vl3">
+                        <span>{{ 'Log in for personalized help'|translate }}</span>
+                    </h3>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 text-right">
+                        <span data-login-modal="true">
+                            <button aria-disabled="false" type="button" class="container_1atmsee-o_O-container_l3hzrm">
+                                <span class="text_10flerh-o_O-text_1efbvjp">
+                                    <span>{{ 'Log In'|translate }}</span>
+                                </span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="col-sm-6 text-left">
+                        <span data-signup-modal="true">
+                            <button aria-disabled="false" type="button" class="container_1atmsee-o_O-container_125295r">
+                                <span class="text_10flerh-o_O-text_v1ofku">
+                                    <span>{{ 'Sign Up'|translate }}</span>
+                                </span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dls-help-center-background">
+    <div class="dls-help-center">
+        <div class="subnav">
+            <div class="page-container page-container-responsive">
+                <ul class="subnav-list">
+                    <li>
+                        <a class="subnav-item" routerLink="/help">
+                            {{ 'Help Center'|translate }}
+                        </a>
+                    </li>
+                    <li *ngIf="parent_category !== null">
+                        <a class="subnav-item" (click)="back()">
+                            <i class="icon icon-chevron-right"></i>
+                            {{ parent_category.name }}
+                        </a>
+                    </li>
+                    <li *ngIf="current_category !== null">
+                        <a class="subnav-item">
+                            <i class="icon icon-chevron-right"></i>
+                            {{ current_category.name }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-container page-container-responsive page-container-sm-full">
+        <div class="row space-top-8 space-top-sm-2">
+            <div class="col-md-3 left-menu">
+                <app-help-categories
+                        (current_category_event)="current_category = $event"
+                        (parent_category_event)="parent_category = $event"
+                ></app-help-categories>
+            </div>
+            <div class="col-sm-12 col-sm-offset-0 col-md-8 col-offset-1 help-content text-copy navtree-content breadcrumbs-content">
+                <div class="help-center-sm">
+                    <div *ngIf="question != null" class="space-8">
+                        <div data-hypernova-key="help_centerarticle_pagebundlejs">
+                            <div class="dls-help-article">
+                                <div style="margin-top:-32px;margin-bottom:24px;margin-left:0;margin-right:0;">
+                                    <div>
+                                        <div class="row_ccbk9r-o_O-baseline_hero_1w3yqgy">
+                                            <h2 class="text_1lobov3-o_O-size_title2_19gapi5-o_O-weight_bold_1mzzwq6">{{ question.name }}</h2>
+                                        </div>
+                                        <div style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;">
+                                            <div class="rule_1m5gd0g-o_O-hero_1qucgbb"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:32px;margin-bottom:0;margin-left:0;margin-right:0;">
+                                    <div [innerHTML]="question.description"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-bottom-menu></app-bottom-menu>

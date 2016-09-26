@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { DiscoveryTilesComponent } from './discovery-tiles.component';
+import { HelpContactUsComponent } from './help-contact-us.component';
 
-describe('Component: DiscoveryTiles', () => {
+describe('Component: HelpContactUs', () => {
   it('should create an instance', () => {
-    let component = new DiscoveryTilesComponent();
+    let component = new HelpContactUsComponent();
     expect(component).toBeTruthy();
   });
 });

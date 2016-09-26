@@ -46,4 +46,13 @@ export class HelpService {
   public search(query: string) : Observable<IHelpQuestion> {
     return this.http.get(this.api + 'help/search?query=' + query).map(response => response.json());
   }
+
+  /**
+   * Get details
+   *
+   * @returns {Observable<R>}
+   */
+  public details(id: number) : Observable<IHelpQuestion> {
+    return this.http.get(this.api + 'help/' + id).map(response => response.json());
+  }
 }

@@ -16,6 +16,7 @@ import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-
 import { HelpComponent } from './components/help/help.component';
 import {Ng2CompleterModule} from "ng2-completer";
 import {HelpService} from "./services/help.service";
+import { HelpDetailsComponent } from './components/help-details/help-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {HelpService} from "./services/help.service";
     BottomMenuComponent,
     AboutMenuComponent,
     DiscoveryTilesComponent,
-    HelpComponent
+    HelpComponent,
+    HelpDetailsComponent
   ],
   imports: [
     BrowserModule,

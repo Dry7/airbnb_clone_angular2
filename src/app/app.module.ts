@@ -12,6 +12,7 @@ import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 import { AboutMenuComponent } from './components/about-menu/about-menu.component';
 import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-tiles.component';
+import {TranslateModule} from "ng2-translate";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    TranslateModule.forRoot()
   ],
   providers: [
       appRoutingProviders

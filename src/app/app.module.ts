@@ -15,6 +15,7 @@ import { AboutMenuComponent } from './components/about-menu/about-menu.component
 import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-tiles.component';
 import { HelpComponent } from './components/help/help.component';
 import {Ng2CompleterModule} from "ng2-completer";
+import {HelpService} from "./services/help.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {Ng2CompleterModule} from "ng2-completer";
     TranslateModule.forRoot()
   ],
   providers: [
-      appRoutingProviders
+    appRoutingProviders,
+    HelpService
   ],
   bootstrap: [AppComponent]
 })

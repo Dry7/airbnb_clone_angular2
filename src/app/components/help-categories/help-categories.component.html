@@ -1,0 +1,18 @@
+<div class="navtree dls-help-center ">
+    <ul class="sidenav-list navtree-list" id="navtree-0" style="display: block; left: 0px;">
+        <li *ngIf="current_category !== null">
+            <a (click)="back()" class="sidenav-item navtree-back">
+                <i class="icon icon-arrow-left"></i>
+                Back
+            </a>
+
+        </li>
+        <li *ngFor="let category of current_categories">
+            <a href="{{ category.hasOwnProperty('url') ? category.url : '#' }}" (click)="to(category)" class="sidenav-item">
+                {{ category.name }}
+                <span class="show-sm"><i class="icon icon-chevron-right"></i></span>
+            </a>
+        </li>
+    </ul>
+
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CompleterData, CompleterService} from "ng2-completer";
+import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
 import {Http} from "@angular/http";
 
 @Component({
@@ -21,4 +21,7 @@ export class HelpSearchComponent implements OnInit {
     );
   }
 
+  public onAnswerSelected(selected: CompleterItem) {
+    console.log(selected);
+  }
 }

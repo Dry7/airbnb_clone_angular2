@@ -11,7 +11,10 @@ const appRoutes : Routes = [
     { path: 'about/about-us', component: AboutComponent },
     { path: 'about/founders', component: FoundersComponent },
     { path: 'help', component: HelpComponent },
+    { path: 'help/article/:id', component: HelpDetailsComponent },
     { path: 'help/article/:id/:slug', component: HelpDetailsComponent },
+    { path: 'help/topic/:id', component: HelpDetailsComponent },
+    { path: 'help/topic/:id/:slug', component: HelpDetailsComponent },
 ];
 
 export const appRoutingProviders: any[] = [];

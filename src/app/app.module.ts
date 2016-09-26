@@ -18,6 +18,7 @@ import {Ng2CompleterModule} from "ng2-completer";
 import {HelpService} from "./services/help.service";
 import { HelpDetailsComponent } from './components/help-details/help-details.component';
 import { HelpSearchComponent } from './components/help-search/help-search.component';
+import { HelpCategoriesComponent } from './components/help-categories/help-categories.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HelpSearchComponent } from './components/help-search/help-search.compon
     DiscoveryTilesComponent,
     HelpComponent,
     HelpDetailsComponent,
-    HelpSearchComponent
+    HelpSearchComponent,
+    HelpCategoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -63,24 +63,10 @@
     <div class="page-container page-container-responsive page-container-sm-full">
         <div class="row space-top-8 space-top-sm-2">
             <div class="col-md-3 left-menu">
-                <div class="navtree dls-help-center ">
-                    <ul class="sidenav-list navtree-list" id="navtree-0" style="display: block; left: 0px;">
-                        <li *ngIf="current_category !== null">
-                            <a (click)="back()" class="sidenav-item navtree-back">
-                                <i class="icon icon-arrow-left"></i>
-                                Back
-                            </a>
-
-                        </li>
-                        <li *ngFor="let category of current_categories">
-                            <a href="{{ category.hasOwnProperty('url') ? category.url : '#' }}" (click)="to(category)" class="sidenav-item">
-                                {{ category.name }}
-                                <span class="show-sm"><i class="icon icon-chevron-right"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
+              <app-help-categories></app-help-categories><app-help-categories
+                    (current_category_event)="current_category = $event"
+                    (parent_category_event)="parent_category = $event"
+              ></app-help-categories>
             </div>
             <div class="col-sm-12 col-sm-offset-0 col-md-8 col-offset-1 help-content text-copy navtree-content breadcrumbs-content">
                 <div class="help-center-sm help-center-body-sm">
@@ -110,7 +96,7 @@
                                                 </div>
                                                 <div class="dls-link-text">
                                                     <span class="text_1lobov3-o_O-size_regular_c5uc97-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
-                                                        <a href="{{ row.url }}" class="component_zvm05b-o_O-navigation_j1hgdd">{{ row.name }}</a>
+                                                        <a routerLink="{{ row.url }}" class="component_zvm05b-o_O-navigation_j1hgdd">{{ row.name }}</a>
                                                     </span>
                                                 </div>
                                             </div>
@@ -143,7 +129,7 @@
                                                     </div>
                                                     <div class="dls-link-text">
                                                         <span class="text_1lobov3-o_O-size_regular_c5uc97-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
-                                                            <a href="{{ row.url }}" class="component_zvm05b-o_O-navigation_j1hgdd">{{ row.name }}</a>
+                                                            <a routerLink="{{ row.url }}" class="component_zvm05b-o_O-navigation_j1hgdd">{{ row.name }}</a>
                                                         </span>
                                                     </div>
                                                 </div>

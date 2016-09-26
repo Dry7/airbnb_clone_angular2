@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {HelpService} from "../../services/help.service";
 import {IHelpQuestion} from "../../interfaces/ihelp-question";
+import {HelpCategoriesComponent} from "../help-categories/help-categories.component";
 
 @Component({
   selector: 'app-help-details',
@@ -9,8 +10,19 @@ import {IHelpQuestion} from "../../interfaces/ihelp-question";
   styleUrls: ['./help-details.component.css']
 })
 export class HelpDetailsComponent implements OnInit {
+  @ViewChild(HelpCategoriesComponent) categoriesComponent : HelpCategoriesComponent;
 
   private question: IHelpQuestion;
+
+  /**
+   * Current category
+   */
+  private current_category : any = null;
+
+  /**
+   * Parent category
+   */
+  private parent_category : any = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,5 +38,9 @@ export class HelpDetailsComponent implements OnInit {
         error => console.log(error)
       );
     })
+  }
+
+  public clear() {
+    this.categoriesComponent.clear();
   }
 }

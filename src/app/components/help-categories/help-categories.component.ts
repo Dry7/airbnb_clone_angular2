@@ -2,6 +2,7 @@ import {Component, OnInit, Inject, EventEmitter} from '@angular/core';
 import {HelpService} from "../../services/help.service";
 import {Output} from "@angular/core/src/metadata/directives";
 import {IHelpCategory} from "../../interfaces/ihelp-category";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-help-categories',
@@ -37,7 +38,7 @@ export class HelpCategoriesComponent implements OnInit {
    */
   private parent_categories : any = [];
 
-  constructor(@Inject(HelpService) private HelpService) { }
+  constructor(@Inject(HelpService) private HelpService, private router: Router) { }
 
   ngOnInit() {
     this.HelpService.categories().subscribe(items => { this.categories = items; this.current_categories = items; }, error => console.log(error));
@@ -60,7 +61,8 @@ export class HelpCategoriesComponent implements OnInit {
       this.current_category_event.emit(this.current_category);
       return false;
     } else {
-      return true;
+      this.router.navigate([category.url]);
+      return false;
     }
   }
 

@@ -5,6 +5,7 @@ import {AboutComponent} from "./components/about/about.component";
 import {FoundersComponent} from "./components/founders/founders.component";
 import {HelpComponent} from "./components/help/help.component";
 import {HelpDetailsComponent} from "./components/help-details/help-details.component";
+import {HelpContactUsComponent} from "./components/help-contact-us/help-contact-us.component";
 
 const appRoutes : Routes = [
     { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const appRoutes : Routes = [
     { path: 'help/article/:id/:slug', component: HelpDetailsComponent },
     { path: 'help/topic/:id', component: HelpDetailsComponent },
     { path: 'help/topic/:id/:slug', component: HelpDetailsComponent },
+    { path: 'help/contact_us', component: HelpContactUsComponent },
 ];
 
 export const appRoutingProviders: any[] = [];

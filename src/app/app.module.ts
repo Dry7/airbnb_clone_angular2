@@ -19,6 +19,7 @@ import {HelpService} from "./services/help.service";
 import { HelpDetailsComponent } from './components/help-details/help-details.component';
 import { HelpSearchComponent } from './components/help-search/help-search.component';
 import { HelpCategoriesComponent } from './components/help-categories/help-categories.component';
+import { HelpContactUsComponent } from './components/help-contact-us/help-contact-us.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HelpCategoriesComponent } from './components/help-categories/help-categ
     HelpComponent,
     HelpDetailsComponent,
     HelpSearchComponent,
-    HelpCategoriesComponent
+    HelpCategoriesComponent,
+    HelpContactUsComponent
   ],
   imports: [
     BrowserModule,

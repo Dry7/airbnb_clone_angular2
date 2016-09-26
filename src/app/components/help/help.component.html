@@ -1,35 +1,5 @@
 <app-top-menu></app-top-menu>
-<div class="media-photo media-photo-block help-search-container help-search-container-banner">
-    <div class="media-cover background-cover dls-help-search-bg">
-    </div>
-    <div class="va-container va-container-v va-container-h">
-        <div class="va-middle text-center text-contrast">
-            <div class="hide-sm">
-                <h1 class="space-6 dls-title-1">
-                    {{ 'How can we help?'|translate }}
-                </h1>
-            </div>
-            <div class="page-container-responsive">
-                <div class="row">
-                    <form class="help-search-form col-sm-12 col-md-10 col-md-offset-1" action="/help/search" method="GET">
-                        <div id="help-search-container">
-                            <div class="text-left search-container" data-reactid=".2">
-                                <div class="search-input-container" data-reactid=".2.0">
-                                    <div class="search-input-inner-container" data-reactid=".2.0.0">
-                                        <div class="icon-search-container" data-reactid=".2.0.0.0">
-                                            <i class="icon-gray icon icon-search dls-search-bar-icon icon-size-1" data-reactid=".2.0.0.0.0"></i>
-                                        </div>
-                                        <ng2-completer [dataService]="searchData" [minSearchLength]="3" [placeholder]="'Ask a question or search by keyword'" [clearSelected]="true" (selected)="onAnswerSelected($event)" [textSearching]="'Please wailt'"></ng2-completer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<app-help-search></app-help-search>
 <div id="login-container">
     <div class="login-box text-center">
         <div class="va-container va-container-h va-container-v">
@@ -88,7 +58,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
 
     <div class="page-container page-container-responsive page-container-sm-full">

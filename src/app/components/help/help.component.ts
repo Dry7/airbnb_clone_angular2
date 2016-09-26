@@ -45,18 +45,9 @@ export class HelpComponent implements OnInit {
    */
   private parent_categories : any = [];
 
-  private searchData: CompleterData;
-
   constructor(
-    @Inject(HelpService) private HelpService,
-    private completerService: CompleterService,
-    private http: Http
+    @Inject(HelpService) private HelpService
   ) {
-    this.searchData = completerService.remote(
-      "http://airbnb/api/v1/help/search?q=",
-      "name",
-      "name"
-    );
   }
 
   ngOnInit() {

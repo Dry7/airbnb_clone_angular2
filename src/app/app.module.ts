@@ -11,6 +11,7 @@ import { FoundersComponent } from './components/founders/founders.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 import { AboutMenuComponent } from './components/about-menu/about-menu.component';
+import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-tiles.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AboutMenuComponent } from './components/about-menu/about-menu.component
     FoundersComponent,
     TopMenuComponent,
     BottomMenuComponent,
-    AboutMenuComponent
+    AboutMenuComponent,
+    DiscoveryTilesComponent
   ],
   imports: [
     BrowserModule,

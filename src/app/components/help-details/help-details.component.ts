@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {HelpService} from "../../services/help.service";
-import {IHelpQuestion} from "../../interfaces/ihelp-question";
+import {IHelpArticle} from "../../interfaces/ihelp-article";
 import {HelpCategoriesComponent} from "../help-categories/help-categories.component";
 
 @Component({
@@ -12,7 +12,7 @@ import {HelpCategoriesComponent} from "../help-categories/help-categories.compon
 export class HelpDetailsComponent implements OnInit {
   @ViewChild(HelpCategoriesComponent) categoriesComponent : HelpCategoriesComponent;
 
-  private question: IHelpQuestion;
+  private question: IHelpArticle;
 
   /**
    * Current category

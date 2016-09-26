@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {IHelpCategory} from "../interfaces/ihelp-category";
-import {IHelpQuestion} from "../interfaces/ihelp-question";
+import {IHelpArticle} from "../interfaces/ihelp-article";
+import {IHelpTopic} from "../interfaces/ihelp-topic";
 
 @Injectable()
 export class HelpService {
@@ -25,7 +26,7 @@ export class HelpService {
    *
    * @returns {Observable<R>}
    */
-  public suggested() : Observable<IHelpQuestion> {
+  public suggested() : Observable<IHelpArticle> {
     return this.http.get(this.api + 'help/suggested').map(response => response.json());
   }
 
@@ -34,7 +35,7 @@ export class HelpService {
    *
    * @returns {Observable<R>}
    */
-  public popular() : Observable<IHelpQuestion> {
+  public popular() : Observable<IHelpArticle> {
     return this.http.get(this.api + 'help/popular').map(response => response.json());
   }
 
@@ -43,7 +44,7 @@ export class HelpService {
    *
    * @returns {Observable<R>}
    */
-  public search(query: string) : Observable<IHelpQuestion> {
+  public search(query: string) : Observable<IHelpArticle> {
     return this.http.get(this.api + 'help/search?query=' + query).map(response => response.json());
   }
 
@@ -52,7 +53,16 @@ export class HelpService {
    *
    * @returns {Observable<R>}
    */
-  public details(id: number) : Observable<IHelpQuestion> {
+  public details(id: number) : Observable<IHelpArticle> {
     return this.http.get(this.api + 'help/' + id).map(response => response.json());
+  }
+
+  /**
+   * Get topic
+   *
+   * @returns {Observable<R>}
+   */
+  public topic(id: number) : Observable<IHelpTopic> {
+    return this.http.get(this.api + 'help/topic/' + id).map(response => response.json());
   }
 }

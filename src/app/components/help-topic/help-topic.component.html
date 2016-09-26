@@ -69,26 +69,41 @@
                 ></app-help-categories>
             </div>
             <div class="col-sm-12 col-sm-offset-0 col-md-8 col-offset-1 help-content text-copy navtree-content breadcrumbs-content">
-                <div class="help-center-sm">
-                    <div *ngIf="question != null" class="space-8">
-                        <div data-hypernova-key="help_centerarticle_pagebundlejs">
-                            <div class="dls-help-article">
-                                <div style="margin-top:-32px;margin-bottom:24px;margin-left:0;margin-right:0;">
-                                    <div>
-                                        <div class="row_ccbk9r-o_O-baseline_hero_1w3yqgy">
-                                            <h2 class="text_1lobov3-o_O-size_title2_19gapi5-o_O-weight_bold_1mzzwq6">{{ question.name }}</h2>
-                                        </div>
-                                        <div style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;">
-                                            <div class="rule_1m5gd0g-o_O-hero_1qucgbb"></div>
-                                        </div>
+                <div class="help-center-sm help-center-body-sm">
+
+                    <div *ngIf="item !== null" data-hypernova-key="help_centertopic_pagebundlejs">
+                        <div style="margin-top:0;margin-bottom:24px;margin-left:0;margin-right:0;">
+                            <div style="margin-top:-32px;margin-bottom:24px;margin-left:0;margin-right:0;">
+                                <div>
+                                    <div class="row_ccbk9r-o_O-baseline_hero_1w3yqgy">
+                                        <h2 class="text_1lobov3-o_O-size_title2_19gapi5-o_O-weight_bold_1mzzwq6">{{ item.name }}</h2>
+                                    </div>
+                                    <div style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;">
+                                        <div class="rule_1m5gd0g-o_O-hero_1qucgbb"></div>
                                     </div>
                                 </div>
-                                <div style="margin-top:32px;margin-bottom:0;margin-left:0;margin-right:0;">
-                                    <div [innerHTML]="question.description"></div>
+                            </div>
+                            <div>
+                                <div *ngFor="let article of item.articles" class="row_ccbk9r-o_O-baseline_full_1m5gd0g">
+                                    <div style="margin-top:0;margin-bottom:0;margin-left:0;margin-right:0;">
+                                        <div class="row">
+                                            <div class="dls-link-icon show-lg show-md">
+                                                <div style="margin-top:3.2px;margin-bottom:0;margin-left:0;margin-right:0;">
+                                                    <svg viewBox="0 0 24 24" style="fill:#484848;height:18px;width:18px;display:block;" data-reactid=".21ynu8qkxds.1.$=10=2$faq-row-0.$faq-0.0.0.1.0"><path d="M4.503 1A1.5 1.5 0 0 0 3 2.501v18.998C3 22.325 3.673 23 4.498 23h15.005c.829 0 1.497-.668 1.497-1.494V7h-4.509A1.495 1.495 0 0 1 15 5.509V1H4.503zM16 1.707v3.802c0 .268.224.491.491.491h3.802l-2.146-2.146L16 1.707zM15.028 0h.472c.133 0 .26.053.354.146l3 3 3 3A.5.5 0 0 1 22 6.5v15.006A2.494 2.494 0 0 1 19.503 24H4.498A2.503 2.503 0 0 1 2 21.499V2.501A2.5 2.5 0 0 1 4.503 0h10.525zM6.5 18a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0-4a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zM6 10.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11a.5.5 0 0 0-.5.5zm6-4a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5z"></path></svg>
+                                                </div>
+                                            </div>
+                                            <div class="dls-link-text">
+                                                <span class="text_1lobov3-o_O-size_regular_c5uc97-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
+                                                    <a routerLink="{{ article.url }}" class="component_zvm05b-o_O-navigation_j1hgdd">{{ article.name }}</a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

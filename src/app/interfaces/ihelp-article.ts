@@ -1,4 +1,4 @@
-export interface IHelpQuestion {
+export interface IHelpArticle {
   id?: number;
   name: string;
   url: string;

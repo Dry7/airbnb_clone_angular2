@@ -1,11 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import {TestBed, async, inject} from '@angular/core/testing';
 import { TopMenuComponent } from './top-menu.component';
+import {TranslateService, TranslatePipe, TranslateModule} from "ng2-translate";
+import {TranslateStub} from "../../tests/translate.stub";
 
 describe('Component: TopMenu', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        TranslateModule.forRoot()
+      ],
       declarations: [
         TopMenuComponent
       ]
@@ -47,7 +52,7 @@ describe('Component: TopMenu', () => {
     expect(compiled.textContent).toContain('Sign Up');
   }));
 
-  it(`should have 'Log In'`, async(() => {
+  it(`should have 'Log In'`, inject([TranslateService], (translate) => {
     let fixture = TestBed.createComponent(TopMenuComponent);
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.textContent).toContain('Log In');

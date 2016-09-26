@@ -6,13 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import {routing, appRoutingProviders} from "./app.routes";
+import {TranslateModule} from "ng2-translate";
 import { AboutComponent } from './components/about/about.component';
 import { FoundersComponent } from './components/founders/founders.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 import { AboutMenuComponent } from './components/about-menu/about-menu.component';
 import { DiscoveryTilesComponent } from './components/discovery-tiles/discovery-tiles.component';
-import {TranslateModule} from "ng2-translate";
+import { HelpComponent } from './components/help/help.component';
+import {Ng2CompleterModule} from "ng2-completer";
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import {TranslateModule} from "ng2-translate";
     TopMenuComponent,
     BottomMenuComponent,
     AboutMenuComponent,
-    DiscoveryTilesComponent
+    DiscoveryTilesComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
+    Ng2CompleterModule,
     TranslateModule.forRoot()
   ],
   providers: [

@@ -39,7 +39,8 @@ import { HelpGettingStartedComponent } from './components/help-getting-started/h
     HelpCategoriesComponent,
     HelpContactUsComponent,
     HelpTopicComponent,
-    HelpGettingStartedComponent
+    HelpGettingStartedComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,

@@ -24,8 +24,4 @@ export class HelpContactUsComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  public clear() {
-    this.categoriesComponent.clear();
-  }
 }

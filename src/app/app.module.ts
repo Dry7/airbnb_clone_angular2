@@ -21,6 +21,7 @@ import { HelpSearchComponent } from './components/help-search/help-search.compon
 import { HelpCategoriesComponent } from './components/help-categories/help-categories.component';
 import { HelpContactUsComponent } from './components/help-contact-us/help-contact-us.component';
 import { HelpTopicComponent } from './components/help-topic/help-topic.component';
+import { HelpGettingStartedComponent } from './components/help-getting-started/help-getting-started.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HelpTopicComponent } from './components/help-topic/help-topic.component
     HelpSearchComponent,
     HelpCategoriesComponent,
     HelpContactUsComponent,
-    HelpTopicComponent
+    HelpTopicComponent,
+    HelpGettingStartedComponent
   ],
   imports: [
     BrowserModule,

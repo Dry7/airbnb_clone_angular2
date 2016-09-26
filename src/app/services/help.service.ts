@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {IHelpCategory} from "../interfaces/ihelp-category";
 import {IHelpArticle} from "../interfaces/ihelp-article";
 import {IHelpTopic} from "../interfaces/ihelp-topic";
+import {IHelpGettingStarted} from "../interfaces/ihelp-getting-started";
 
 @Injectable()
 export class HelpService {
@@ -64,5 +65,14 @@ export class HelpService {
    */
   public topic(id: number) : Observable<IHelpTopic> {
     return this.http.get(this.api + 'help/topic/' + id).map(response => response.json());
+  }
+
+  /**
+   * Get getting started
+   *
+   * @returns {Observable<R>}
+   */
+  public gettingStarted(slug: string) : Observable<IHelpGettingStarted> {
+    return this.http.get(this.api + 'help/getting-started/' + slug).map(response => response.json());
   }
 }

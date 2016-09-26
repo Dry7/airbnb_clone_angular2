@@ -7,6 +7,7 @@ import {HelpComponent} from "./components/help/help.component";
 import {HelpDetailsComponent} from "./components/help-details/help-details.component";
 import {HelpContactUsComponent} from "./components/help-contact-us/help-contact-us.component";
 import {HelpTopicComponent} from "./components/help-topic/help-topic.component";
+import {HelpGettingStartedComponent} from "./components/help-getting-started/help-getting-started.component";
 
 const appRoutes : Routes = [
     { path: '', component: HomeComponent },
@@ -17,6 +18,7 @@ const appRoutes : Routes = [
     { path: 'help/article/:id/:slug', component: HelpDetailsComponent },
     { path: 'help/topic/:id', component: HelpTopicComponent },
     { path: 'help/topic/:id/:slug', component: HelpTopicComponent },
+    { path: 'help/getting-started/:slug', component: HelpGettingStartedComponent },
     { path: 'help/contact_us', component: HelpContactUsComponent },
 ];
 

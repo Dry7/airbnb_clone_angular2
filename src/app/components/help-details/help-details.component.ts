@@ -39,8 +39,4 @@ export class HelpDetailsComponent implements OnInit {
       );
     })
   }
-
-  public clear() {
-    this.categoriesComponent.clear();
-  }
 }

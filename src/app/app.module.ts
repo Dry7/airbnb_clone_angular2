@@ -23,7 +23,7 @@ import { HelpContactUsComponent } from './components/help-contact-us/help-contac
 import { HelpTopicComponent } from './components/help-topic/help-topic.component';
 import { HelpGettingStartedComponent } from './components/help-getting-started/help-getting-started.component';
 import {DatePickerComponent} from "ng2-datepicker/src/components/ng2-datepicker";
-import { AdsSearchComponent } from './components/ads-search/ads-search.component';
+import { AdsSearchLineComponent } from './components/ads-search-line/ads-search-line.component';
 import {MapService} from "./services/map.service";
 
 @NgModule({
@@ -45,7 +45,7 @@ import {MapService} from "./services/map.service";
     HelpGettingStartedComponent,
     HelpComponent,
     DatePickerComponent,
-    AdsSearchComponent
+    AdsSearchLineComponent
   ],
   imports: [
     BrowserModule,

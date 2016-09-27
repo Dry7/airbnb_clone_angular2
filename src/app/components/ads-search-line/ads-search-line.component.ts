@@ -5,11 +5,11 @@ import {CompleterService, CompleterData} from "ng2-completer";
 import {environment} from "../../../environments/environment";
 
 @Component({
-  selector: 'app-ads-search',
-  templateUrl: './ads-search.component.html',
-  styleUrls: ['./ads-search.component.css']
+  selector: 'app-ads-search-line',
+  templateUrl: './ads-search-line.component.html',
+  styleUrls: ['./ads-search-line.component.css']
 })
-export class AdsSearchComponent implements OnInit {
+export class AdsSearchLineComponent implements OnInit {
   private api: string = environment.api;
 
   private searchData: CompleterData;

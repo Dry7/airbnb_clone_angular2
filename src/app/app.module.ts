@@ -22,6 +22,9 @@ import { HelpCategoriesComponent } from './components/help-categories/help-categ
 import { HelpContactUsComponent } from './components/help-contact-us/help-contact-us.component';
 import { HelpTopicComponent } from './components/help-topic/help-topic.component';
 import { HelpGettingStartedComponent } from './components/help-getting-started/help-getting-started.component';
+import {DatePickerComponent} from "ng2-datepicker/src/components/ng2-datepicker";
+import { AdsSearchComponent } from './components/ads-search/ads-search.component';
+import {MapService} from "./services/map.service";
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { HelpGettingStartedComponent } from './components/help-getting-started/h
     HelpContactUsComponent,
     HelpTopicComponent,
     HelpGettingStartedComponent,
-    HelpComponent
+    HelpComponent,
+    DatePickerComponent,
+    AdsSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { HelpGettingStartedComponent } from './components/help-getting-started/h
   ],
   providers: [
     appRoutingProviders,
-    HelpService
+    HelpService,
+    MapService
   ],
   bootstrap: [AppComponent]
 })

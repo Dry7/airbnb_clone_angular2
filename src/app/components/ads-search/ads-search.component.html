@@ -1,0 +1,67 @@
+
+<div id="search-bar-container" class="hero__content-footer hide-sm">
+    <div class="page-container-responsive search-bar-responsive-container">
+        <div id="searchbar">
+            <div class="searchbar row">
+                <form id="searchbar-form" action="/s">
+                    <div class="searchbar__inputs-wrapper col-sm-10">
+                        <div class="row">
+                            <label class="searchbar__location col-md-4 col-lg-6">
+                                <span class="screen-reader-only">
+                                  Where to?
+                                </span>
+                                <ng2-completer
+                                        [dataService]="searchData"
+                                        [minSearchLength]="3"
+                                        [placeholder]="'Where to?'|translate"
+                                        [clearSelected]="false"
+                                        (selected)="selectPlace($event)"
+                                        [textSearching]="'Please wailt'"
+                                ></ng2-completer>
+
+                                <div id="searchbar-location-error" class="searchbar__location-error hide">
+                                    {{ 'Please set location'|translate }}
+                                </div>
+                            </label>
+                            <label class="searchbar__checkin col-md-3 col-lg-2">
+                                <span class="screen-reader-only">{{ 'Check In'|translate }}</span>
+                                <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                            </label>
+
+                            <label class="searchbar__checkout col-md-3 col-lg-2">
+                                <span class="screen-reader-only">
+                                  {{ 'Check Out'|translate }}
+                                </span>
+                                <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                            </label>
+
+                            <label class="searchbar__guests col-md-2">
+                                <span class="screen-reader-only">
+                                  {{ 'Number of guests'|translate }}
+                                </span>
+                                <div class="select select-block select-large">
+                                    <select id="guests" name="guests">
+                                        <option *ngFor="let guest of guests" value="{{ guest.value }}">{{ guest.name }}</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="searchbar__submit-wrapper col-sm-2">
+                        <button
+                                id="submit_location"
+                                type="submit"
+                                class="searchbar__submit btn btn-primary btn-block btn-large"
+                        >
+                            <span class="searchbar__submit-text">{{ 'Search'|translate }}</span>
+                        </button>
+                    </div>
+
+                    <input type="hidden" name="source" value="bb">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

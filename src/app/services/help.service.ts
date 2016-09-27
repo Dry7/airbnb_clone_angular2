@@ -5,11 +5,12 @@ import {IHelpCategory} from "../interfaces/ihelp-category";
 import {IHelpArticle} from "../interfaces/ihelp-article";
 import {IHelpTopic} from "../interfaces/ihelp-topic";
 import {IHelpGettingStarted} from "../interfaces/ihelp-getting-started";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class HelpService {
 
-  private api: string = 'http://airbnb/api/v1/';
+  private api: string = environment.api;
 
   constructor(private http: Http) { }
 

@@ -1,3 +1,6 @@
 {
-  "Logo": "Logo"
+  "Logo": "Logo",
+  "GUESTS_1": "{{value}} guest",
+  "GUESTS_2": "{{value}} guests",
+  "GUESTS_16": "16+ Guests"
 }

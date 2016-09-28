@@ -25,6 +25,11 @@ import { HelpGettingStartedComponent } from './components/help-getting-started/h
 import {DatePickerComponent} from "ng2-datepicker/src/components/ng2-datepicker";
 import { AdsSearchLineComponent } from './components/ads-search-line/ads-search-line.component';
 import {MapService} from "./services/map.service";
+import { AdsSearchComponent } from './components/ads-search/ads-search.component';
+import {AdsService} from "./services/ads.service";
+import { StarComponent } from './components/star/star.component';
+import { RoomTypePipe } from './pipes/room-type.pipe';
+import { AdsMapComponent } from './components/ads-map/ads-map.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,11 @@ import {MapService} from "./services/map.service";
     HelpGettingStartedComponent,
     HelpComponent,
     DatePickerComponent,
-    AdsSearchLineComponent
+    AdsSearchLineComponent,
+    AdsSearchComponent,
+    StarComponent,
+    RoomTypePipe,
+    AdsMapComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +67,8 @@ import {MapService} from "./services/map.service";
   providers: [
     appRoutingProviders,
     HelpService,
-    MapService
+    MapService,
+    AdsService
   ],
   bootstrap: [AppComponent]
 })

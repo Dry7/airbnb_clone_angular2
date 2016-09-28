@@ -1,0 +1,673 @@
+<app-top-menu></app-top-menu>
+<main id="site-content">
+    <div class="map-search">
+        <div class="sidebar">
+            <div class="filters collapse" style="bottom: 341px;">
+
+                <div class="panel-header filters-section show-sm">
+                    Filters
+                </div>
+                <div class="filters-section intro-filter panel-body panel-light">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1 filter-label">
+                            <label>Dates</label>
+                        </div>
+
+                        <form class="col-lg-9 trip-form">
+                            <div class="row row-condensed">
+                                <div class="search-checkin col-md-4 col-sm-6 space-1-sm">
+                                    <label class="screen-reader-only">
+                                        Check In
+                                    </label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                                </div>
+
+                                <div class="search-checkout col-md-4 col-sm-6 space-1-sm">
+                                    <label class="screen-reader-only">
+                                        Check Out
+                                    </label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="select select-block">
+                                        <label for="guest-select" class="screen-reader-only">
+                                            Number of guests
+                                        </label>
+                                        <select name="guests" class="guest-select" id="guest-select" data-prefill="1">
+                                            <option *ngFor="let guest of filter.guests" [value]="guest.value">{{ guest.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="filters-section room-type-group intro-filter panel-body panel-light" data-name="room_types">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
+                            <label>
+                                Room Type
+                                <i class="icon icon-question hide-sm hide-md" id="room-type-tooltip"></i>
+                            </label>
+
+                            <div class="tooltip tooltip-left-middle show-lg">
+                                <dl class="panel-body">
+                                    <dt>Entire Home</dt>
+                                    <dd>Listings where you have the whole place to yourself.</dd>
+                                    <dt>Private Room</dt>
+                                    <dd>Listings where you have your own room but share some common spaces.</dd>
+                                    <dt>Shared Room</dt>
+                                    <dd>Listings where you'll share your room or your room may be a common space.</dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <div class="row row-condensed" id="room-options">
+
+                                <div class="col-middle-alt col-md-4 col-sm-12 space-sm-1">
+                                    <label class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark">
+                                        <div class="facet-checkbox__icon-col">
+                                            <i class="icon icon-entire-place h5 needsclick"></i>
+                                        </div>
+                                        <div class="facet-checkbox__label-col">
+                                            <span>Entire home/apt</span>
+                                        </div>
+                                        <div class="facet-checkbox__input-col">
+                                            <input type="checkbox" name="room-type" value="Entire home/apt">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-middle-alt col-md-4 col-sm-12 space-sm-1">
+                                    <label class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark">
+                                        <div class="facet-checkbox__icon-col">
+                                            <i class="icon icon-private-room h5 needsclick"></i>
+                                        </div>
+                                        <div class="facet-checkbox__label-col">
+                                            <span>Private room</span>
+                                        </div>
+                                        <div class="facet-checkbox__input-col">
+                                            <input type="checkbox" name="room-type" value="Private room">
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="col-middle-alt col-md-4 col-sm-12 space-sm-1">
+                                    <label class="checkbox facet-checkbox facet-checkbox--room-type panel panel-dark">
+                                        <div class="facet-checkbox__icon-col">
+                                            <i class="icon icon-shared-room h5 needsclick"></i>
+                                        </div>
+                                        <div class="facet-checkbox__label-col">
+                                            <span>Shared room</span>
+                                        </div>
+                                        <div class="facet-checkbox__input-col">
+                                            <input type="checkbox" name="room-type" value="Shared room">
+                                        </div>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters-section price-range-group intro-filter panel-body panel-light">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
+                            <label>Price Range</label>
+                        </div>
+                        <div class="col-lg-9 col-md-12">
+                            <div class="price-range-slider" data-avg-price="2046" data-histogram-data="[0, 0, 0, 2, 9, 5, 11, 4, 8, 6, 9, 0, 2, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]" data-min-price-daily="640" data-max-price-daily="50000" data-min-price-monthly="9600" data-max-price-monthly="1000000" data-min-price-total="1920" data-max-price-total="150000"><div class="p2-slider-new" data-reactid=".a"><div class="p2-histogram" data-reactid=".a.0"><div class="p2-histogram-bar" style="height: 2px;" data-reactid=".a.0.$0"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$1"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$2"></div><div class="p2-histogram-bar" style="height: 2px;" data-reactid=".a.0.$3"></div><div class="p2-histogram-bar" style="height: 10px;" data-reactid=".a.0.$4"></div><div class="p2-histogram-bar" style="height: 10px;" data-reactid=".a.0.$5"></div><div class="p2-histogram-bar" style="height: 25px;" data-reactid=".a.0.$6"></div><div class="p2-histogram-bar" style="height: 10px;" data-reactid=".a.0.$7"></div><div class="p2-histogram-bar" style="height: 19px;" data-reactid=".a.0.$8"></div><div class="p2-histogram-bar" style="height: 8px;" data-reactid=".a.0.$9"></div><div class="p2-histogram-bar" style="height: 16px;" data-reactid=".a.0.$10"></div><div class="p2-histogram-bar" style="height: 5px;" data-reactid=".a.0.$11"></div><div class="p2-histogram-bar" style="height: 5px;" data-reactid=".a.0.$12"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$13"></div><div class="p2-histogram-bar" style="height: 0px;" data-reactid=".a.0.$14"></div><div class="p2-histogram-bar" style="height: 0px;" data-reactid=".a.0.$15"></div><div class="p2-histogram-bar" style="height: 0px;" data-reactid=".a.0.$16"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$17"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$18"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$19"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$20"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$21"></div><div class="p2-histogram-bar" style="height: 0px;" data-reactid=".a.0.$22"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$23"></div><div class="p2-histogram-bar" style="height: 0px;" data-reactid=".a.0.$24"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$25"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$26"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$27"></div><div class="p2-histogram-bar" style="height: 2px;" data-reactid=".a.0.$28"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$29"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$30"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$31"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$32"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$33"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$34"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$35"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$36"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$37"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$38"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$39"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$40"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$41"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$42"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$43"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$44"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$45"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$46"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$47"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$48"></div><div class="p2-histogram-bar" style="height:0px;" data-reactid=".a.0.$49"></div></div><div class="rheostat rheostat-horizontal space-2" style="position:relative;" data-reactid=".a.1"><div class="rheostat-background" data-reactid=".a.1.0"></div><button aria-valuemax="50000" aria-valuemin="640" aria-valuenow="640" aria-disabled="false" data-handle-key="0" class="rheostat-handle" role="slider" style="left:0%;position:absolute;" tabindex="0" type="button" data-reactid=".a.1.1:$0"></button><button aria-valuemax="50000" aria-valuemin="640" aria-valuenow="50000" aria-disabled="false" data-handle-key="1" class="rheostat-handle" role="slider" style="left:99.99999999999997%;position:absolute;" tabindex="0" type="button" data-reactid=".a.1.1:$1"></button><div class="rheostat-progress" style="left:0%;width:99.99999999999997%;" data-reactid=".a.1.2:$1"></div></div><div class="avg-price" data-reactid=".a.2"><small class="tooltip tooltip-top-middle tooltip-layout" style="left: 19%; margin-left: -52.5px;" data-reactid=".a.2.0"><span class="price" data-reactid=".a.2.0.0"><span data-reactid=".a.2.0.0.0">1,952₽ Average</span></span></small></div><div class="row" data-reactid=".a.3"><div class="col-6" data-reactid=".a.3.0"><span data-reactid=".a.3.0.0"><span class="price" data-reactid=".a.3.0.0.0">640₽</span></span></div><div class="col-6 text-right" data-reactid=".a.3.1"><span data-reactid=".a.3.1.0"><span class="price" data-reactid=".a.3.1.0.0">50,000₽+</span></span></div></div></div></div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filters-section size-group panel-body panel-light" *ngIf="showFilter == true">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
+                            <label>Size</label>
+                        </div>
+
+                        <form class="col-lg-9">
+                            <div class="row row-condensed">
+                                <div class="col-md-4 col-sm-12 space-1">
+                                    <div class="select select-block" data-name="min_bedrooms">
+                                        <label for="map-search-min-bedrooms" class="screen-reader-only">
+                                            Minimum number of bedrooms
+                                        </label>
+                                        <select name="min_bedrooms" class="min-bedrooms" id="map-search-min-bedrooms">
+                                            <option *ngFor="let bedroom of filter.bedrooms" [value]="bedroom.value">{{ bedroom.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12 space-1">
+                                    <div class="select select-block" data-name="min_bathrooms">
+                                        <label for="map-search-min-bathrooms" class="screen-reader-only">
+                                            Minimum number of bathrooms
+                                        </label>
+                                        <select name="min_bathrooms" class="min-bathrooms input-medium" id="map-search-min-bathrooms">
+                                            <option *ngFor="let bathroom of filter.bathrooms" [value]="bathroom.value">{{ bathroom.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="select select-block" data-name="min_beds">
+                                        <label for="map-search-min-beds" class="screen-reader-only">
+                                            Minimum number of beds
+                                        </label>
+                                        <select name="min_beds" class="min-beds input-medium" id="map-search-min-beds">
+                                            <option *ngFor="let bed of filter.beds" [value]="bed.value">{{ bed.name }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="filters-section options panel-body panel-light
+      " data-name="options_filters" *ngIf="showFilter">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 filter-label">
+                            <label>Options</label>
+                        </div>
+                        <div class="col-lg-9">
+                            <div class="row row-condensed">
+                                <div id="OptionFilterItem-ib" class="col-lg-4 col-md-6 ">
+                                    <label id="instant-book-tooltip" class="row row-condensed">
+                                        <div class="col-md-2 col-sm-1 col-middle-alt instant-book">
+                                            <input id="instant-book-input" type="checkbox" name="instant_book" value="instant_book">
+                                        </div>
+                                        <div class="col-md-10 col-sm-11 col-middle-alt needsclick">
+                                            <i class="icon icon-instant-book icon-beach needsclick"></i>
+                                            Instant Book
+                                            <br>
+                                            <small class="text-muted needsclick">
+                                                Secure a reservation instantly.
+                                                <a class="instant-book-filter-link" href="/help/article/187" target="_blank">
+                                                    Learn More
+                                                </a>
+                                            </small>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-4 col-md-6">
+                                    <label id="superhost-tooltip" class="row row-condensed checkbox">
+                                        <div class="col-md-2 col-sm-1 col-middle-alt superhost">
+                                            <input type="checkbox" name="superhost" value="superhost">
+                                        </div>
+                                        <div class="col-md-10 col-sm-11 col-middle-alt needsclick">
+                                            <div class="superhost-badge"></div>
+                                            Superhost<br>
+                                            <small class="text-muted needsclick">
+                                                Stay with recognized hosts.
+                                                <a class="superhost-filter-link" href="/superhost" target="_blank">Learn More</a>
+                                            </small>
+                                        </div>
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkbox-group neighborhoods filters-section panel-body panel-light" data-name="neighborhoods" *ngIf="showFilter">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 filter-label">
+                            <label>Neighborhoods</label>
+                        </div>
+
+                        <div class="col-lg-9 col-md-11">
+                            <div class="row row-condensed filters-columns">
+                            </div>
+
+                            <div class="filters-more collapse">
+                                <hr>
+                                <div class="row row-condensed filters-columns">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="show-more">
+            <span>
+              <i class="icon icon-caret-down hide-sm"></i>
+              <strong class="text-muted show-sm">+ More</strong>
+            </span>
+                                <span class="hide"><i class="icon icon-caret-up"></i></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox-group hosting_amenities filters-section panel-body panel-light" data-name="hosting_amenities" *ngIf="showFilter">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12 filter-label">
+                        <label>Amenities</label>
+                    </div>
+
+                    <div class="col-lg-9 col-md-11">
+                        <div class="row row-condensed filters-columns">
+                            <div *ngFor="let amentitie of filter.amentities|slice:0:3" class="col-md-4">
+                                <label class="media checkbox facet-checkbox" [title]="amentitie.name">
+                                    <div>
+                                        <input type="checkbox" name="amenities" [value]="amentitie.value">
+                                    </div>
+                                    <div>
+                                        <span>{{ amentitie.name }}</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filters-more collapse" [class.collapse]="!showFilterAmentities">
+                            <hr>
+                            <div class="row row-condensed filters-columns">
+                                <div *ngFor="let amentitie of filter.amentities|slice:3" class="col-md-4">
+                                    <label class="media checkbox facet-checkbox" [title]="amentitie.name">
+                                        <div>
+                                            <input type="checkbox" name="amenities" [value]="amentitie.value">
+                                        </div>
+                                        <div>
+                                            <span>{{ amentitie.name }}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1">
+                        <label class="show-more" (click)="showFilterAmentities = !showFilterAmentities">
+                            <span>
+                              <i class="icon hide-sm" [class.icon-caret-down]="!showFilterAmentities" [class.icon-caret-up]="showFilterAmentities"></i>
+                              <strong class="text-muted show-sm">+ More</strong>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+                <div class="language-group languages filters-section panel-body panel-light" data-name="languages" *ngIf="showFilter">
+                    <div class="row">
+                        <div id="filter-section-header-host_language" class="col-lg-2 col-md-12 filter-label">
+                            <label>Host Language</label>
+                        </div>
+
+                        <div class="col-lg-9 col-md-11">
+                            <div class="row row-condensed filters-columns">
+                                <div *ngFor="let language of filter.languages|slice:0:3" class="col-md-4">
+                                    <label class="media checkbox facet-checkbox" [title]="language.name">
+                                        <div>
+                                            <input type="checkbox" name="languages" [value]="language.value" class="pull-left">
+                                        </div>
+                                        <div>
+                                            <span>{{ language.name }}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="filters-more" [class.collapse]="!showFilterLanguages">
+                                <hr>
+                                <div class="row row-condensed filters-columns">
+                                    <div *ngFor="let language of filter.languages|slice:3" class="col-md-4">
+                                        <label class="media checkbox facet-checkbox" [title]="language.name">
+                                            <div>
+                                                <input type="checkbox" name="languages" [value]="language.value" class="pull-left">
+                                            </div>
+                                            <div>
+                                                <span>{{ language.name }}</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <label class="show-more" (click)="showFilterLanguages = !showFilterLanguages">
+                                <span>
+                                  <i class="icon hide-sm" [class.icon-caret-down]="!showFilterLanguages" [class.icon-caret-up]="showFilterLanguages"></i>
+                                  <strong class="text-muted show-sm">+ More</strong>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel-body panel-light show-sm">
+                    <div class="sticky-apply-filters-placeholder"></div>
+                </div>
+                <div *ngIf="showFilter" class="panel-light panel-btn-sm filters-footer filters-footer-sm">
+                    <div class="row row-condensed">
+                        <div class="col-md-8 col-lg-7 col-md-offset-4 col-lg-offset-5">
+                            <div class="row row-condensed space-sm-7">
+                                <div class="col-sm-6">
+                                    <button class="btn btn-block cancel-btn" (click)="hideFilter()">Cancel</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-block btn-primary apply-filters-btn" (click)="applyFilter()">
+                                        Apply Filters
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="filters-placeholder hide-sm hide" style="height: 251px;"></div>
+            <a id="docked-filters"></a>
+            <div id="airbnb-plus-banner">
+                <div class="banner airbnb-plus-banner panel-body hide">
+                    <div class="panel airbnb-plus-banner__panel">
+                        <div class="pull-left">
+                            <div class="space-top-1 label-contrast airbnb-plus-tag">
+                                <span>SELECT</span>
+                            </div>
+                        </div>
+                        <div class="pull-right space-top-1">
+                            <label class="toggle toggle--color-hackberry">
+                                <input type="checkbox" class="toggle__checkbox">
+                                <div class="toggle__track"></div>
+                                <div class="toggle__handle"><span>Off</span></div>
+                            </label>
+                        </div>
+                        <div class="airbnb-plus-banner__body text-muted">
+                            <span>
+                                <span>This July and August, you can try one of these 100 highly-rated homes, at all price points, and experience a local’s view of Sonoma. 24-hour check-in, Instant Book, and local wine and snacks let you just sit back and enjoy your trip. </span>
+                                <span>
+                                    <button class="btn-link" type="button">
+                                        <span>Learn More</span>
+                                    </button>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="ads != null" id="katamari-container">
+                <style data-aphrodite="">.container_1atmsee-o_O-container_180u7sb{font-family:Circular !important;font-size:19px !important;letter-spacing:undefined !important;padding-top:12px !important;padding-bottom:12px !important;color:#484848 !important;line-height:22px !important;margin:0px !important;font-weight:700 !important;border:2px solid transparent !important;cursor:pointer !important;padding-right:32px !important;padding-left:32px !important;transition:background 0.3s, border-color 0.3s !important;position:relative !important;border-radius:64px !important;background:#FF5A5F !important;border-color:undefined !important;width:auto !important;-webkit-transition:background 0.3s, border-color 0.3s !important;}.container_1atmsee-o_O-container_180u7sb:active{background:#ED595C !important;border-color:undefined !important;}.container_1atmsee-o_O-container_180u7sb:disabled{background:rgba(255, 90, 95, 0.3) !important;border-color:undefined !important;cursor:default !important;}.text_10flerh-o_O-text_v1ofku{font-family:Circular !important;font-size:19px !important;letter-spacing:undefined !important;padding-top:0px !important;padding-bottom:0px !important;color:#ffffff !important;line-height:22px !important;margin:0px !important;white-space:nowrap !important;transition:color 0.3s !important;visibility:visible !important;-webkit-transition:color 0.3s !important;}.text_10flerh-o_O-text_v1ofku:active{color:undefined !important;}.container_e9huuf{cursor:pointer !important;background:transparent !important;border:0px !important;padding:0px !important;display:block !important;}</style>
+                <div>
+                    <div>
+                        <div>
+                            <div class="sidebar-header panel-body clearfix panel-bg-medium">
+                                <div class="pull-left">
+                                    <div>
+                                        <div class="applied-filters-container hide-sm">
+                                            <span class="pull-left show-filters">
+                                                <button type="button" class="btn" (click)="toggleFilter()">
+                                                    <span>Filters</span>
+                                                    <span> </span>
+                                                </button>
+                                            </span>
+                                            <ul class="applied-filters list-unstyled"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="crossfading-panel__container text-right pull-right show-lg">
+                                        <div class="crossfading-panel crossfading-panel__vertically-centered-container crossfading-panel--right">
+                                            <h1 class="crossfading-panel--vertically-centered h6 text-right pull-right">
+                                                <span>{{ total }} Rentals</span>
+                                                <span>
+                                                    <span> · </span>
+                                                    <span>Lipetsk Oblast</span>
+                                                </span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                    <div class="crossfading-panel__container text-left pull-left crossfading-panel__container--md show-md">
+                                        <div class="crossfading-panel crossfading-panel__vertically-centered-container">
+                                            <h1 class="crossfading-panel--vertically-centered h6 text-left crossfading-panel--margin-left">
+                                                <span>{{ total }} Rentals</span>
+                                                <span>
+                                                    <span> · </span>
+                                                    <span>Lipetsk Oblast</span>
+                                                </span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hide-filters-open-sm">
+                                    <div class="space-sm-1 space-top-sm-1">
+                                        <div class="disclaimer-wrapper">
+                                            <div class="pricing-disclaimer text-muted">
+                                                <i class="icon icon-currency-rub"></i>
+                                                <span>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-header-placeholder"></div>
+                            <div aria-live="polite" class="search-results">
+                                <div></div>
+                                <div></div>
+                                <div class="outer-listings-container space-2">
+                                    <div class="listings-container">
+                <div class="row">
+                    <div *ngFor="let ad of ads" class="listing-card-wrapper col-sm-12 space-2 col-md-6">
+                        <div class="listing" itemscope="" itemtype="http://schema.org/Enumeration">
+                            <div class="panel-image listing-img">
+                                <div>
+                                    <a href="{{ ad.url }}" class="media-photo media-cover">
+                                        <div class="listing-img-container media-cover text-center">
+                                            <img src="{{ ad.images[ad.current_image] }}" alt="{{ ad.name }}" />
+                                        </div>
+                                    </a>
+                                    <div class="slideshow-controls">
+                                        <div *ngIf="ad.current_image > 0" class="target-prev target-control block-link" (click)="prevImage(ad)"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div>
+                                        <div *ngIf="ad.current_image < ad.images.length-1" class="target-next target-control block-link" (click)="nextImage(ad)"><i class="icon icon-chevron-right icon-size-2 icon-white"></i></div>
+                                    </div>
+                                    <a href="{{ ad.url }}">
+                                        <div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
+                                            <div class="price-label">
+                                                <span>
+                                                    <span class="price-amount">{{ ad.price }}</span>
+                                                    <sup class="currency-suffix">₽</sup>
+                                                    <span> </span>
+                                                </span>
+                                                <span *ngIf="ad.is_instant_book">
+                                                    <span> </span>
+                                                    <span>
+                                                        <span> </span>
+                                                        <span class="instant-book-trigger-wrapper">
+                                                            <span>
+                                                                <i class="icon icon-instant-book icon-flush-sides icon-beach"></i>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="panel-overlay-top-right wl-social-connection-panel">
+                                        <span class="rich-toggle wish_list_button wishlist-button" data-img="https://a2.muscache.com/im/pictures/49599012/79ea5b93_original.jpg?aki_policy=x_medium" data-name="&quot;у нас как дома&quot;4" data-address="Lipetsk" data-hosting_id="3942703" data-review_count="1 review" data-room_type="Entire home/apt" data-star_rating="0" data-host_id="20430215" data-host_img="https://a1.muscache.com/im/users/20430215/profile_pic/1408867940/original.jpg?aki_policy=profile_medium" data-property_type_name="Apartment" data-person_capacity_string="7" data-bedrooms_string="4" tabindex="0" role="button" style="display:block;width:32px;height:32px;">
+                                            <input type="checkbox" id="wishlist-widget-3942703" name="wishlist-widget-3942703" aria-hidden="true" tabindex="-1" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.0">
+                                            <label for="wishlist-widget-3942703" class="hide-sm" aria-hidden="true" tabindex="-1" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1">
+                                                <i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.0"></i>
+                                                <i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.1"></i>
+                                                <i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-3942703" class="icon icon-heart-alt icon-white icon-size-2" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.2"></i>
+                                            </label>
+                                            <div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip" role="tooltip" data-trigger="#wishlist-widget-icon-3942703" data-event="none" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.2">
+                                                <p class="text-white wishlist-widget-tooltip__body" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.2.0"></p>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-body panel-card-section">
+                                <div class="media">
+                                    <a href="{{ ad.author.url }}" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset" [class.is-superhost]="ad.author.is_superhost">
+                                        <div class="media-photo media-round">
+                                            <img src="{{ ad.author.image }}" alt="{{ ad.author.name }}">
+                                        </div>
+                                    </a>
+                                    <h3 class="h5 listing-name text-truncate space-top-1">
+                                        <a href="{{ ad.url }}" class="text-normal">
+                                            <span class="listing-name--display">Test {{ ad.name }}</span>
+                                        </a>
+                                    </h3>
+                                    <a href="{{ ad.url }}" class="text-normal link-reset">
+                                        <div class="text-muted listing-location text-truncate">
+                                            <div>
+                                                <span *ngIf="ad.author.is_suitcase" class="btr-tooltip">
+                                                    <span>
+                                                        <i class="icon icon-suitcase icon-kazan icon-position-shifted"></i>
+                                                    </span>
+                                                    <span> · </span>
+                                                </span>
+                                                <span>{{ ad.type|roomType }}</span>
+                                                <span class="person-capacity hide-md">
+                                                    <span> · </span>
+                                                    <span>{{ ad.guests }} guests</span>
+                                                </span>
+                                                <app-star [star]="ad.rating"></app-star>
+                                                <span *ngIf="ad.reviews > 0">
+                                                    <span> · </span>
+                                                    <span>{{ ad.reviews }} review</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="results-footer">
+                <div class="pagination-buttons-container space-8">
+                    <div class="results_count">
+                        <span>
+                            <span>{{ from }}</span>
+                            <span> </span>
+                            <span>–</span>
+                            <span> </span>
+                            <span>{{ to }}</span>
+                            <span> of </span>
+                            <span>
+                                <span>{{ total }} Rentals</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="pagination pagination-responsive">
+                        <ul class="list-unstyled">
+                            <li *ngIf="current_page > 1" class="prev previous_page">
+                                <a [routerLink]="['./', {page: current_page-1}]">
+                                    <span class="screen-reader-only">
+                                        <span>Previous</span>
+                                    </span>
+                                    <i class="icon icon-caret-left"></i>
+                                </a>
+                            </li>
+                            <li *ngFor="let page of pages" [class.active]="page == current_page"><a [routerLink]="['./', {page: page}]">{{ page }}</a></li>
+                            <li *ngIf="current_page < pages.length" class="next next_page">
+                                <a [routerLink]="['./', {page: current_page+1}]">
+                                    <span class="screen-reader-only">
+                                        <span>Next</span>
+                                    </span>
+                                    <i class="icon icon-caret-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nearby-links">
+                    <div>
+                        <div>
+                            <div class="breadcrumbs space-top-1">
+                                <span>
+                                    <a routerLink="/s/Russia" itemprop="item">
+                                        <span itemprop="name">Russia</span>
+                                    </a>
+                                    <i class="icon icon-chevron-right breadcrumb-spacer"></i>
+                                </span>
+                                <span>Lipetsk Oblast</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-top-1">
+                        <div class="container">
+                            <div class="row">
+                                <span class="col-lg-4">
+                                    <span>Places Nearby:</span>
+                                </span>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="pull-left col-lg-4">
+                                    <ul class="sidenav-list">
+                                        <li><a class="text-muted" routerLink="/s/Moscow--Russia">Moscow</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Kharkov--Ukraine">Kharkov</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Saint-Petersburg--Russia">Saint Petersburg</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Helsinki--Finland">Helsinki</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pull-left col-lg-4">
+                                    <ul class="sidenav-list">
+                                        <li><a class="text-muted" routerLink="/s/Warsaw--Poland">Warsaw</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Irkutsk--Russia">Irkutsk</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Volgograd--Russia">Volgograd</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Ulan~Ude--Russia">Ulan-Ude</a></li>
+                                    </ul>
+                                </div>
+                                <div class="pull-left col-lg-4">
+                                    <ul class="sidenav-list">
+                                        <li><a class="text-muted" routerLink="/s/Orenburg--Russia">Orenburg</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Zelenograd--Russia">Zelenograd</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Barnaul--Russia">Barnaul</a></li>
+                                        <li><a class="text-muted" routerLink="/s/Oryol--Russia">Oryol</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="show-sm panel-btn-sm fixed text-center">
+                    <button aria-disabled="false" type="button" class="container_1atmsee-o_O-container_180u7sb">
+                        <span class="text_10flerh-o_O-text_v1ofku">
+                            <span>Filters</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map hide-sm">
+            <div>
+                <div style="height:100%;">
+                    <div class="map-canvas" role="presentation">
+                        <app-ads-map></app-ads-map>
+                    </div>
+                    <div class="map-refresh-controls google" data-reactid=".1anhzui48w0.1">
+                    <a class="map-manual-refresh btn btn-primary hide" data-reactid=".1anhzui48w0.1.0"><span data-reactid=".1anhzui48w0.1.0.0">Redo Search Here</span><i class="icon icon-refresh icon-space-left" data-reactid=".1anhzui48w0.1.0.1"></i></a>
+                    <div class="map-auto-refresh panel" data-reactid=".1anhzui48w0.1.1">
+                    <label class="checkbox" for="map-auto-refresh-checkbox" data-reactid=".1anhzui48w0.1.1.0"><input type="checkbox" class="map-auto-refresh-checkbox" id="map-auto-refresh-checkbox" checked="" data-reactid=".1anhzui48w0.1.1.0.0"><small data-reactid=".1anhzui48w0.1.1.0.1"><span data-reactid=".1anhzui48w0.1.1.0.1.0">Search as I move the map</span></small></label>
+                </div>
+                </div>
+                    <div data-reactid=".1anhzui48w0.3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<app-bottom-menu></app-bottom-menu>

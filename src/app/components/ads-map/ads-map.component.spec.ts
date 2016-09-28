@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { HelpCategoriesComponent } from './help-categories.component';
+import { AdsMapComponent } from './ads-map.component';
 
-describe('Component: HelpCategories', () => {
+describe('Component: AdsMap', () => {
   it('should create an instance', () => {
-    let component = new HelpCategoriesComponent();
+    let component = new AdsMapComponent();
     expect(component).toBeTruthy();
   });
 });

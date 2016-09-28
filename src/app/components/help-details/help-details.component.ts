@@ -37,6 +37,6 @@ export class HelpDetailsComponent implements OnInit {
         item => this.question = item,
         error => console.log(error)
       );
-    })
+    });
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
 import {Http} from "@angular/http";
 import {Router} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-help-search',
@@ -10,6 +11,7 @@ import {Router} from "@angular/router";
 })
 export class HelpSearchComponent implements OnInit {
 
+  private api = environment.api;
   private searchData: CompleterData;
 
   constructor(
@@ -20,7 +22,7 @@ export class HelpSearchComponent implements OnInit {
 
   ngOnInit() {
     this.searchData = this.completerService.remote(
-      "http://airbnb/api/v1/help/search?q=",
+      this.api + "help/search?q=",
       "name",
       "name"
     );

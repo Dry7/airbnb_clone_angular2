@@ -3,6 +3,7 @@ import {MapService} from "../../services/map.service";
 import {Http} from "@angular/http";
 import {CompleterService, CompleterData} from "ng2-completer";
 import {environment} from "../../../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ads-search-line',
@@ -19,7 +20,8 @@ export class AdsSearchLineComponent implements OnInit {
   constructor(
     @Inject(MapService) private MapService,
     @Inject(CompleterService) private completerService,
-    @Inject(Http) private http
+    @Inject(Http) private http,
+    @Inject(Router) private router
   ) {
     this.guests = [];
     this.guests.push({name: '1 Guest', value: 1});
@@ -49,7 +51,7 @@ export class AdsSearchLineComponent implements OnInit {
   }
 
   public selectPlace(event: any) {
-    console.log(event);
+      this.router.navigate(['/s/' + event.originalObject.url]);
   }
 
 }

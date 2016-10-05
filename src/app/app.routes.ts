@@ -20,6 +20,7 @@ const appRoutes : Routes = [
     { path: 'help/topic/:id/:slug', component: HelpTopicComponent },
     { path: 'help/getting-started/:slug', component: HelpGettingStartedComponent },
     { path: 'help/contact_us', component: HelpContactUsComponent },
+    { path: 's/:place', component: HelpComponent },
 ];
 
 export const appRoutingProviders: any[] = [];

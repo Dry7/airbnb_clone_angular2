@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
 import {Http} from "@angular/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-help-search',
@@ -11,7 +12,11 @@ export class HelpSearchComponent implements OnInit {
 
   private searchData: CompleterData;
 
-  constructor(private completerService: CompleterService, private http: Http) { }
+  constructor(
+      private completerService: CompleterService,
+      private http: Http,
+      @Inject(Router) private router
+  ) { }
 
   ngOnInit() {
     this.searchData = this.completerService.remote(
@@ -22,6 +27,6 @@ export class HelpSearchComponent implements OnInit {
   }
 
   public onAnswerSelected(selected: CompleterItem) {
-    console.log(selected);
+      this.router.navigate([selected.originalObject.url]);
   }
 }

@@ -2,6 +2,9 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {AdsService} from "../../services/ads.service";
 import {IAd} from "../../interfaces/iad";
 import {Params, Router, ActivatedRoute} from "@angular/router";
+import {AdsMapComponent} from "../ads-map/ads-map.component";
+import {ViewChild} from "@angular/core/src/metadata/di";
+import {WishListService} from "../../services/wish-list.service";
 
 @Component({
   selector: 'app-ads-search',
@@ -9,6 +12,9 @@ import {Params, Router, ActivatedRoute} from "@angular/router";
   styleUrls: ['./ads-search.component.css']
 })
 export class AdsSearchComponent implements OnInit {
+  @ViewChild(AdsMapComponent) mapComponent: AdsMapComponent;
+
+  private city = null;
 
   private total: number = 0;
   private from: number = 0;
@@ -28,7 +34,9 @@ export class AdsSearchComponent implements OnInit {
   constructor(
     @Inject(ActivatedRoute) private route,
     @Inject(Router) private router,
-    @Inject(AdsService) private AdsService) {
+    @Inject(AdsService) private AdsService,
+    @Inject(WishListService) private WishListService
+  ) {
 
     this.filter.guests = [];
     this.filter.guests.push({name: '1 Guest', value: 1});
@@ -132,6 +140,8 @@ export class AdsSearchComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let page = +params['page'];
       this.current_page = page > 0 ? page : 1;
+      this.city = params['slug'];
+      this.mapComponent.setCity(this.city);
     });
 
     this.AdsService.search().subscribe(search => {
@@ -172,5 +182,15 @@ export class AdsSearchComponent implements OnInit {
   }
 
   public applyFilter() {
+  }
+
+  public isInWishList(id: number) {
+    return this.WishListService.is(id);
+  }
+
+  public toggleWishList(id: number) {
+    this.WishListService.toggle(id);
+
+    return false;
   }
 }

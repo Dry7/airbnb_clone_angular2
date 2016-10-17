@@ -19569,3 +19569,12 @@ html[lang="zh"] .middot-separated li+li:before {
     height: 36px!important;;
     padding-top: 2px!important;;
 }
+
+.map-marker .tooltip {
+    top: 55px!important;
+    left: 25px!important;
+}
+
+.gm-style-iw, .gm-style-iw div {
+    overflow: visible!important;
+}

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
+import {MapService} from "../../services/map.service";
+import {Input} from "@angular/core/src/metadata/directives";
+import {SebmGoogleMap, SebmGoogleMapMarker} from 'angular2-google-maps/src/core';
 
 @Component({
   selector: 'app-ads-map',
@@ -7,13 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdsMapComponent implements OnInit {
 
-  constructor() { }
+  @Input() private city;
+
+  private lat: number;
+  private lng: number;
+
+  constructor(
+    @Inject(MapService) private MapService
+  ) { }
 
   ngOnInit() {
-    // var map = new L.Map('map', {
-    //   center: new L.LatLng(40.731253, -73.996139),
-    //   zoom: 12,
-    // });
+  }
+
+  setCity(city: string) {
+    this.MapService.location(city).subscribe(location => {
+      this.lat = location.lat;
+      this.lng = location.lng;
+    })
   }
 
 }

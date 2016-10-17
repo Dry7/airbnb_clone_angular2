@@ -492,15 +492,15 @@
                                         </div>
                                     </a>
                                     <div class="panel-overlay-top-right wl-social-connection-panel">
-                                        <span class="rich-toggle wish_list_button wishlist-button" data-img="https://a2.muscache.com/im/pictures/49599012/79ea5b93_original.jpg?aki_policy=x_medium" data-name="&quot;у нас как дома&quot;4" data-address="Lipetsk" data-hosting_id="3942703" data-review_count="1 review" data-room_type="Entire home/apt" data-star_rating="0" data-host_id="20430215" data-host_img="https://a1.muscache.com/im/users/20430215/profile_pic/1408867940/original.jpg?aki_policy=profile_medium" data-property_type_name="Apartment" data-person_capacity_string="7" data-bedrooms_string="4" tabindex="0" role="button" style="display:block;width:32px;height:32px;">
-                                            <input type="checkbox" id="wishlist-widget-3942703" name="wishlist-widget-3942703" aria-hidden="true" tabindex="-1" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.0">
-                                            <label for="wishlist-widget-3942703" class="hide-sm" aria-hidden="true" tabindex="-1" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1">
-                                                <i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.0"></i>
-                                                <i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.1"></i>
-                                                <i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-3942703" class="icon icon-heart-alt icon-white icon-size-2" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.1.2"></i>
+                                        <span (click)="toggleWishList(ad.id)" class="rich-toggle wish_list_button wishlist-button" [class.saved]="isInWishList(ad.id)" style="display:block;width:32px;height:32px;">
+                                            <input type="checkbox" id="wishlist-widget-3942703" name="wishlist-widget-3942703" [checked]="isInWishList(ad.id)">
+                                            <label for="wishlist-widget-3942703" class="hide-sm">
+                                                <i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked"></i>
+                                                <i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked"></i>
+                                                <i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-3942703" class="icon icon-heart-alt icon-white icon-size-2"></i>
                                             </label>
-                                            <div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip" role="tooltip" data-trigger="#wishlist-widget-icon-3942703" data-event="none" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.2">
-                                                <p class="text-white wishlist-widget-tooltip__body" data-reactid=".17y7xiyvabk.0.4.2.0.0.$3942703.0.1.1.3:1.0.2.0"></p>
+                                            <div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip">
+                                                <p class="text-white wishlist-widget-tooltip__body"></p>
                                             </div>
                                         </span>
                                     </div>
@@ -656,7 +656,7 @@
             <div>
                 <div style="height:100%;">
                     <div class="map-canvas" role="presentation">
-                        <app-ads-map></app-ads-map>
+                        <app-ads-map [city]="city"></app-ads-map>
                     </div>
                     <div class="map-refresh-controls google" data-reactid=".1anhzui48w0.1">
                     <a class="map-manual-refresh btn btn-primary hide" data-reactid=".1anhzui48w0.1.0"><span data-reactid=".1anhzui48w0.1.0.0">Redo Search Here</span><i class="icon icon-refresh icon-space-left" data-reactid=".1anhzui48w0.1.0.1"></i></a>

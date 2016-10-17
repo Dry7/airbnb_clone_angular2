@@ -18,4 +18,13 @@ export class MapService {
   public places(query: string) : Observable<any> {
     return this.http.get(this.api + 'map/places?query=' + query).map(response => response.json());
   }
+
+  /**
+   * Get city location
+   *
+   * @returns {Observable<R>}
+   */
+  public location(name: string) : Observable<any> {
+    return this.http.get(this.api + 'map/place/location/' + name).map(response => response.json());
+  }
 }

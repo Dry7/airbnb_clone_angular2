@@ -20,6 +20,8 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "3.0.0",
+    "angular2-google-maps": "git+https://github.com/SebastianM/angular2-google-maps.git#59ba45bc1c611ada37ca919bee54ca9ac78564a6",
+    "angular2-localstorage": "git+https://github.com/marcj/angular2-localstorage.git#1a5b9fb31821706ffbde7da97056194f6100c515",
     "core-js": "^2.4.1",
     "ng2-auto-complete": "^0.6.6",
     "ng2-completer": "^0.1.10",

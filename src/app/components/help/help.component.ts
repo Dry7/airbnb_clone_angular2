@@ -1,6 +1,4 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {CompleterData, CompleterService, CompleterItem} from "ng2-completer";
-import {Http} from "@angular/http";
 import {HelpService} from "../../services/help.service";
 import {HelpCategoriesComponent} from "../help-categories/help-categories.component";
 import {ViewChild} from "@angular/core/src/metadata/di";

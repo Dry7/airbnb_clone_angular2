@@ -1,0 +1,23 @@
+<p>
+  ads-map works!
+</p>
+<div id="map"></div>
+<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="10">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [title]="'title'" [label]="'9'">
+        <sebm-google-map-info-window [disableAutoPan]="true">
+            <div class="map-marker">
+                <div class="tooltip tooltip-bottom-middle tooltip-layout tooltip-primary">
+                    <div class="price-marker__label">
+                        <div class="price-label">
+                            <span>
+                                <span class="price-amount">8889</span>
+                                <sup class="currency-suffix">₽</sup>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </sebm-google-map-info-window>
+    </sebm-google-map-marker>
+    <sebm-google-map-marker [latitude]="lat-0.01" [longitude]="lng"></sebm-google-map-marker>
+</sebm-google-map>

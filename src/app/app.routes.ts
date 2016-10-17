@@ -8,6 +8,8 @@ import {HelpDetailsComponent} from "./components/help-details/help-details.compo
 import {HelpContactUsComponent} from "./components/help-contact-us/help-contact-us.component";
 import {HelpTopicComponent} from "./components/help-topic/help-topic.component";
 import {HelpGettingStartedComponent} from "./components/help-getting-started/help-getting-started.component";
+import {AdsSearchComponent} from "./components/ads-search/ads-search.component";
+import {AdsMapComponent} from "./components/ads-map/ads-map.component";
 
 const appRoutes : Routes = [
     { path: '', component: HomeComponent },
@@ -20,6 +22,10 @@ const appRoutes : Routes = [
     { path: 'help/topic/:id/:slug', component: HelpTopicComponent },
     { path: 'help/getting-started/:slug', component: HelpGettingStartedComponent },
     { path: 'help/contact_us', component: HelpContactUsComponent },
+    { path: 'search', component: AdsSearchComponent },
+    { path: 's', component: AdsSearchComponent },
+    { path: 's/:slug', component: AdsSearchComponent },
+    { path: 'map', component: AdsMapComponent }
 ];
 
 export const appRoutingProviders: any[] = [];

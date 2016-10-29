@@ -5,7 +5,6 @@ import {CompleterService, CompleterData} from "ng2-completer";
 import {environment} from "../../../environments/environment";
 import {StringHelper} from "../../helpers/string.helper";
 import {Router} from "@angular/router";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-ads-search-line',

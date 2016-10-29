@@ -30,10 +30,10 @@ import { AdsService } from "./services/ads.service";
 import { StarComponent } from './components/star/star.component';
 import { RoomTypePipe } from './pipes/room-type.pipe';
 import { AdsMapComponent } from './components/ads-map/ads-map.component';
-import { AgmCoreModule, SebmGoogleMapMarker } from 'angular2-google-maps/src/core';
-import {MarkerManager} from 'angular2-google-maps/src/core/services/managers/marker-manager'
 import { WishListService } from "./services/wish-list.service";
 import { LocalStorageService } from "angular2-localstorage/LocalStorageEmitter"
+import {AgmCoreModule, MarkerManager} from "angular2-google-maps/core";
+
 
 @NgModule({
   declarations: [

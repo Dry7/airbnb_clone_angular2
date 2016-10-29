@@ -1,7 +1,6 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {MapService} from "../../services/map.service";
 import {Input} from "@angular/core/src/metadata/directives";
-import {SebmGoogleMap, SebmGoogleMapMarker} from 'angular2-google-maps/src/core';
 
 @Component({
   selector: 'app-ads-map',

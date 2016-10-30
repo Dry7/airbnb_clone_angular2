@@ -362,8 +362,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <div class="filters-placeholder hide-sm hide" style="height: 251px;"></div>
             <a id="docked-filters"></a>
@@ -453,7 +451,7 @@
                             <div aria-live="polite" class="search-results">
                                 <div></div>
                                 <div></div>
-                                <div class="outer-listings-container space-2">
+                                <div class="outer-listings-container space-2" [class.loading]="loading">
                                     <div class="listings-container">
                 <div class="row">
                     <div *ngFor="let ad of ads" class="listing-card-wrapper col-sm-12 space-2 col-md-6">
@@ -566,16 +564,16 @@
                     <div class="pagination pagination-responsive">
                         <ul class="list-unstyled">
                             <li *ngIf="current_page > 1" class="prev previous_page">
-                                <a [routerLink]="['./', {page: current_page-1}]">
+                                <a [routerLink]="['./', {page: current_page-1}]" (click)="load(current_page-1)">
                                     <span class="screen-reader-only">
                                         <span>Previous</span>
                                     </span>
                                     <i class="icon icon-caret-left"></i>
                                 </a>
                             </li>
-                            <li *ngFor="let page of pages" [class.active]="page == current_page"><a [routerLink]="['./', {page: page}]">{{ page }}</a></li>
+                            <li *ngFor="let page of pages" [class.active]="page == current_page"><a [routerLink]="['./', {page: page}]" (click)="load(page)">{{ page }}</a></li>
                             <li *ngIf="current_page < pages.length" class="next next_page">
-                                <a [routerLink]="['./', {page: current_page+1}]">
+                                <a [routerLink]="['./', {page: current_page+1}]" (click)="load(current_page+1)">
                                     <span class="screen-reader-only">
                                         <span>Next</span>
                                     </span>
@@ -656,7 +654,7 @@
             <div>
                 <div style="height:100%;">
                     <div class="map-canvas" role="presentation">
-                        <app-ads-map [city]="city"></app-ads-map>
+                        <app-ads-map [city]="city" [ads]="ads"></app-ads-map>
                     </div>
                     <div class="map-refresh-controls google" data-reactid=".1anhzui48w0.1">
                     <a class="map-manual-refresh btn btn-primary hide" data-reactid=".1anhzui48w0.1.0"><span data-reactid=".1anhzui48w0.1.0.0">Redo Search Here</span><i class="icon icon-refresh icon-space-left" data-reactid=".1anhzui48w0.1.0.1"></i></a>

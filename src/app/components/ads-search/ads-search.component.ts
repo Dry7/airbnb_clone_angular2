@@ -31,6 +31,8 @@ export class AdsSearchComponent implements OnInit {
   private showFilterAmentities = false;
   private showFilterLanguages = false;
 
+  private loading = false;
+
   constructor(
     @Inject(ActivatedRoute) private route,
     @Inject(Router) private router,
@@ -114,28 +116,31 @@ export class AdsSearchComponent implements OnInit {
     this.filter.amentities.push({name: 'Wheelchair Accessible',     value: 6});
 
     this.filter.languages = [];
-    this.filter.languages.push({name: 'English', value: 1});
-    this.filter.languages.push({name: 'Italiano', value: 16});
-    this.filter.languages.push({name: 'Русский', value: 32});
+    this.filter.languages.push({name: 'English',          value: 1});
+    this.filter.languages.push({name: 'Italiano',         value: 16});
+    this.filter.languages.push({name: 'Русский',          value: 32});
     this.filter.languages.push({name: 'Bahasa Indonesia', value: 32});
-    this.filter.languages.push({name: 'Bahasa Malaysia', value: 32});
-    this.filter.languages.push({name: 'Bengali', value: 32});
-    this.filter.languages.push({name: 'Dansk', value: 32});
-    this.filter.languages.push({name: 'Deutsch', value: 32});
-    this.filter.languages.push({name: 'Hindi', value: 32});
-    this.filter.languages.push({name: 'Magyar', value: 32});
-    this.filter.languages.push({name: 'Nederlands', value: 32});
-    this.filter.languages.push({name: 'Norsk', value: 32});
-    this.filter.languages.push({name: 'Polski', value: 32});
-    this.filter.languages.push({name: 'Português', value: 32});
-    this.filter.languages.push({name: 'Punjabi', value: 32});
-    this.filter.languages.push({name: 'Sign Language', value: 32});
-    this.filter.languages.push({name: 'Suomi', value: 32});
-    this.filter.languages.push({name: 'Svenska', value: 32});
-    this.filter.languages.push({name: 'Čeština', value: 32});
-    this.filter.languages.push({name: 'עברית', value: 32});
+    this.filter.languages.push({name: 'Bahasa Malaysia',  value: 32});
+    this.filter.languages.push({name: 'Bengali',          value: 32});
+    this.filter.languages.push({name: 'Dansk',            value: 32});
+    this.filter.languages.push({name: 'Deutsch',          value: 32});
+    this.filter.languages.push({name: 'Hindi',            value: 32});
+    this.filter.languages.push({name: 'Magyar',           value: 32});
+    this.filter.languages.push({name: 'Nederlands',       value: 32});
+    this.filter.languages.push({name: 'Norsk',            value: 32});
+    this.filter.languages.push({name: 'Polski',           value: 32});
+    this.filter.languages.push({name: 'Português',        value: 32});
+    this.filter.languages.push({name: 'Punjabi',          value: 32});
+    this.filter.languages.push({name: 'Sign Language',    value: 32});
+    this.filter.languages.push({name: 'Suomi',            value: 32});
+    this.filter.languages.push({name: 'Svenska',          value: 32});
+    this.filter.languages.push({name: 'Čeština',          value: 32});
+    this.filter.languages.push({name: 'עברית',            value: 32});
   }
 
+  /**
+   * Init
+   */
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       let page = +params['page'];
@@ -144,7 +149,17 @@ export class AdsSearchComponent implements OnInit {
       this.mapComponent.setCity(this.city);
     });
 
-    this.AdsService.search().subscribe(search => {
+    this.load(this.current_page);
+  }
+
+  /**
+   * Load ads
+   *
+   * @param page
+   */
+  public load(page: number) {
+    this.showLoading();
+    this.AdsService.search(page).subscribe(search => {
       this.total = search.total;
       this.from = search.from;
       this.to = search.to;
@@ -154,11 +169,17 @@ export class AdsSearchComponent implements OnInit {
         this.pages.push(i+1);
         i++;
       }
-//      this.current_page = search.current_page;
+      this.current_page = search.current_page;
       this.ads = search.items;
+      this.hideLoading();
     });
   }
 
+  /**
+   * Show next image
+   *
+   * @param ad
+   */
   public nextImage(ad: IAd) {
     ad.current_image++;
     if (ad.current_image >= ad.images.length) {
@@ -166,6 +187,11 @@ export class AdsSearchComponent implements OnInit {
     }
   }
 
+  /**
+   * Show previous image
+   *
+   * @param ad
+   */
   public prevImage(ad: IAd) {
     ad.current_image--;
     if (ad.current_image < 0) {
@@ -173,24 +199,59 @@ export class AdsSearchComponent implements OnInit {
     }
   }
 
+  /**
+   * Toggle filter
+   */
   public toggleFilter() {
     this.showFilter = !this.showFilter;
   }
 
+  /**
+   * Hide filter
+   */
   public hideFilter() {
     this.showFilter = false;
   }
 
+  /**
+   * Apply filter
+   */
   public applyFilter() {
   }
 
+  /**
+   * Check is ad in wish list
+   *
+   * @param id
+   * @returns {any}
+   */
   public isInWishList(id: number) {
     return this.WishListService.is(id);
   }
 
+  /**
+   * Toggle state ad in wish list
+   *
+   * @param id
+   * @returns {boolean}
+   */
   public toggleWishList(id: number) {
     this.WishListService.toggle(id);
 
     return false;
+  }
+
+  /**
+   * Show loading
+   */
+  public showLoading() {
+    this.loading = true;
+  }
+
+  /**
+   * Hide loading
+   */
+  public hideLoading() {
+    this.loading = false;
   }
 }

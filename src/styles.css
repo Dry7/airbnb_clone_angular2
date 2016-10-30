@@ -19578,3 +19578,7 @@ html[lang="zh"] .middot-separated li+li:before {
 .gm-style-iw, .gm-style-iw div {
     overflow: visible!important;
 }
+
+.outer-listings-container.loading {
+    opacity: 0.2;
+}

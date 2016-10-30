@@ -1,6 +1,3 @@
-<p>
-  ads-map works!
-</p>
 <div id="map"></div>
 <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="10">
     <sebm-google-map-marker [latitude]="lat" [longitude]="lng" [title]="'title'" [label]="'9'">
@@ -19,5 +16,5 @@
             </div>
         </sebm-google-map-info-window>
     </sebm-google-map-marker>
-    <sebm-google-map-marker [latitude]="lat-0.01" [longitude]="lng"></sebm-google-map-marker>
+    <sebm-google-map-marker *ngFor="let ad of ads" [latitude]="ad.coordinates.lat" [longitude]="ad.coordinates.lng"></sebm-google-map-marker>
 </sebm-google-map>

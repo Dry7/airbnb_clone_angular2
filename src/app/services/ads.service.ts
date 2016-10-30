@@ -16,8 +16,8 @@ export class AdsService {
    *
    * @returns {Observable<R>}
    */
-  public search() : Observable<IAdSearch> {
-    return this.http.get(this.api + 'ads/search').map(response => response.json());
+  public search(page: number) : Observable<IAdSearch> {
+    return this.http.get(this.api + 'ads/search?page=' + page).map(response => response.json());
   }
 
 }

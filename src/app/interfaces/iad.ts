@@ -12,4 +12,5 @@ export interface IAd {
   author: IUser;
   images: string[];
   current_image: number;
+  coordinates: any;
 }

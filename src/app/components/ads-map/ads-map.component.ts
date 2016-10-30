@@ -10,6 +10,7 @@ import {Input} from "@angular/core/src/metadata/directives";
 export class AdsMapComponent implements OnInit {
 
   @Input() private city;
+  @Input() private ads;
 
   private lat: number;
   private lng: number;

@@ -26,6 +26,7 @@
     "ng2-auto-complete": "^0.6.6",
     "ng2-completer": "^0.1.10",
     "ng2-datepicker": "^1.0.8",
+    "ng2-slider-component": "git+https://github.com/BatsShadow/ng2-slider-component.git#b7b07f33c13479182f4141cf45b64a17bc77ca9e",
     "ng2-translate": "^2.5.0",
     "rxjs": "5.0.0-beta.12",
     "ts-helpers": "^1.1.1",

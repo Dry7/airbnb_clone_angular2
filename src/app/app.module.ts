@@ -33,6 +33,8 @@ import { AdsMapComponent } from './components/ads-map/ads-map.component';
 import { WishListService } from "./services/wish-list.service";
 import { LocalStorageService } from "angular2-localstorage/LocalStorageEmitter"
 import {AgmCoreModule, MarkerManager} from "angular2-google-maps/core";
+import {Ng2SliderComponent} from "ng2-slider-component/ng2-slider.component";
+import {Ng2SliderModule} from "ng2-slider-component/ng2-slider.module";
 
 
 @NgModule({
@@ -58,7 +60,7 @@ import {AgmCoreModule, MarkerManager} from "angular2-google-maps/core";
     AdsSearchComponent,
     StarComponent,
     RoomTypePipe,
-    AdsMapComponent,
+    AdsMapComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +68,7 @@ import {AgmCoreModule, MarkerManager} from "angular2-google-maps/core";
     HttpModule,
     routing,
     Ng2CompleterModule,
+    Ng2SliderModule,
     TranslateModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC-FJQ50jNqF12T3bi2PTUw3u8x9WbWyPg'

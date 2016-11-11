@@ -33,6 +33,10 @@ export class AdsSearchComponent implements OnInit {
 
   private loading = false;
 
+  /** Price slider */
+  private price_min: number;
+  private price_max: number;
+
   constructor(
     @Inject(ActivatedRoute) private route,
     @Inject(Router) private router,
@@ -253,5 +257,15 @@ export class AdsSearchComponent implements OnInit {
    */
   public hideLoading() {
     this.loading = false;
+  }
+
+  /**
+   * Change price range
+   *
+   * @param event
+   */
+  public changePrice(event) {
+    this.price_min = event.startValue;
+    this.price_max = event.endValue;
   }
 }

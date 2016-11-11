@@ -19582,3 +19582,25 @@ html[lang="zh"] .middot-separated li+li:before {
 .outer-listings-container.loading {
     opacity: 0.2;
 }
+
+.slider-input-block {
+    display: none;
+}
+
+.price-range-group .range-ribbon {
+    background-color: #00a699!important;
+    height: 4px!important;
+}
+
+.price-range-group .slider-handle {
+    border: 1px solid #aaa!important;
+    background: #fff!important;;
+    border-radius: 100%!important;;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1)!important;;
+    cursor: pointer!important;;
+    height: 24px!important;;
+    margin-left: -12px!important;;
+    z-index: 2!important;;
+    width: 24px!important;;
+    font-size: 0!important;;
+}

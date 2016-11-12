@@ -1,8 +1,9 @@
 import {Injectable, Inject} from '@angular/core';
 import {environment} from "../../environments/environment";
-import {Http} from "@angular/http";
+import {Http, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs";
 import {IAdSearch} from "../interfaces/iad-search";
+import {StringHelper} from "../helpers/string.helper";
 
 @Injectable()
 export class AdsService {
@@ -16,8 +17,9 @@ export class AdsService {
    *
    * @returns {Observable<R>}
    */
-  public search(page: number) : Observable<IAdSearch> {
-    return this.http.get(this.api + 'ads/search?page=' + page).map(response => response.json());
+  public search(page: number, active: any) : Observable<IAdSearch> {
+    console.log(this.api + 'ads/search' + StringHelper.http_build_query(active));
+    return this.http.get(this.api + 'ads/search').map(response => response.json());
   }
 
 }

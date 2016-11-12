@@ -14,28 +14,50 @@ import {WishListService} from "../../services/wish-list.service";
 export class AdsSearchComponent implements OnInit {
   @ViewChild(AdsMapComponent) mapComponent: AdsMapComponent;
 
+  /** Current city */
   private city = null;
 
+  /** Pagination */
   private total: number = 0;
   private from: number = 0;
   private to: number = 0;
   private pages: number[] = null;
   private current_page: number = 0;
 
+  /** Items */
   private ads: IAd[];
 
   private images: any = {};
 
+  /** Filter values */
   private filter: any = {};
   private showFilter: boolean = false;
   private showFilterAmentities = false;
   private showFilterLanguages = false;
 
+  /** Loading ads */
   private loading = false;
 
   /** Price slider */
   private price_min: number;
   private price_max: number;
+
+  /** Active filters */
+  private active: any = {
+    price_min: 0,
+    price_max: 0,
+    date_start: null,
+    date_end: null,
+    guests: 1,
+    room_type: [],
+    bedrooms: null,
+    bathrooms: null,
+    beds: null,
+    instant_book: false,
+    superhost: false,
+    amenities: [],
+    languages: []
+  };
 
   constructor(
     @Inject(ActivatedRoute) private route,
@@ -163,7 +185,7 @@ export class AdsSearchComponent implements OnInit {
    */
   public load(page: number) {
     this.showLoading();
-    this.AdsService.search(page).subscribe(search => {
+    this.AdsService.search(page, this.active).subscribe(search => {
       this.total = search.total;
       this.from = search.from;
       this.to = search.to;
@@ -265,7 +287,37 @@ export class AdsSearchComponent implements OnInit {
    * @param event
    */
   public changePrice(event) {
-    this.price_min = event.startValue;
-    this.price_max = event.endValue;
+    this.active.price_min = event.startValue;
+    this.active.price_max = event.endValue;
+  }
+
+  /**
+   * Check exists value in array
+   *
+   * @param field
+   * @param value
+   * @returns {boolean}
+   */
+  public isChecked(field: string, value: string) {
+    return this.active[field].indexOf(value) > -1;
+  }
+
+  /**
+   * Change checkbox filter
+   *
+   * @param event
+   * @param field
+   * @param value
+   */
+  public changeFilter(event, field: string, value: string) {
+    if (event.target.checked) {
+      this.active[field].push(value);
+    } else {
+      this.active[field] = this.active[field].filter(item => item != value);
+    }
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.active);
   }
 }

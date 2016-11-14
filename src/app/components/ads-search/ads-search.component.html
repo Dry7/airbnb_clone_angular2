@@ -324,7 +324,7 @@
                                 <div *ngFor="let language of filter.languages|slice:0:3" class="col-md-4">
                                     <label class="media checkbox facet-checkbox" [title]="language.name">
                                         <div>
-                                            <input type="checkbox" name="languages" [value]="isChecked('languages', language.value)" (change)="changeFilter($event, 'languages', language.value)" class="pull-left">
+                                            <input type="checkbox" name="languages" [value]="isChecked('languages', language.id)" (change)="changeFilter($event, 'languages', language.id)" class="pull-left">
                                         </div>
                                         <div>
                                             <span>{{ language.name }}</span>
@@ -339,7 +339,7 @@
                                     <div *ngFor="let language of filter.languages|slice:3" class="col-md-4">
                                         <label class="media checkbox facet-checkbox" [title]="language.name">
                                             <div>
-                                                <input type="checkbox" name="languages" [value]="isChecked('languages', language.value)" (change)="changeFilter($event, 'languages', language.value)" class="pull-left">
+                                                <input type="checkbox" name="languages" [value]="isChecked('languages', language.id)" (change)="changeFilter($event, 'languages', language.id)" class="pull-left">
                                             </div>
                                             <div>
                                                 <span>{{ language.name }}</span>

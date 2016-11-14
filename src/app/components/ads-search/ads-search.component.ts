@@ -6,6 +6,7 @@ import {AdsMapComponent} from "../ads-map/ads-map.component";
 import {ViewChild} from "@angular/core/src/metadata/di";
 import {WishListService} from "../../services/wish-list.service";
 import {AmenitiesService} from "../../services/amenities.service";
+import {LanguagesService} from "../../services/languages.service";
 
 @Component({
   selector: 'app-ads-search',
@@ -65,6 +66,7 @@ export class AdsSearchComponent implements OnInit {
     @Inject(Router) private router,
     @Inject(AdsService) private AdsService,
     @Inject(AmenitiesService) private AmenitiesService,
+    @Inject(LanguagesService) private LanguagesService,
     @Inject(WishListService) private WishListService
   ) {
 
@@ -107,26 +109,6 @@ export class AdsSearchComponent implements OnInit {
     this.filter.amenities = [];
 
     this.filter.languages = [];
-    this.filter.languages.push({name: 'English',          value: 1});
-    this.filter.languages.push({name: 'Italiano',         value: 16});
-    this.filter.languages.push({name: 'Русский',          value: 32});
-    this.filter.languages.push({name: 'Bahasa Indonesia', value: 32});
-    this.filter.languages.push({name: 'Bahasa Malaysia',  value: 32});
-    this.filter.languages.push({name: 'Bengali',          value: 32});
-    this.filter.languages.push({name: 'Dansk',            value: 32});
-    this.filter.languages.push({name: 'Deutsch',          value: 32});
-    this.filter.languages.push({name: 'Hindi',            value: 32});
-    this.filter.languages.push({name: 'Magyar',           value: 32});
-    this.filter.languages.push({name: 'Nederlands',       value: 32});
-    this.filter.languages.push({name: 'Norsk',            value: 32});
-    this.filter.languages.push({name: 'Polski',           value: 32});
-    this.filter.languages.push({name: 'Português',        value: 32});
-    this.filter.languages.push({name: 'Punjabi',          value: 32});
-    this.filter.languages.push({name: 'Sign Language',    value: 32});
-    this.filter.languages.push({name: 'Suomi',            value: 32});
-    this.filter.languages.push({name: 'Svenska',          value: 32});
-    this.filter.languages.push({name: 'Čeština',          value: 32});
-    this.filter.languages.push({name: 'עברית',            value: 32});
   }
 
   /**
@@ -141,6 +123,7 @@ export class AdsSearchComponent implements OnInit {
     });
 
     this.AmenitiesService.filter().subscribe(items => this.filter.amenities = items, error => {});
+    this.LanguagesService.all().subscribe(items => this.filter.languages = items, error => {});
 
     this.load(this.current_page);
   }

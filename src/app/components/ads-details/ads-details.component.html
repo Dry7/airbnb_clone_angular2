@@ -39,8 +39,8 @@
                           <div class="SlideshowModalContent__share-save-controls with-bookit-styles">
                             <div class="SlideshowModalContent__wishlist-button hide-sm-inline-block">
                               <div class="rich-toggle wish_list_button">
-                                <input type="checkbox" name="wishlist-button">
-                                <label for="wishlist-button" class="wishlist-button-label">
+                                <input type="checkbox" name="wishlist-button" [checked]="isInWishList(ad.id)">
+                                <label for="wishlist-button" class="wishlist-button-label" (click)="toggleWishList(ad.id)">
                                   <span class="rich-toggle-checked">
                                     <button class="btn-link btn-link--icon" type="button">
                                       <span>
@@ -462,177 +462,60 @@
                   <div class="panel-body panel-light">
                     <div class="wishlist-wrapper hide-sm">
                       <div class="rich-toggle wish_list_button">
-                        <input type="checkbox" name="wishlist-button" id="wishlist-button">
-                        <label for="wishlist-button" class="btn btn-block btn-large wishlist-button-label">
+                        <input type="checkbox" name="wishlist-button" id="wishlist-button" [checked]="isInWishList(ad.id)">
+                        <label for="wishlist-button" class="btn btn-block btn-large wishlist-button-label" (click)="toggleWishList(ad.id)">
                           <span class="rich-toggle-checked">
                             <i class="icon icon-heart icon-rausch"></i>
                             <span class="wishlist-button--control wishlist-button--detailed">
-                              Saved to Wish List
+                              {{ 'Saved to Wish List'|translate }}
                             </span>
                           </span>
-                                                <span class="rich-toggle-unchecked">
+                          <span class="rich-toggle-unchecked">
                             <i class="icon icon-heart-alt icon-light-gray"></i>
                             <span class="wishlist-button--control wishlist-button--detailed">
-                              Save to Wish List
+                              {{ 'Save to Wish List'|translate }}
                             </span>
                           </span>
                         </label>
-                        <div class="wishlist-button--detailed wishlist-button-subtitle hide text-center text-muted">
-                          <small>
-                            <span class="wishlist-button-subtitle-text">
-                              7 travelers saved this place
-                            </span>
-                          </small>
-                        </div>
                       </div>
 
                     </div>
                   </div>
-                  <div id="box-social-share-widget-container" class="boxed-icons before-js show-lg">
-                    <div class="social-share-widget p3-box-share-widget p3-share-widget" data-tooltip_id="social_share_tooltip">
-                      <span class="share-title">
-                        Share:
-                      </span>
-                      <span class="share-triggers">
-                        <a class="share-btn link-icon"
-                           data-email-share-link="/rooms/7771418/email_listing"
-                           data-network="email"
-                           rel="nofollow"
-                           title="Email"
-                           href="#">
-                          <span class="screen-reader-only">Email</span>
-                          <i class="icon icon-envelope social-icon-size"></i>
-                        </a>
-                        <a class="share-btn messenger-btn link-icon messenger-btn"
-                           data-network="messenger"
-                           rel="nofollow"
-                           title="Messenger"
-                           href="http://www.facebook.com/dialog/send?app_id=138566025676&link=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D24&redirect_uri=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D24"
-                           data-messenger-share-link="https://www.airbnb.com/rooms/7771418?bev_ref=1478953635_OjE61yiXK4C2X/Ff&s=24"
-                           target="_blank">
-                          <span class="screen-reader-only">Messenger</span>
-                          <i class="social-icon-size icon icon-facebook-messenger"></i>
-                        </a>
-                        <a class="share-btn link-icon"
-                           data-network="facebook"
-                           rel="nofollow"
-                           title="Facebook"
-                           href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D3"
-                           data-facebook-share-link="https://www.airbnb.com/rooms/7771418?bev_ref=1478953635_OjE61yiXK4C2X/Ff&s=3"
-                           target="_blank">
-                          <span class="screen-reader-only">Facebook</span>
-                          <i class="icon icon-facebook social-icon-size"></i>
-                        </a>
-                        <a class="share-btn link-icon"
-                           data-network="twitter"
-                           rel="nofollow"
-                           title="Twitter"
-                           href="https://twitter.com/intent/tweet?source=tweetbutton&text=Love+this%21+%22%D0%9E%D1%87%D0%B5%D0%BD%D1%8C+%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%B0%D1%8F+%D0%B8+%D1%87%D0%B8%D1%81%D1%82%D0%B0%D1%8F+%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B8%D1%80%D0%B0+-+Apartments+for+Rent+in+%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%22+%40airbnb+%23Travel&url=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D4&related=airbnb"
-                           target="_blank">
-                          <span class="screen-reader-only">Twitter</span>
-                          <i class="icon icon-twitter social-icon-size"></i>
-                        </a>
-                        <a class="share-btn embed-btn link-icon"
-                           data-network="embed"
-                           rel="nofollow"
-                           title="Embed This Listing"
-                           href="#">
-                          <span class="screen-reader-only">Embed This Listing</span>
-                          <i class="icon icon-code social-icon-size"></i>
-                        </a>
-                        <a class="share-btn link-icon"
-                           data-network="googlePlus"
-                           rel="nofollow"
-                           title="Google+"
-                           href="https://plus.google.com/share?url=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D19"
-                           target="_blank">
-                          <span class="screen-reader-only">Google+</span>
-                          <i class="icon icon-google-plus social-icon-size"></i>
-                        </a>
-                        <a class="share-btn link-icon"
-                           data-network="pinterest"
-                           rel="nofollow"
-                           title="Pinterest"
-                           href="//www.pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.airbnb.com%2Frooms%2F7771418%3Fbev_ref%3D1478953635_OjE61yiXK4C2X%252FFf%26s%3D16&media=https%3A%2F%2Fa0.muscache.com%2Fim%2Fpictures%2F100125459%2Fc43a3ce1_original.jpg%3Faki_policy%3Dx_medium&description=Check+out+this+awesome+listing+on+Airbnb%3A+%D0%9E%D1%87%D0%B5%D0%BD%D1%8C+%D0%BA%D1%80%D0%B0%D1%81%D0%B8%D0%B2%D0%B0%D1%8F+%D0%B8+%D1%87%D0%B8%D1%81%D1%82%D0%B0%D1%8F+%D0%BA%D0%B2%D0%B0%D1%80%D1%82%D0%B8%D1%80%D0%B0+-+Apartments+for+Rent+in+%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA"
-                           target="_blank">
-                          <span class="screen-reader-only">Pinterest</span>
-                          <i class="icon icon-pinterest social-icon-size"></i>
-                        </a>
-                      <span class="hide more-btn">
-                        ···
-                      </span>
-                    </span>
-                      <ul role="tooltip"
-                          aria-hidden="true"
-                          data-trigger=".p3-box-share-widget.p3-share-widget .more-btn"
-                          data-event="hover"
-                          data-sticky="true"
-                          class="tooltip tooltip-top-middle list-unstyled more-social-options"
-                          id="social_share_tooltip">
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="other-actions text-center space-top-3 space-3">
-                  <div data-hypernova-key="p3listing_flag_controlbundlejs"><div data-reactid=".1ho9yy791q8" data-react-checksum="1828290291"><a href="#" class="link-reset" title="Report this listing" data-prevent-default="true" data-reactid=".1ho9yy791q8.1"><i class="icon icon-flag h4" data-reactid=".1ho9yy791q8.1.0"></i><span data-reactid=".1ho9yy791q8.1.1"> </span><span data-reactid=".1ho9yy791q8.1.2">Report this listing</span></a><noscript data-reactid=".1ho9yy791q8.2"></noscript></div></div>
-                  <script type="application/json" data-hypernova-key="p3listing_flag_controlbundlejs"><!--{"phrases":{"report_this_listing":"Report this listing","report_this_user":"Report this user","report_this_review":"Report this review","flag_instructions":"If so, please choose one of the following reasons and our dedicated Trust and Safety team will look into it.","you_reported_this_listing":"You have reported this listing.","you_reported_this_user":"You have reported this user.","undo_report":"Undo?","modal_close":"Close","report_listing_question":"Do you want to anonymously report this listing?","report_user_question":"Do you want to anonymously report this user?","report_review_question":"Do you want to anonymously report this review?","thank_you":"Thank You!","thank_you_for_reporting_this_listing":"Thanks for taking the time to report this listing.","thank_you_for_reporting_this_user":"Thanks for taking the time to report this user.","your_participation_helps_and_we_appreciate_it":"Your participation helps keep Airbnb a safe and trusted community, and it doesn’t go unnoticed!","please_describe_a_reason":"Please describe a reason","submit":"Submit","learn_more":"Learn more &amp;raquo;","flagged_by_another_user":"Flagged by another user","flag_widget_user_suspicious_bad":"This profile shouldn’t be on Airbnb","flag_widget_user_contact_info":"Attempt to share contact information","flag_widget_user_inappropriate_spam":"Inappropriate content or spam","flag_widget_user_other":"Other","flag_widget_listing_suspicious_bad":"This listing shouldn’t be on Airbnb","flag_widget_listing_not_a_home":"This is not an accommodation","flag_widget_listing_inappropriate_spam":"Inappropriate content or spam","flag_widget_listing_other":"Other","flag_widget_message_transact_offline":"Attempt to pay or communicate outside Airbnb","flag_widget_message_website_solicitation":"Solicitation for another website","flag_widget_message_inappropriate_spam":"Inappropriate content","flag_widget_message_hateful_content":"Discriminatory or hateful content","flag_widget_message_other":"Other","flag_widget_user_suspicious_bad_details":"This profile may belong to a scammer, criminal offender, or exist for other malicious purposes.","flag_widget_user_contact_info_details":"There is an email address, phone number, or website address hidden in this profile.","flag_widget_user_inappropriate_spam_details":"The profile photos or description contain violent, graphic, promotional, or otherwise offensive content.","flag_widget_user_other_details":"None of the above reasons apply.","flag_widget_listing_suspicious_bad_details":"This listing contains false information or may be a fake listing.","flag_widget_listing_not_a_home_details":"This listing is a service, not an actual home.","flag_widget_listing_inappropriate_spam_details":"The photos or description of this listing contain violent, graphic, promotional, or otherwise offensive content.","flag_widget_listing_other_details":"None of the above reasons apply.","flag_widget_message_transact_offline_details":"This person is attempting to share or request contact info before an accepted reservation.","flag_widget_message_website_solicitation_details":"This message links to a website unaffiliated with Airbnb.","flag_widget_message_inappropriate_spam_details":"This message contains violent, graphic, or otherwise offensive content.","flag_widget_message_hateful_content_details":"This message contains discriminatory or hateful content.","flag_widget_message_other_details":"None of the above reasons apply.","flag_widget_thank_you":"Thank You"},"trebuchets":{}}--></script>
                 </div>
               </div>
             </div>
 
             <div class="mobile-bookit-btn-container js-bookit-btn-container panel-btn-sm panel-btn-fixed-sm hide hide-md hide-lg">
               <button class="btn btn-primary btn-block btn-large js-book-it-sm-trigger">
-      <span class="book-it__btn-text">
-        Request to Book
-      </span>
-                <span class="book-it__btn-text--contact-host">
-        Contact Host
-      </span>
-
+                <span class="book-it__btn-text">
+                  {{ 'Request to Book'|translate }}
+                </span>
+                <span class="book-it__btn-text--contact-host">{{ 'Contact Host'|translate }}</span>
                 <span class="book-it__btn-text--instant">
-        <i class="icon icon-bolt icon-beach h4"></i>
-          Instant Book
-      </span>
+                  <i class="icon icon-bolt icon-beach h4"></i>
+                  {{ 'Instant Book'|translate }}
+                </span>
               </button>
             </div>
 
-            <span class="tooltip tooltip-top-middle"
-                  role="tooltip"
-                  data-trigger="#price-info-tooltip"
-                  data-sticky="true"
-                  aria-hidden="true">
-  <div class="js-monthly-breakdown"></div>
-</span>
+            <span class="tooltip tooltip-top-middle"><div class="js-monthly-breakdown"></div></span>
 
-            <span id="cleaning-fee-tip"
-                  class="tooltip tooltip-top-middle"
-                  role="tooltip"
-                  data-trigger="#cleaning-fee-tooltip"
-                  aria-hidden="true">
-  <p class="panel-body">
-    One-time fee charged by host to cover the cost of cleaning their space
-  </p>
-</span>
+            <span id="cleaning-fee-tip">
+              <p class="panel-body">
+                {{ 'One-time fee charged by host to cover the cost of cleaning their space'|translate }}
+              </p>
+            </span>
 
-            <span id="service-fee-tip"
-                  class="tooltip tooltip-top-middle"
-                  role="tooltip"
-                  data-trigger="#service-fee-tooltip"
-                  aria-hidden="true">
-  <p class="panel-body fee-no-vat-tooltip">
-    This helps us run our platform and offer services like 24/7 support on your trip.
-  </p>
-  <p class="panel-body hide fee-vat-tooltip">
-    This helps us run our platform and offer services like 24/7 support on your trip. It includes VAT.
-  </p>
-</span>
+            <span id="service-fee-tip">
+              <p class="panel-body fee-no-vat-tooltip">
+                {{ 'This helps us run our platform and offer services like 24/7 support on your trip.'|translate }}
+              </p>
+              <p class="panel-body hide fee-vat-tooltip">
+                {{ 'This helps us run our platform and offer services like 24/7 support on your trip. It includes VAT.'|translate }}
+              </p>
+            </span>
 
-            <div id="tax-descriptions-tip"
-                 class="tooltip tooltip-top-middle"
-                 role="tooltip"
-                 data-sticky="true"
-                 data-trigger="#tax-descriptions-tooltip">
-            </div>
+            <div id="tax-descriptions-tip" class="tooltip tooltip-top-middle"></div>
 
             <div class="modal" role="dialog" aria-hidden="true" id="book-it-sm-modal">
               <div class="modal-table">

@@ -4,6 +4,7 @@ import {AdsService} from "../../services/ads.service";
 import {IAd} from "../../interfaces/iad";
 import {Subscription} from "rxjs";
 import {AmenitiesService} from "../../services/amenities.service";
+import {WishListService} from "../../services/wish-list.service";
 import {IAmenity} from "../../interfaces/iamenity";
 
 @Component({
@@ -29,12 +30,13 @@ export class AdsDetailsComponent implements OnInit {
   constructor(
       @Inject(ActivatedRoute) private route,
       @Inject(AdsService) private AdsService,
-      @Inject(AmenitiesService) private AmenitiesService
+      @Inject(AmenitiesService) private AmenitiesService,
+      @Inject(WishListService) private WishListService
   ) { }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
-      this.subscriptions.push(this.AdsService.details(+params['id']).subscribe(item => { console.log(item); this.ad = item }, error => {}));
+      this.subscriptions.push(this.AdsService.details(+params['id']).subscribe(item => this.ad = item, error => {}));
     });
     this.subscriptions.push(this.AmenitiesService.all().subscribe(items => this.amenities = items, error => {}));
   }
@@ -133,7 +135,6 @@ export class AdsDetailsComponent implements OnInit {
    * @param index
    */
   public setImage(index : number) {
-    console.log(index);
     this.current_image = index;
   }
 
@@ -160,6 +161,28 @@ export class AdsDetailsComponent implements OnInit {
     if (this.current_image == (this.ad.images.length-2)) {
       return -3 + (this.current_image-3)*-110.5;
     }
+  }
+
+  /**
+   * Check is ad in wish list
+   *
+   * @param id
+   * @returns {any}
+   */
+  public isInWishList(id: number) {
+    return this.WishListService.is(id);
+  }
+
+  /**
+   * Toggle state ad in wish list
+   *
+   * @param id
+   * @returns {boolean}
+   */
+  public toggleWishList(id: number) {
+    this.WishListService.toggle(id);
+
+    return false;
   }
 
   ngOnDestroy() {

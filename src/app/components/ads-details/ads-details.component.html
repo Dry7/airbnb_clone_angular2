@@ -26,11 +26,11 @@
       <img src="https://a2.muscache.com/im/pictures/c3ee3dc1-832e-4214-afab-eea033b5e1fa.jpg?aki_policy=small" alt="">
     </div>
     <span>
-      <div class="SlideshowModal modal-container" *ngIf="ad != null">
+      <div class="SlideshowModal modal-container" *ngIf="(ad != null) && (showPhotos == true)">
         <div class="modal-table">
           <div class="modal-cell">
             <div class="modal-content">
-              <button type="button" class="SlideshowModal__close btn icon icon-remove"></button>
+              <button type="button" class="SlideshowModal__close btn icon icon-remove" (click)="showPhotos = false"></button>
                 <div class="SlideshowModalContent">
                   <div class="SlideshowModalContent__body">
                     <div class="SlideshowModalContent__top">
@@ -221,13 +221,30 @@
   <div id="og_pro_photo_prompt" class="container"></div>
 
   <div id="room" itemscope itemtype="http://schema.org/Product">
-
-    <div data-hypernova-key="p3header_listing_alertbundlejs"><div class="show-sm page-container-responsive header-listing-alert" data-reactid=".27f34sd9o8w" data-react-checksum="-625588261"><div class="row" data-reactid=".27f34sd9o8w.0"><div class="col-sm-12" data-reactid=".27f34sd9o8w.0.0"></div></div></div></div>
-
-    <div>
+    <div *ngIf="ad != null">
       <div>
-        <div id="photos" class="with-photos with-modal" data-reactid=".1bt32quyk1s.0"><span class="cover-photo" data-reactid=".1bt32quyk1s.0.0"><img class="hide" alt="" width="0" src="https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=large" srcset="https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=large 639w,https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=xx_large 1440w" data-reactid=".1bt32quyk1s.0.0.0"><span class="cover-img-container" data-hook="cover-img-container" data-reactid=".1bt32quyk1s.0.0.1"><div class="cover-img" style="background-image:url(https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=xx_large);" data-reactid=".1bt32quyk1s.0.0.1.0"><div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm" data-reactid=".1bt32quyk1s.0.0.1.0.0"><div data-reactid=".1bt32quyk1s.0.0.1.0.0.0"><span class="h3 text-contrast price-amount" data-reactid=".1bt32quyk1s.0.0.1.0.0.0.0"><span data-reactid=".1bt32quyk1s.0.0.1.0.0.0.0.0">2102₽</span></span><span class="listing-price__per-night hide-sm" data-reactid=".1bt32quyk1s.0.0.1.0.0.0.1"><span data-reactid=".1bt32quyk1s.0.0.1.0.0.0.1.0">Per Night</span></span></div></div></div></span><div class="slideshow-inline-preload hide" data-reactid=".1bt32quyk1s.0.0.2"><img class="carousel-image img-responsive-height" src="https://a2.muscache.com/im/pictures/100125596/c431634c_original.jpg?aki_policy=x_large" alt="" data-reactid=".1bt32quyk1s.0.0.2.$https=2//a2=1muscache=1com/im/pictures/100125596/c431634c_original=1jpg?aki_policy=0x_large"><img class="carousel-image img-responsive-height" src="https://a1.muscache.com/im/pictures/100125492/3a1e5a00_original.jpg?aki_policy=x_large" alt="" data-reactid=".1bt32quyk1s.0.0.2.$https=2//a1=1muscache=1com/im/pictures/100125492/3a1e5a00_original=1jpg?aki_policy=0x_large"></div><div class="hero__view-photos" data-reactid=".1bt32quyk1s.0.0.4"><button type="button" class="btn" data-reactid=".1bt32quyk1s.0.0.4.0"><span data-reactid=".1bt32quyk1s.0.0.4.0.0">View Photos</span></button></div></span></div>
-        <div data-reactid=".1bt32quyk1s.1"><noscript data-reactid=".1bt32quyk1s.1.0"></noscript>
+        <div id="photos" class="with-photos with-modal">
+          <span class="cover-photo">
+            <span class="cover-img-container" (click)="showPhotos = true">
+              <div class="cover-img" [style.backgroundImage]="'url(' + ( ad.images[0].url | largePhoto ) + ')'">
+                <div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm">
+                  <div>
+                    <span class="h3 text-contrast price-amount">
+                      <span>{{ ad | price }}</span>
+                    </span>
+                    <span class="listing-price__per-night hide-sm">
+                      <span>Per Night</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </span>
+            <div class="hero__view-photos">
+              <button type="button" class="btn" (click)="showPhotos = true">
+                <span>View Photos</span>
+              </button>
+            </div>
+          </span>
         </div>
       </div>
     </div>
@@ -369,7 +386,7 @@
                             <div class="book-it__price-amount text-special">
                               <span id="book-it-price-string">
                                 <span class="h3">
-                                  <span>{{ ad.price }}</span>
+                                  <span>{{ ad | price }}</span>
                                 </span>
                               </span>
                               <span *ngIf="ad.is_instant_book">

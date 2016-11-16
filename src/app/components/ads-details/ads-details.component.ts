@@ -16,6 +16,9 @@ export class AdsDetailsComponent implements OnInit {
   private subscriptions: Subscription[] = [];
   private amenities: IAmenity[] = [];
 
+  /** Open photo slider */
+  private showPhotos: boolean = false;
+
   private showAmenities: boolean = false;
   private showFullDescription: boolean = false;
   private showFullHouseRules: boolean = false;
@@ -136,6 +139,7 @@ export class AdsDetailsComponent implements OnInit {
 
   /**
    * Calculate shift in photo thumbnails slider
+   *
    * @returns {number}
    */
   get photoTransform() {

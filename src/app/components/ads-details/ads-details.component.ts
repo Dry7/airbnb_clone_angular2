@@ -20,6 +20,9 @@ export class AdsDetailsComponent implements OnInit {
   private showFullDescription: boolean = false;
   private showFullHouseRules: boolean = false;
 
+  /** Current image */
+  private current_image : number = 0;
+
   constructor(
       @Inject(ActivatedRoute) private route,
       @Inject(AdsService) private AdsService,
@@ -97,6 +100,61 @@ export class AdsDetailsComponent implements OnInit {
       case 'flexible': return '/home/cancellation_policies#flexible';
       case 'long-term': return '/home/cancellation_policies#long-term';
       default: return '';
+    }
+  }
+
+
+  /**
+   * Show next image
+   */
+  public nextImage() {
+    this.current_image++;
+    if (this.current_image >= this.ad.images.length) {
+      this.current_image = 0;
+    }
+  }
+
+  /**
+   * Show previous image
+   */
+  public prevImage() {
+    this.current_image--;
+    if (this.current_image < 0) {
+      this.current_image = this.ad.images.length-1;
+    }
+  }
+
+  /**
+   * Set current image
+   *
+   * @param index
+   */
+  public setImage(index : number) {
+    console.log(index);
+    this.current_image = index;
+  }
+
+  /**
+   * Calculate shift in photo thumbnails slider
+   * @returns {number}
+   */
+  get photoTransform() {
+    if ((this.current_image == 0) || (this.current_image == 1)) {
+      return 0;
+    }
+    if (this.current_image == 2) {
+      return -3;
+    }
+
+    if ((this.current_image > 2) && (this.current_image < this.ad.images.length-3)) {
+      return -3 + (this.current_image-2)*-110.5;
+    }
+
+    if (this.current_image == (this.ad.images.length-1)) {
+      return -3 + (this.current_image-4)*-110.5;
+    }
+    if (this.current_image == (this.ad.images.length-2)) {
+      return -3 + (this.current_image-3)*-110.5;
     }
   }
 

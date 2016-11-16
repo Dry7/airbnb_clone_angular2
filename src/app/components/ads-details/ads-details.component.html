@@ -1,5 +1,155 @@
 <app-top-menu></app-top-menu>
 <main id="site-content" role="main">
+
+  <div>
+    <div class="SlideshowModal__slideshow-preload hide">
+      <img src="https://a2.muscache.com/im/pictures/06e18e4a-80f2-44b8-b35e-08b894d9be1e.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/5c63e979-8618-4653-ac81-b4a6b2dfc676.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/de2a1f64-64f2-4ed9-baa3-a92b9078f218.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/accee053-9850-4157-a9c0-3146f10fe557.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/8190b507-a74d-44d5-9c84-6b7af599d2ad.jpg?aki_policy=x_large" alt="">
+    </div>
+    <div class="SlideshowModal__slideshow-preload hide">
+      <img src="https://a2.muscache.com/im/pictures/64cb1088-2985-4cbb-920e-b38e5a3c8a67.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/06e18e4a-80f2-44b8-b35e-08b894d9be1e.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/5c63e979-8618-4653-ac81-b4a6b2dfc676.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/de2a1f64-64f2-4ed9-baa3-a92b9078f218.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/accee053-9850-4157-a9c0-3146f10fe557.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/8190b507-a74d-44d5-9c84-6b7af599d2ad.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/285cd6d8-6642-45e1-9670-c9bee4f70582.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/22956868-bd7d-41f8-8ad0-baba8a6cbf9b.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/f55d68b2-34a3-47e5-8cda-65d5dc18b7fe.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/81151cc3-50e7-4039-b18d-86c6c1774451.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/9c894b42-c528-4a4b-85a7-3d444f97cbe8.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/64af64d4-5846-4cd3-ba36-73d6a4a61a8b.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/e533505b-3f25-43e5-9589-9c5984cb6869.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/c3ee3dc1-832e-4214-afab-eea033b5e1fa.jpg?aki_policy=small" alt="">
+    </div>
+    <span>
+      <div class="SlideshowModal modal-container" *ngIf="ad != null">
+        <div class="modal-table">
+          <div class="modal-cell">
+            <div class="modal-content">
+              <button type="button" class="SlideshowModal__close btn icon icon-remove"></button>
+                <div class="SlideshowModalContent">
+                  <div class="SlideshowModalContent__body">
+                    <div class="SlideshowModalContent__top">
+                      <div class="SlideshowModalContent__controls">
+                        <div class="SlideshowModalContent__controls-inner clearfix with-bookit-styles">
+                          <div class="SlideshowModalContent__share-save-controls with-bookit-styles">
+                            <div class="SlideshowModalContent__wishlist-button hide-sm-inline-block">
+                              <div class="rich-toggle wish_list_button">
+                                <input type="checkbox" name="wishlist-button">
+                                <label for="wishlist-button" class="wishlist-button-label">
+                                  <span class="rich-toggle-checked">
+                                    <button class="btn-link btn-link--icon" type="button">
+                                      <span>
+                                        <i class="icon icon-heart icon-rausch"></i>
+                                        <span> </span>
+                                        <span class="link-icon__text">
+                                          <span>Saved to Wish List</span>
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </span>
+                                  <span class="rich-toggle-unchecked">
+                                    <button class="btn-link btn-link--icon" type="button">
+                                      <span>
+                                        <i class="icon icon-heart-alt"></i>
+                                        <span> </span>
+                                        <span class="link-icon__text">
+                                          <span>Save to Wish List</span>
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="SlideshowModalContent__bookit-container hide-sm-inline-block">
+                            <span class="SlideshowModalContent__bookit-price">
+                              <span>158332₽ per month</span>
+                            </span>
+                            <div class="SlideshowModalContent__bookItButton">
+                              <button type="button" class="btn btn-primary btn-large">
+                                <span>Request to Book</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="SlideshowModalContent__tab">
+                      <span>
+                        <div>
+                          <div class="Slideshow">
+                            <button type="button" class="carousel-chevron right" (click)="nextImage()">
+                              <i class="icon icon-chevron-right icon-size-4 text-contrast"></i>
+                            </button>
+                            <button type="button" class="carousel-chevron left" (click)="prevImage()">
+                              <i class="icon icon-chevron-left icon-size-4 text-contrast"></i>
+                            </button>
+                            <div class="Slideshow__constrain">
+                              <div class="Slideshow__intrinsic-outer">
+                                <div class="Slideshow__intrinsic-inner">
+                                  <ul class="Slideshow__images">
+                                    <li class="media-photo media-photo-block text-center active">
+                                      <div class="media-cover text-center">
+                                        <span>
+                                          <img [src]="ad.images[current_image].url" alt="">
+                                        </span>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                  <div class="Slideshow__preload hide">
+                                    <img [src]="image.url" alt="" *ngFor="let image of ad.images">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <figcaption class="SlideshowModalContent__footer media-caption text-center">
+                            <div class="SlideshowNav space-4">
+                              <div class="SlideshowNav__inner">
+                                <div class="space-2 clearfix">
+                                  <div class="SlideshowNav__caption-left">
+                                    <div class="text-left">
+                                      <span>{{current_image+1}}/{{ad.images.length}}: {{ ad.images[current_image].title }}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="SlideshowNav__thumbnails-viewport">
+                                  <div class="SlideshowNav__thumbnails-viewport-inner">
+                                    <ul class="SlideshowNav__thumbnails-slide-panel" style="left:0;" [style.transform]="'translateX(' + photoTransform + 'px)'">
+                                      <li class="pull-left" *ngFor="let image of ad.images; let index = index" (click)="setImage(index)">
+                                        <div class="media-photo media-slideshow active">
+                                          <img [src]="image.url" height="67">
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </figcaption>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+
+
+
+
+
   <div class="subnav-container">
     <div class="subnav book-it show-md" data-sticky="true"
          data-transition-at="#details" aria-hidden="true">
@@ -74,9 +224,6 @@
 
     <div data-hypernova-key="p3header_listing_alertbundlejs"><div class="show-sm page-container-responsive header-listing-alert" data-reactid=".27f34sd9o8w" data-react-checksum="-625588261"><div class="row" data-reactid=".27f34sd9o8w.0"><div class="col-sm-12" data-reactid=".27f34sd9o8w.0.0"></div></div></div></div>
 
-    <meta itemprop="image" content="https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=large">
-
-
     <div>
       <div>
         <div id="photos" class="with-photos with-modal" data-reactid=".1bt32quyk1s.0"><span class="cover-photo" data-reactid=".1bt32quyk1s.0.0"><img class="hide" alt="" width="0" src="https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=large" srcset="https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=large 639w,https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=xx_large 1440w" data-reactid=".1bt32quyk1s.0.0.0"><span class="cover-img-container" data-hook="cover-img-container" data-reactid=".1bt32quyk1s.0.0.1"><div class="cover-img" style="background-image:url(https://a0.muscache.com/im/pictures/100125459/c43a3ce1_original.jpg?aki_policy=xx_large);" data-reactid=".1bt32quyk1s.0.0.1.0"><div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm" data-reactid=".1bt32quyk1s.0.0.1.0.0"><div data-reactid=".1bt32quyk1s.0.0.1.0.0.0"><span class="h3 text-contrast price-amount" data-reactid=".1bt32quyk1s.0.0.1.0.0.0.0"><span data-reactid=".1bt32quyk1s.0.0.1.0.0.0.0.0">2102₽</span></span><span class="listing-price__per-night hide-sm" data-reactid=".1bt32quyk1s.0.0.1.0.0.0.1"><span data-reactid=".1bt32quyk1s.0.0.1.0.0.0.1.0">Per Night</span></span></div></div></div></span><div class="slideshow-inline-preload hide" data-reactid=".1bt32quyk1s.0.0.2"><img class="carousel-image img-responsive-height" src="https://a2.muscache.com/im/pictures/100125596/c431634c_original.jpg?aki_policy=x_large" alt="" data-reactid=".1bt32quyk1s.0.0.2.$https=2//a2=1muscache=1com/im/pictures/100125596/c431634c_original=1jpg?aki_policy=0x_large"><img class="carousel-image img-responsive-height" src="https://a1.muscache.com/im/pictures/100125492/3a1e5a00_original.jpg?aki_policy=x_large" alt="" data-reactid=".1bt32quyk1s.0.0.2.$https=2//a1=1muscache=1com/im/pictures/100125492/3a1e5a00_original=1jpg?aki_policy=0x_large"></div><div class="hero__view-photos" data-reactid=".1bt32quyk1s.0.0.4"><button type="button" class="btn" data-reactid=".1bt32quyk1s.0.0.4.0"><span data-reactid=".1bt32quyk1s.0.0.4.0.0">View Photos</span></button></div></span></div>
@@ -106,7 +253,7 @@
                         <div class="col-md-9">
                           <h1 itemprop="name" class="overflow h3 space-1 text-center-sm" id="listing_name">{{ ad.name }}</h1>
                           <div id="display-address" class="space-2 text-muted text-center-sm">
-                            <a href="#neighborhood" class="link-reset">{{ ad.city }}</a>
+                            {{ ad.city }}
                             <span>   </span>
                             <a href="#reviews" class="link-reset show-inline-block hide-sm invisible">
                               <div class="star-rating-wrapper">

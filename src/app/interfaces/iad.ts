@@ -1,4 +1,6 @@
 import {IUser} from "./iuser";
+import {IImage} from "./iimage";
+
 export interface IAd {
   id: number;
   name: string;
@@ -24,7 +26,7 @@ export interface IAd {
   house_rules?: string;
   minimum_stay?: number;
   author: IUser;
-  images: string[];
+  images: IImage[];
   current_image: number;
   coordinates: any;
 }

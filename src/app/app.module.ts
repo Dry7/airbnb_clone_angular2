@@ -46,6 +46,7 @@ import { ArrayRightPipe } from './pipes/array-right.pipe';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { RegistrationDatePipe } from './pipes/registration-date.pipe';
 import { ResponseTimePipe } from './pipes/response-time.pipe';
+import { PricePipe } from './pipes/price.pipe';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { ResponseTimePipe } from './pipes/response-time.pipe';
     ArrayRightPipe,
     CountryCodePipe,
     RegistrationDatePipe,
-    ResponseTimePipe
+    ResponseTimePipe,
+    PricePipe
   ],
   imports: [
     BrowserModule,

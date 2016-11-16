@@ -7,7 +7,7 @@ import {IAd} from "../interfaces/iad";
 export class PricePipe implements PipeTransform {
 
   transform(ad: IAd, args?: any): any {
-    return ad.price + '₽ ' + (args == 'withType' ? 'per night' : '');
+    return ad.price + '₽' + (args == 'withType' ? ' per night' : '');
   }
 
 }

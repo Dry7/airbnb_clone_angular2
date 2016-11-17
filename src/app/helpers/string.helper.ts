@@ -40,4 +40,15 @@ export class StringHelper {
 
     return query;
   }
+
+  public static number_format( number: any, decimals: number = 0, dec_point: string = '.', thousands_sep: string = ' ' ) : string {
+    var decimal, decimalPoint, negative;
+    negative = number < 0 ? '-' : '';
+    number = Math.abs(number);
+    decimal = ((number - parseInt(number)).toFixed(decimals)).slice(2);
+    number = ("" + (parseInt(number.toFixed(decimals)))).split('').reverse().join('').replace(/...(?!$)/g, "$&" + (thousands_sep.replace(/\$/g, '$$$$'))).split('').reverse().join('');
+    decimalPoint = decimals !== 0 ? dec_point : '';
+    return "" + negative + number + decimalPoint + decimal;
+  }
+
 }

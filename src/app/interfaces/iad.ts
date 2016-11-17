@@ -1,5 +1,6 @@
 import {IUser} from "./iuser";
 import {IImage} from "./iimage";
+import {IRating} from "./irating";
 
 export interface IAd {
   id: number;
@@ -16,6 +17,7 @@ export interface IAd {
   languages?: number[];
   reviews: number;
   rating: number;
+  ratings?: IRating;
   is_instant_book: boolean;
   city?: string;
   about?: string;

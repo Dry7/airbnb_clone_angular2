@@ -49,6 +49,7 @@ import { ResponseTimePipe } from './pipes/response-time.pipe';
 import { PricePipe } from './pipes/price.pipe';
 import { LargePhotoPipe } from './pipes/large-photo.pipe';
 import { PriceDiscountPipe } from './pipes/price-discount.pipe';
+import { PriceFormatPipe } from './pipes/price-format.pipe';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { PriceDiscountPipe } from './pipes/price-discount.pipe';
     ResponseTimePipe,
     PricePipe,
     LargePhotoPipe,
-    PriceDiscountPipe
+    PriceDiscountPipe,
+    PriceFormatPipe
   ],
   imports: [
     BrowserModule,

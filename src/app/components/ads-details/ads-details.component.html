@@ -397,7 +397,7 @@
                           <div class="col-sm-4">
                             <div class="book-it__payment-period-container pull-right">
                               <div class="book-it__payment-period" id="book-it-rate-type">
-                                <span>Per Night</span>
+                                <span>{{ 'Per Night'|translate }}</span>
                               </div>
                             </div>
                           </div>
@@ -468,7 +468,7 @@
                                     </th>
                                     <td class="text-right price-item__price hide-border-top">
                                       <div>
-                                        <span>{{ ad.price*bookingNights }}₽</span>
+                                        <span>{{ ad.price*bookingNights | priceFormat }}</span>
                                       </div>
                                     </td>
                                   </tr>
@@ -484,7 +484,7 @@
                                     </th>
                                     <td class="text-right price-item__price">
                                       <div class="text-lima">
-                                        <span>-{{ ad | priceDiscount:bookingNights:ad.week_discount }}₽</span>
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.week_discount | priceFormat }}</span>
                                       </div>
                                     </td>
                                   </tr>
@@ -500,7 +500,7 @@
                                     </th>
                                     <td class="text-right price-item__price">
                                       <div class="text-lima">
-                                        <span>-{{ ad | priceDiscount:bookingNights:ad.month_discount }}₽</span>
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.month_discount | priceFormat }}</span>
                                       </div>
                                     </td>
                                   </tr>
@@ -516,7 +516,7 @@
                                     </th>
                                     <td class="text-right price-item__price">
                                       <div>
-                                        <span>{{ ad.cleaning_fee }}₽</span>
+                                        <span>{{ ad.cleaning_fee | priceFormat }}</span>
                                       </div>
                                     </td>
                                   </tr>
@@ -532,7 +532,7 @@
                                     </th>
                                     <td class="text-right price-item__price">
                                       <div>
-                                        <span>{{ ad.service_fee*bookingNights }}₽</span>
+                                        <span>{{ ad.service_fee*bookingNights | priceFormat }}</span>
                                       </div>
                                     </td>
                                   </tr>
@@ -541,7 +541,7 @@
                                       <span>{{ 'Total'|translate }}</span>
                                     </th>
                                     <td class="text-right">
-                                      <span>{{ total }}₽</span></td>
+                                      <span>{{ total | priceFormat }}</span></td>
                                   </tr>
                                   </tbody>
                                 </table>
@@ -549,17 +549,17 @@
                             </div>
                             <div class="">
                               <button type="submit" class="btn btn-primary btn-large btn-block">
-                                <span>Request to Book</span>
+                                <span>{{ 'Book'|translate }}</span>
                               </button>
                               <div class="bookit-message__container text-center text-muted">
                                 <small>
-                                  <span>You won’t be charged yet</span>
+                                  <span>{{ 'You won’t be charged yet'|translate }}</span>
                                 </small>
                               </div>
                             </div>
                             <div class="hide">
                               <button type="button" class="btn btn-primary btn-large btn-small btn-block">
-                                <span>Contact host</span>
+                                <span>{{ 'Contact host'|translate }}</span>
                               </button>
                             </div>
                           </div>
@@ -868,13 +868,6 @@
                         <div class="col-md-6">
                           <strong>{{ ad.minimum_stay }} night</strong> minimum stay
                         </div>
-                        <div class="col-md-6">
-                          <a id="view-calendar" href="#">
-                            <strong>
-                              <span>View calendar</span>
-                            </strong>
-                          </a>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -896,65 +889,8 @@
                             <div class="va-bottom review-header-text">
                               <h4 class="col-middle text-center-sm">
                                 <span>{{ ad.reviews }} Reviews</span>
-                                <div style="display:inline-block;" class="invisible">
-                                  <div class="star-rating-wrapper" aria-label="Average 5 out of 5 stars">
-                                    <div class="star-rating" content="5">
-                                      <div class="foreground">
-                                        <span>
-                                          <span>
-                                            <i class="icon-star icon icon-beach icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-beach icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-beach icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-beach icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-beach icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                        </span>
-                                      </div>
-                                      <div class="background">
-                                        <span>
-                                          <span>
-                                            <i class="icon-star icon icon-light-gray icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-light-gray icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-light-gray icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-light-gray icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                          <span>
-                                            <i class="icon-star icon icon-light-gray icon-star-big"></i>
-                                            <span> </span>
-                                          </span>
-                                        </span>
-                                      </div>
-                                    </div>
-                                    <span> </span>
-                                    <span class="h6 hide">
-                                      <small>
-                                        <span></span>
-                                      </small>
-                                    </span>
-                                  </div>
+                                <div style="display:inline-block;">
+                                  <app-star [star]="ad.ratings.summary"></app-star>
                                 </div>
                               </h4>
                             </div>
@@ -978,358 +914,40 @@
                               <div class="col-lg-6">
                                 <div>
                                   <strong>Accuracy</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.accuracy"></app-star>
                                   </div>
                                 </div>
                                 <div>
                                   <strong>Communication</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.communication"></app-star>
                                   </div>
                                 </div>
                                 <div>
                                   <strong>Cleanliness</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.cleanliness"></app-star>
                                   </div>
                                 </div>
                               </div>
                               <div class="col-lg-6">
                                 <div>
                                   <strong>Location</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.location"></app-star>
                                   </div>
                                 </div>
                                 <div>
                                   <strong>Check In</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.check_in"></app-star>
                                   </div>
                                 </div>
                                 <div>
                                   <strong>Value</strong>
-                                  <div class="pull-right invisible">
-                                    <div class="star-rating-wrapper">
-                                      <div class="star-rating" content="5">
-                                        <div class="foreground">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-beach icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                        <div class="background">
-                                          <span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                            <span>
-                                              <i class="icon-star icon icon-light-gray icon-star-small"></i>
-                                              <span> </span>
-                                            </span>
-                                          </span>
-                                        </div>
-                                      </div>
-                                      <span> </span>
-                                      <span class="h6 hide"><small><span></span></small></span>
-                                    </div>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.value"></app-star>
                                   </div>
                                 </div>
                               </div>

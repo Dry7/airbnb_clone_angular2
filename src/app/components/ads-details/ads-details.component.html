@@ -955,17 +955,95 @@
                           </div>
                         </div>
                       </div>
-                      <div class="review-content">
-                        <div class="panel-body">
-                          <div></div>
-                          <div class="row space-top-2">
-                            <div class="col-lg-9 col-offset-3">
-                              <p>
-                                <span>This host has 6 reviews for other properties.</span>
-                              </p>
-                              <a href="/users/show/40841869" class="btn view-other-reviews" target="blank">
-                                <span>View other reviews</span>
-                              </a>
+                      <div class="review-content" *ngIf="(ad != null) && (reviews.length > 0)">
+                        <div>
+                          <div>
+                            <div class="row review" *ngFor="let review of reviews; let index = index">
+                              <div class="space-2">
+                                <div class="col-12">
+                                  <div class="pull-left">
+                                    <div class="show-inline-block">
+                                      <div class="show-inline-block va-middle space-top-2 space-2">
+                                        <div class="media-photo-badge">
+                                          <a href="{{ review.author.url }}" rel="nofollow" class="media-photo media-round"><img
+                                                                        alt="User Profile Image" height="48" width="48"
+                                                                        data-pin-nopin="true"
+                                                                        [src]="review.author.image"
+                                                                        [title]="review.author.name"></a>
+                                        </div>
+                                      </div>
+                                      <div class="show-inline-block va-middle">
+                                        <div style="margin-left:16px;">
+                                          <div class="name">
+                                            <a href="{{ review.author.url }}" class="text-muted link-reset" target="_blank" rel="nofollow">
+                                              <p class="text_1lobov3-o_O-size_regular_1n7tijc">
+                                                <span>{{ review.author.name }}</span>
+                                              </p>
+                                            </a>
+                                          </div>
+                                          <div class="date">
+                                            <p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu">
+                                              <span>{{ review.created_at | registrationDate }}</span>
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="space-2">
+                                <div class="col-sm-12">
+                                  <div class="space-2">
+                                    <div class="review-text space-top-2 space-2">
+                                      <div class="react-expandable expanded">
+                                        <div class="expandable-content">
+                                          <p class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu">
+                                            <span>{{ review.review }}</span>
+                                          </p>
+                                          <div class="expandable-indicator"></div>
+                                        </div>
+                                        <span class="react-expandable-trigger-more text-muted">
+                                          <span class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
+                                            <button class="component_mbfsxg-o_O-component_button_r21s1q" type="button">
+                                              <span>+ More</span>
+                                            </button>
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div style="margin-top:8px;margin-left:16px;" *ngIf="review.answer != null">
+                                    <div class="media space-2">
+                                      <div class="pull-left">
+                                        <div class="media-photo-badge">
+                                          <a href="{{ ad.author.url }}" rel="nofollow" class="media-photo media-round">
+                                            <img alt="User Profile Image" height="40" width="40" [src]="ad.author.image" [title]="ad.author.name">
+                                          </a>
+                                        </div>
+                                      </div>
+                                      <div class="media-body">
+                                        <p class="text_1lobov3-o_O-size_regular_1n7tijc">
+                                          <span>Response from {{ ad.author.name }}:</span>
+                                        </p>
+                                        <p class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu">
+                                          <span>{{ review.answer }}</span>
+                                        </p>
+                                        <div class="space-top-2">
+                                          <div class="date">
+                                            <p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu-o_O-color_mutedLarge_1v78oro">
+                                              <span>{{ review.answer_created_at | registrationDate }}</span>
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12" *ngIf="index < reviews.length-1">
+                                <hr>
+                              </div>
                             </div>
                           </div>
                         </div>

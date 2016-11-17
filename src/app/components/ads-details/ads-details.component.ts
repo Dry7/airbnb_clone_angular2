@@ -6,6 +6,8 @@ import {Subscription} from "rxjs";
 import {AmenitiesService} from "../../services/amenities.service";
 import {WishListService} from "../../services/wish-list.service";
 import {IAmenity} from "../../interfaces/iamenity";
+import {ReviewsService} from "../../services/reviews.service";
+import {IReview} from "../../interfaces/ireview";
 
 @Component({
   selector: 'app-ads-details',
@@ -30,16 +32,21 @@ export class AdsDetailsComponent implements OnInit {
   /** Current image */
   private current_image : number = 0;
 
+  /** Reviews */
+  private reviews: IReview[] = [];
+
   constructor(
       @Inject(ActivatedRoute) private route,
       @Inject(AdsService) private AdsService,
       @Inject(AmenitiesService) private AmenitiesService,
-      @Inject(WishListService) private WishListService
+      @Inject(WishListService) private WishListService,
+      @Inject(ReviewsService) private ReviewsService
   ) { }
 
   ngOnInit() {
     this.route.params.forEach((params: Params) => {
       this.subscriptions.push(this.AdsService.details(+params['id']).subscribe(item => this.ad = item, error => {}));
+      this.subscriptions.push(this.ReviewsService.ad(+params['id']).subscribe(items => this.reviews = items, error => {}));
     });
     this.subscriptions.push(this.AmenitiesService.all().subscribe(items => this.amenities = items, error => {}));
   }

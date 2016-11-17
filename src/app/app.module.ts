@@ -50,6 +50,7 @@ import { PricePipe } from './pipes/price.pipe';
 import { LargePhotoPipe } from './pipes/large-photo.pipe';
 import { PriceDiscountPipe } from './pipes/price-discount.pipe';
 import { PriceFormatPipe } from './pipes/price-format.pipe';
+import {ReviewsService} from "./services/reviews.service";
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { PriceFormatPipe } from './pipes/price-format.pipe';
     LanguagesService,
     HouseTypeService,
     WishListService,
+    ReviewsService,
     MarkerManager,
     LocalStorageService
   ],

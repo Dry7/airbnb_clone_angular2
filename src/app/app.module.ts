@@ -48,6 +48,7 @@ import { RegistrationDatePipe } from './pipes/registration-date.pipe';
 import { ResponseTimePipe } from './pipes/response-time.pipe';
 import { PricePipe } from './pipes/price.pipe';
 import { LargePhotoPipe } from './pipes/large-photo.pipe';
+import { PriceDiscountPipe } from './pipes/price-discount.pipe';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { LargePhotoPipe } from './pipes/large-photo.pipe';
     RegistrationDatePipe,
     ResponseTimePipe,
     PricePipe,
-    LargePhotoPipe
+    LargePhotoPipe,
+    PriceDiscountPipe
   ],
   imports: [
     BrowserModule,

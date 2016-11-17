@@ -7,7 +7,7 @@
                         <div class="row">
                             <label class="searchbar__location col-md-4 col-lg-6">
                                 <span class="screen-reader-only">
-                                  Where to?
+                                  {{ 'Where to?'|translate }}
                                 </span>
                                 <ng2-completer
                                         [dataService]="searchData"
@@ -56,8 +56,6 @@
                             <a routerLink="" class="searchbar__submit-text">{{ 'Search'|translate }}</a>
                         </button>
                     </div>
-
-                    <input type="hidden" name="source" value="bb">
                 </form>
             </div>
         </div>

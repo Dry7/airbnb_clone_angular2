@@ -403,28 +403,28 @@
                           </div>
                         </div>
                       </div>
-                      <form method="post" action="https://www.airbnb.com/payments/book?hosting_id=7771418">
+                      <div>
                         <div class="panel book-it-panel">
                           <div class="panel-body panel-light">
                             <div class="row row-condensed space-3">
                               <div class="col-md-9">
                                 <div class="row row-condensed">
                                   <div class="col-sm-6">
-                                    <label class="book-it__label" for="datespan-checkin">Check In</label>
-                                    <input id="datespan-checkin" type="text" name="checkin" class="checkin" placeholder="mm/dd/yyyy" />
-                                    <span class="screen-reader-only" id="datespan-checkin-description">Enter your check in date in the format mm/dd/yyyy</span>
+                                    <label class="book-it__label">{{ 'Check In'|translate }}</label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'" [(ngModel)]="booking.start"></datepicker>
+                                    <span class="screen-reader-only" id="datespan-checkin-description">{{ 'Enter your check in date in the format mm/dd/yyyy'|translate }}</span>
                                   </div>
                                   <div class="col-sm-6">
-                                    <label class="book-it__label" for="datespan-checkout">Check Out</label>
-                                    <input id="datespan-checkout" type="text" name="checkout" class="checkout" placeholder="mm/dd/yyyy" />
+                                    <label class="book-it__label">{{ 'Check Out'|translate }}</label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'" [(ngModel)]="booking.end"></datepicker>
                                   </div>
-                                  <span class="screen-reader-only" id="datespan-checkout-description">Enter your check out date in the format mm/dd/yyyy</span>
+                                  <span class="screen-reader-only" id="datespan-checkout-description">{{ 'Enter your check out date in the format mm/dd/yyyy'|translate }}</span>
                                 </div>
                               </div>
                               <div class="col-md-3">
                                 <div>
                                   <label for="number_of_guests_7771418" class="book-it__label">
-                                    <span>Guests</span>
+                                    <span>{{ 'Guests'|translate }}</span>
                                   </label>
                                   <div class="select select-block">
                                     <select id="number_of_guests_7771418" name="number_of_guests">
@@ -435,10 +435,121 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="book-it__subtotal">
+                              <div>
+                                <table class="table">
+                                  <caption class="screen-reader-only">
+                                    <span>{{ 'Price breakdown'|translate }}</span>
+                                  </caption>
+                                  <thead>
+                                  <tr>
+                                    <th scope="col" class="hide-border-top hide-padding">
+                                      <span class="screen-reader-only">
+                                        <span>{{ 'Price description'|translate }}</span>
+                                      </span>
+                                    </th>
+                                    <th scope="col" class="hide-border-top hide-padding">
+                                      <span class="screen-reader-only">
+                                        <span>{{ 'Amount'|translate }}</span>
+                                      </span>
+                                    </th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr class="price-item">
+                                    <th class="price-item__header hide-border-top">
+                                      <span>{{ ad.price }}₽ x {{ bookingNights }} nights</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price hide-border-top">
+                                      <div>
+                                        <span>{{ ad.price*bookingNights }}₽</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="weekDiscount">
+                                    <th class="price-item__header">
+                                      <span>{{ ad.week_discount + '% weekly price discount'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div class="text-lima">
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.week_discount }}₽</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="monthDiscount">
+                                    <th class="price-item__header">
+                                      <span>{{ ad.month_discount + '% monthly price discount'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div class="text-lima">
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.month_discount }}₽</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="ad.cleaning_fee > 0">
+                                    <th class="price-item__header">
+                                      <span>{{ 'Cleaning fee'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div>
+                                        <span>{{ ad.cleaning_fee }}₽</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="ad.service_fee > 0">
+                                    <th class="price-item__header">
+                                      <span>{{ 'Service fee'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div>
+                                        <span>{{ ad.service_fee*bookingNights }}₽</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th class="price-item__header">
+                                      <span>{{ 'Total'|translate }}</span>
+                                    </th>
+                                    <td class="text-right">
+                                      <span>{{ total }}₽</span></td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
                             <div class="">
                               <button type="submit" class="btn btn-primary btn-large btn-block">
-                                <i class="icon text-beach h4 book-it__instant-book-btn-icon icon-instant-book"></i>
-                                <span> </span>
+                                <span>Request to Book</span>
                               </button>
                               <div class="bookit-message__container text-center text-muted">
                                 <small>
@@ -453,7 +564,7 @@
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                 </div>

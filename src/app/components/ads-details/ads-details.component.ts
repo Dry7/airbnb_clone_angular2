@@ -24,6 +24,9 @@ export class AdsDetailsComponent implements OnInit {
   private showFullDescription: boolean = false;
   private showFullHouseRules: boolean = false;
 
+  /** Bookeng */
+  private booking : any = {start: '2016-11-17', end: '2016-11-27'};
+
   /** Current image */
   private current_image : number = 0;
 
@@ -183,6 +186,59 @@ export class AdsDetailsComponent implements OnInit {
     this.WishListService.toggle(id);
 
     return false;
+  }
+
+  /**
+   * Get book nights
+   *
+   * @returns {number}
+   */
+  get bookingNights() : number {
+    let start = new Date(this.booking.start);
+    let end   = new Date(this.booking.end);
+    if (end < start) { return 0; }
+    return Math.ceil((end.getTime() - start.getTime())/(1000*60*60*24));
+  }
+
+  /**
+   * Get week discount
+   *
+   * @returns boolean
+   */
+  get weekDiscount() : boolean {
+      return (this.bookingNights >= 7) && (this.bookingNights < 28);
+  }
+
+  /**
+   * Get month discount
+   *
+   * @returns boolean
+   */
+  get monthDiscount() : boolean {
+    return this.bookingNights >= 28;
+  }
+
+  get total() : number {
+    let nights = this.bookingNights;
+    let total = this.ad.price*nights;
+
+    if (this.weekDiscount) {
+      total -= Math.ceil(this.ad.price*nights/100*this.ad.week_discount);
+    }
+
+    if (this.monthDiscount) {
+      total -= Math.ceil(this.ad.price*nights/100*this.ad.month_discount);
+    }
+
+    if (this.ad.cleaning_fee > 0) {
+      total += this.ad.cleaning_fee;
+    }
+
+    if (this.ad.service_fee > 0) {
+      total += this.ad.service_fee*nights;
+    }
+
+    return total;
   }
 
   ngOnDestroy() {

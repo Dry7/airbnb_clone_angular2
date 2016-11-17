@@ -25,6 +25,10 @@ export interface IAd {
   description?: string;
   house_rules?: string;
   minimum_stay?: number;
+  week_discount?: number;
+  month_discount?: number;
+  cleaning_fee?: number;
+  service_fee?: number;
   author: IUser;
   images: IImage[];
   current_image: number;

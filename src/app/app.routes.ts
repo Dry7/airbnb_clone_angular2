@@ -10,6 +10,7 @@ import {HelpTopicComponent} from "./components/help-topic/help-topic.component";
 import {HelpGettingStartedComponent} from "./components/help-getting-started/help-getting-started.component";
 import {AdsSearchComponent} from "./components/ads-search/ads-search.component";
 import {AdsMapComponent} from "./components/ads-map/ads-map.component";
+import {AdsDetailsComponent} from "./components/ads-details/ads-details.component";
 
 const appRoutes : Routes = [
     { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ const appRoutes : Routes = [
     { path: 'search', component: AdsSearchComponent },
     { path: 's', component: AdsSearchComponent },
     { path: 's/:slug', component: AdsSearchComponent },
+    { path: 'rooms/:id', component: AdsDetailsComponent },
     { path: 'map', component: AdsMapComponent }
 ];
 

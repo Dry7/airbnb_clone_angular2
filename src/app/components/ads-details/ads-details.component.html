@@ -1,0 +1,1151 @@
+<app-top-menu></app-top-menu>
+<main id="site-content" role="main">
+
+  <div>
+    <div class="SlideshowModal__slideshow-preload hide">
+      <img src="https://a2.muscache.com/im/pictures/06e18e4a-80f2-44b8-b35e-08b894d9be1e.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/5c63e979-8618-4653-ac81-b4a6b2dfc676.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/de2a1f64-64f2-4ed9-baa3-a92b9078f218.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/accee053-9850-4157-a9c0-3146f10fe557.jpg?aki_policy=x_large" alt="">
+      <img src="https://a2.muscache.com/im/pictures/8190b507-a74d-44d5-9c84-6b7af599d2ad.jpg?aki_policy=x_large" alt="">
+    </div>
+    <div class="SlideshowModal__slideshow-preload hide">
+      <img src="https://a2.muscache.com/im/pictures/64cb1088-2985-4cbb-920e-b38e5a3c8a67.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/06e18e4a-80f2-44b8-b35e-08b894d9be1e.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/5c63e979-8618-4653-ac81-b4a6b2dfc676.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/de2a1f64-64f2-4ed9-baa3-a92b9078f218.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/accee053-9850-4157-a9c0-3146f10fe557.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/8190b507-a74d-44d5-9c84-6b7af599d2ad.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/285cd6d8-6642-45e1-9670-c9bee4f70582.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/22956868-bd7d-41f8-8ad0-baba8a6cbf9b.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/f55d68b2-34a3-47e5-8cda-65d5dc18b7fe.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/81151cc3-50e7-4039-b18d-86c6c1774451.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/9c894b42-c528-4a4b-85a7-3d444f97cbe8.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/64af64d4-5846-4cd3-ba36-73d6a4a61a8b.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/e533505b-3f25-43e5-9589-9c5984cb6869.jpg?aki_policy=small" alt="">
+      <img src="https://a2.muscache.com/im/pictures/c3ee3dc1-832e-4214-afab-eea033b5e1fa.jpg?aki_policy=small" alt="">
+    </div>
+    <span>
+      <div class="SlideshowModal modal-container" *ngIf="(ad != null) && (showPhotos == true)">
+        <div class="modal-table">
+          <div class="modal-cell">
+            <div class="modal-content">
+              <button type="button" class="SlideshowModal__close btn icon icon-remove" (click)="showPhotos = false"></button>
+                <div class="SlideshowModalContent">
+                  <div class="SlideshowModalContent__body">
+                    <div class="SlideshowModalContent__top">
+                      <div class="SlideshowModalContent__controls">
+                        <div class="SlideshowModalContent__controls-inner clearfix with-bookit-styles">
+                          <div class="SlideshowModalContent__share-save-controls with-bookit-styles">
+                            <div class="SlideshowModalContent__wishlist-button hide-sm-inline-block">
+                              <div class="rich-toggle wish_list_button">
+                                <input type="checkbox" name="wishlist-button" [checked]="isInWishList(ad.id)">
+                                <label for="wishlist-button" class="wishlist-button-label" (click)="toggleWishList(ad.id)">
+                                  <span class="rich-toggle-checked">
+                                    <button class="btn-link btn-link--icon" type="button">
+                                      <span>
+                                        <i class="icon icon-heart icon-rausch"></i>
+                                        <span> </span>
+                                        <span class="link-icon__text">
+                                          <span>Saved to Wish List</span>
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </span>
+                                  <span class="rich-toggle-unchecked">
+                                    <button class="btn-link btn-link--icon" type="button">
+                                      <span>
+                                        <i class="icon icon-heart-alt"></i>
+                                        <span> </span>
+                                        <span class="link-icon__text">
+                                          <span>Save to Wish List</span>
+                                        </span>
+                                      </span>
+                                    </button>
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="SlideshowModalContent__bookit-container hide-sm-inline-block">
+                            <span class="SlideshowModalContent__bookit-price">
+                              <span>{{ ad | price:"withType" }}</span>
+                            </span>
+                            <div class="SlideshowModalContent__bookItButton">
+                              <button type="button" class="btn btn-primary btn-large">
+                                <span>Request to Book</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="SlideshowModalContent__tab">
+                      <span>
+                        <div>
+                          <div class="Slideshow">
+                            <button type="button" class="carousel-chevron right" (click)="nextImage()">
+                              <i class="icon icon-chevron-right icon-size-4 text-contrast"></i>
+                            </button>
+                            <button type="button" class="carousel-chevron left" (click)="prevImage()">
+                              <i class="icon icon-chevron-left icon-size-4 text-contrast"></i>
+                            </button>
+                            <div class="Slideshow__constrain">
+                              <div class="Slideshow__intrinsic-outer">
+                                <div class="Slideshow__intrinsic-inner">
+                                  <ul class="Slideshow__images">
+                                    <li class="media-photo media-photo-block text-center active">
+                                      <div class="media-cover text-center">
+                                        <span>
+                                          <img [src]="ad.images[current_image].url" alt="">
+                                        </span>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                  <div class="Slideshow__preload hide">
+                                    <img [src]="image.url" alt="" *ngFor="let image of ad.images">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <figcaption class="SlideshowModalContent__footer media-caption text-center">
+                            <div class="SlideshowNav space-4">
+                              <div class="SlideshowNav__inner">
+                                <div class="space-2 clearfix">
+                                  <div class="SlideshowNav__caption-left">
+                                    <div class="text-left">
+                                      <span>{{current_image+1}}/{{ad.images.length}}: {{ ad.images[current_image].title }}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="SlideshowNav__thumbnails-viewport">
+                                  <div class="SlideshowNav__thumbnails-viewport-inner">
+                                    <ul class="SlideshowNav__thumbnails-slide-panel" style="left:0;" [style.transform]="'translateX(' + photoTransform + 'px)'">
+                                      <li class="pull-left" *ngFor="let image of ad.images; let index = index" (click)="setImage(index)">
+                                        <div class="media-photo media-slideshow active">
+                                          <img [src]="image.url" height="67">
+                                        </div>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </figcaption>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </span>
+  </div>
+
+
+
+
+
+
+  <div class="subnav-container">
+    <div class="subnav book-it show-md" data-sticky="true"
+         data-transition-at="#details" aria-hidden="true">
+      <div class="page-container-responsive">
+        <div class="pull-left text-contrast subnav-element">
+          <div class="va-container va-container-v">
+            <div class="va-middle">
+              <strong>
+                <div data-hypernova-key="p3listing_pricebundlejs"><div data-reactid=".qw88nlkg74" data-react-checksum="-1151892127"><span class="h3 text-contrast price-amount" data-reactid=".qw88nlkg74.0"><span data-reactid=".qw88nlkg74.0.0">2102₽</span></span><span class="listing-price__per-night hide-sm" data-reactid=".qw88nlkg74.1"><span data-reactid=".qw88nlkg74.1.0">Gecelik</span></span></div></div>
+              </strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="tablet-bookit-btn-container js-bookit-btn-container pull-right">
+          <button type="submit"
+                  class="btn btn-primary btn-large"
+                  id="sticky-md-book-it-btn">
+          <span class="book-it__btn-text">
+            Request to Book
+          </span>
+            <span class="book-it__btn-text--contact-host">
+            Contact Host
+          </span>
+            <span class="book-it__btn-text--instant">
+            <i class="icon icon-bolt icon-beach h4"></i>
+            Instant Book
+          </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div data-sticky="true" data-transition-at="#summary" aria-hidden="true"
+         class="subnav section-titles hide-md">
+      <div class="page-container-responsive">
+        <ul class="subnav-list">
+          <li>
+            <a href="#photos" aria-selected="true" class="subnav-item">
+              Photos
+            </a>
+          </li>
+          <li>
+            <a href="#summary" class="subnav-item">
+              About this listing
+            </a>
+          </li>
+          <li>
+            <a href="#reviews" class="subnav-item">
+              Reviews
+            </a>
+          </li>
+          <li>
+            <a href="#host-profile" class="subnav-item">
+              The Host
+            </a>
+          </li>
+          <li>
+            <a href="#neighborhood" class="subnav-item">
+              Location
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="og_pro_photo_prompt" class="container"></div>
+
+  <div id="room" itemscope itemtype="http://schema.org/Product">
+    <div *ngIf="ad != null">
+      <div>
+        <div id="photos" class="with-photos with-modal">
+          <span class="cover-photo">
+            <span class="cover-img-container" (click)="showPhotos = true">
+              <div class="cover-img" [style.backgroundImage]="'url(' + ( ad.images[0].url | largePhoto ) + ')'">
+                <div class="link-reset panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label show-sm">
+                  <div>
+                    <span class="h3 text-contrast price-amount">
+                      <span>{{ ad | price }}</span>
+                    </span>
+                    <span class="listing-price__per-night hide-sm">
+                      <span>Per Night</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </span>
+            <div class="hero__view-photos">
+              <button type="button" class="btn" (click)="showPhotos = true">
+                <span>View Photos</span>
+              </button>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div id="summary" class="panel room-section " *ngIf="ad != null">
+      <div class="page-container-responsive">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-sm-12">
+                <style data-aphrodite></style>
+                <div data-hypernova-key="p3summarybundlejs">
+                  <div class="summary-component">
+                    <div class="space-4 space-top-4">
+                      <div class="row">
+                        <div class="col-md-3 space-sm-4 text-center space-sm-2">
+                          <div class="media-photo-badge">
+                            <a href="#host-profile" rel="nofollow" class="media-photo media-round">
+                              <img alt="User Profile Image" class="host-profile-image" height="115" width="115" [src]="ad.author.image" [title]="ad.author.name" />
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                          <h1 itemprop="name" class="overflow h3 space-1 text-center-sm" id="listing_name">{{ ad.name }}</h1>
+                          <div id="display-address" class="space-2 text-muted text-center-sm">
+                            {{ ad.city }}
+                            <span>   </span>
+                            <a href="#reviews" class="link-reset show-inline-block hide-sm invisible">
+                              <div class="star-rating-wrapper">
+                                <div class="star-rating" itemprop="ratingValue" [attr.content]="ad.rating">
+                                  <div class="foreground">
+                                    <span>
+                                      <span>
+                                        <i class="icon-star icon icon-beach star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-beach star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-beach star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-beach star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-beach star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                    </span>
+                                  </div>
+                                  <div class="background">
+                                    <span>
+                                      <span>
+                                        <i class="icon-star icon icon-light-gray star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-light-gray star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-light-gray star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-light-gray star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                      <span>
+                                        <i class="icon-star icon icon-light-gray star-rating-icons"></i>
+                                        <span> </span>
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                                <span> </span>
+                                <span class="h6">
+                                  <small>
+                                    <span>
+                                      <span>{{ ad.reviews }}</span><span itemprop="reviewCount" [attr.content]="ad.reviews"></span>
+                                    </span>
+                                  </small>
+                                </span>
+                              </div>
+                            </a>
+                          </div>
+                          <div class="row row-condensed text-muted text-center">
+                            <div class="col-sm-3">
+                              <i [class]="'icon icon-' + ( ad.type | roomTypeClass ) + ' icon-size-2'"></i>
+                            </div>
+                            <div class="col-sm-3">
+                              <i class="icon icon-group icon-size-2"></i>
+                            </div>
+                            <div class="col-sm-3">
+                              <i class="icon icon-rooms icon-size-2"></i>
+                            </div>
+                            <div class="col-sm-3">
+                              <i class="icon icon-double-bed icon-size-2"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3 text-muted text-center hide-sm">
+                          <a href="#host-profile" class="link-reset text-wrap">{{ ad.author.name }}</a>
+                        </div>
+                        <div class="col-md-9">
+                          <div class="row row-condensed text-muted text-center">
+                            <div class="col-sm-3">{{ ad.type | roomType }}</div>
+                            <div class="col-sm-3">{{ ad.guests }} Guests</div>
+                            <div class="col-sm-3">{{ ad.bedrooms }} Bedroom</div>
+                            <div class="col-sm-3">{{ ad.beds }} Beds</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+
+            <div class="book-it js-book-it">
+              <div class="book-it__container js-book-it-container">
+
+                <div>
+                  <div>
+                    <div>
+                      <div class="book-it__price">
+                        <div class="row">
+                          <div class="col-sm-8">
+                            <div class="book-it__price-amount text-special">
+                              <span id="book-it-price-string">
+                                <span class="h3">
+                                  <span>{{ ad | price }}</span>
+                                </span>
+                              </span>
+                              <span *ngIf="ad.is_instant_book">
+                                <i class="icon icon-instant-book icon-beach h4 book-it__instant-book-price-icon"></i>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                            <div class="book-it__payment-period-container pull-right">
+                              <div class="book-it__payment-period" id="book-it-rate-type">
+                                <span>{{ 'Per Night'|translate }}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="panel book-it-panel">
+                          <div class="panel-body panel-light">
+                            <div class="row row-condensed space-3">
+                              <div class="col-md-9">
+                                <div class="row row-condensed">
+                                  <div class="col-sm-6">
+                                    <label class="book-it__label">{{ 'Check In'|translate }}</label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'" [(ngModel)]="booking.start"></datepicker>
+                                    <span class="screen-reader-only" id="datespan-checkin-description">{{ 'Enter your check in date in the format mm/dd/yyyy'|translate }}</span>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <label class="book-it__label">{{ 'Check Out'|translate }}</label>
+                                    <datepicker [expanded]="true" [viewFormat]="'MM/DD/YYYY'" [(ngModel)]="booking.end"></datepicker>
+                                  </div>
+                                  <span class="screen-reader-only" id="datespan-checkout-description">{{ 'Enter your check out date in the format mm/dd/yyyy'|translate }}</span>
+                                </div>
+                              </div>
+                              <div class="col-md-3">
+                                <div>
+                                  <label for="number_of_guests_7771418" class="book-it__label">
+                                    <span>{{ 'Guests'|translate }}</span>
+                                  </label>
+                                  <div class="select select-block">
+                                    <select id="number_of_guests_7771418" name="number_of_guests">
+                                      <option selected="" value="1">1</option>
+                                      <option value="2">2</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="book-it__subtotal">
+                              <div>
+                                <table class="table">
+                                  <caption class="screen-reader-only">
+                                    <span>{{ 'Price breakdown'|translate }}</span>
+                                  </caption>
+                                  <thead>
+                                  <tr>
+                                    <th scope="col" class="hide-border-top hide-padding">
+                                      <span class="screen-reader-only">
+                                        <span>{{ 'Price description'|translate }}</span>
+                                      </span>
+                                    </th>
+                                    <th scope="col" class="hide-border-top hide-padding">
+                                      <span class="screen-reader-only">
+                                        <span>{{ 'Amount'|translate }}</span>
+                                      </span>
+                                    </th>
+                                  </tr>
+                                  </thead>
+                                  <tbody>
+                                  <tr class="price-item">
+                                    <th class="price-item__header hide-border-top">
+                                      <span>{{ ad.price }}₽ x {{ bookingNights }} nights</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price hide-border-top">
+                                      <div>
+                                        <span>{{ ad.price*bookingNights | priceFormat }}</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="weekDiscount">
+                                    <th class="price-item__header">
+                                      <span>{{ ad.week_discount + '% weekly price discount'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div class="text-lima">
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.week_discount | priceFormat }}</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="monthDiscount">
+                                    <th class="price-item__header">
+                                      <span>{{ ad.month_discount + '% monthly price discount'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div class="text-lima">
+                                        <span>-{{ ad | priceDiscount:bookingNights:ad.month_discount | priceFormat }}</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="ad.cleaning_fee > 0">
+                                    <th class="price-item__header">
+                                      <span>{{ 'Cleaning fee'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div>
+                                        <span>{{ ad.cleaning_fee | priceFormat }}</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr class="price-item" *ngIf="ad.service_fee > 0">
+                                    <th class="price-item__header">
+                                      <span>{{ 'Service fee'|translate }}</span>
+                                      <span>&nbsp;</span>
+                                      <span>
+                                        <span>
+                                          <i class="icon icon-question"></i>
+                                        </span>
+                                      </span>
+                                    </th>
+                                    <td class="text-right price-item__price">
+                                      <div>
+                                        <span>{{ ad.service_fee*bookingNights | priceFormat }}</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th class="price-item__header">
+                                      <span>{{ 'Total'|translate }}</span>
+                                    </th>
+                                    <td class="text-right">
+                                      <span>{{ total | priceFormat }}</span></td>
+                                  </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <div class="">
+                              <button type="submit" class="btn btn-primary btn-large btn-block">
+                                <span>{{ 'Book'|translate }}</span>
+                              </button>
+                              <div class="bookit-message__container text-center text-muted">
+                                <small>
+                                  <span>{{ 'You won’t be charged yet'|translate }}</span>
+                                </small>
+                              </div>
+                            </div>
+                            <div class="hide">
+                              <button type="button" class="btn btn-primary btn-large btn-small btn-block">
+                                <span>{{ 'Contact host'|translate }}</span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel wishlist-panel space-top-6 space-md-3 hide-sm">
+                  <div class="panel-body panel-light">
+                    <div class="wishlist-wrapper hide-sm">
+                      <div class="rich-toggle wish_list_button">
+                        <input type="checkbox" name="wishlist-button" id="wishlist-button" [checked]="isInWishList(ad.id)">
+                        <label for="wishlist-button" class="btn btn-block btn-large wishlist-button-label" (click)="toggleWishList(ad.id)">
+                          <span class="rich-toggle-checked">
+                            <i class="icon icon-heart icon-rausch"></i>
+                            <span class="wishlist-button--control wishlist-button--detailed">
+                              {{ 'Saved to Wish List'|translate }}
+                            </span>
+                          </span>
+                          <span class="rich-toggle-unchecked">
+                            <i class="icon icon-heart-alt icon-light-gray"></i>
+                            <span class="wishlist-button--control wishlist-button--detailed">
+                              {{ 'Save to Wish List'|translate }}
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile-bookit-btn-container js-bookit-btn-container panel-btn-sm panel-btn-fixed-sm hide hide-md hide-lg">
+              <button class="btn btn-primary btn-block btn-large js-book-it-sm-trigger">
+                <span class="book-it__btn-text">
+                  {{ 'Request to Book'|translate }}
+                </span>
+                <span class="book-it__btn-text--contact-host">{{ 'Contact Host'|translate }}</span>
+                <span class="book-it__btn-text--instant">
+                  <i class="icon icon-bolt icon-beach h4"></i>
+                  {{ 'Instant Book'|translate }}
+                </span>
+              </button>
+            </div>
+
+            <span class="tooltip tooltip-top-middle"><div class="js-monthly-breakdown"></div></span>
+
+            <span id="cleaning-fee-tip">
+              <p class="panel-body">
+                {{ 'One-time fee charged by host to cover the cost of cleaning their space'|translate }}
+              </p>
+            </span>
+
+            <span id="service-fee-tip">
+              <p class="panel-body fee-no-vat-tooltip">
+                {{ 'This helps us run our platform and offer services like 24/7 support on your trip.'|translate }}
+              </p>
+              <p class="panel-body hide fee-vat-tooltip">
+                {{ 'This helps us run our platform and offer services like 24/7 support on your trip. It includes VAT.'|translate }}
+              </p>
+            </span>
+
+            <div id="tax-descriptions-tip" class="tooltip tooltip-top-middle"></div>
+
+            <div class="modal" role="dialog" aria-hidden="true" id="book-it-sm-modal">
+              <div class="modal-table">
+                <div class="modal-cell">
+                  <div class="modal-content">
+                    <div class="panel-header">
+                      <a href="#" class="modal-close" data-behavior="modal-close">
+                        &times;
+                        <span class="screen-reader-only">{{ 'Close'|translate }}</span>
+                      </a>
+                      {{ 'Request to Book'|translate }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="ad != null">
+      <div>
+        <div id="details" class="details-section webkit-render-fix">
+          <div class="page-container-responsive">
+            <div class="row">
+              <div class="col-lg-8 js-details-column">
+                <div class="space-top-8 space-8">
+                  <h4 class="space-4 text-center-sm">
+                    <span>{{ 'About this listing'|translate }}</span>
+                  </h4>
+                  <div>
+                    <p>
+                      <span>{{ ad.about }}</span>
+                    </p>
+                  </div>
+                  <div class="row row-condensed">
+                    <div class="contact-host-div col-12">
+                      <div>
+                        <button class="btn-link btn-link--bold" type="button">
+                          <span>{{ 'Contact host'|translate }}</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-3 text-muted">
+                      <div>
+                        <span>{{ 'The space'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div>
+                            <span>{{ 'Accommodates'|translate }}:</span>
+                            <span> </span>
+                            <strong>{{ ad.accommodates }}</strong>
+                          </div>
+                          <div>
+                            <span>{{ 'Bathrooms'|translate }}:</span>
+                            <span> </span>
+                            <strong>{{ ad.bathrooms }}</strong>
+                          </div>
+                          <div>
+                            <span>{{ 'Bedrooms'|translate }}:</span>
+                            <span> </span>
+                            <strong>{{ ad.bedrooms }}</strong>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div>
+                            <span>{{ 'Beds'|translate }}:</span>
+                            <span> </span>
+                            <strong>{{ ad.beds }}</strong>
+                          </div>
+                          <div>
+                              <span>{{ 'Property type'|translate }}:</span>
+                              <span> </span>
+                              <strong>{{ ad.house_type | houseType }}</strong>
+                          </div>
+                          <div>
+                            <span>{{ 'Room type'|translate }}:</span>
+                            <span> </span>
+                            <strong>{{ ad.type | roomType }}</strong>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <strong>
+                            <a fragment="house-rules" class="react-house-rules-trigger">
+                              <span>{{ 'House Rules'|translate }}</span>
+                            </a>
+                          </strong>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row amenities" *ngIf="amenities.length > 0">
+                    <div class="col-md-3 text-muted">
+                      <div>
+                        <span>{{ 'Amenities'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9 expandable">
+                      <div class="expandable-content-summary">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div *ngFor="let amenity of currentAmenities|arrayLeft">
+                              <div class="space-1" *ngIf="inAmenities(amenity)">
+                                <span>
+                                  <i [class]="'icon h3 ' + (amenity.icon ? 'icon-' + amenity.icon : '')"></i>
+                                  <span>   </span>
+                                </span>
+                                <span>
+                                  <span>{{ amenity.name }}</span>
+                                </span>
+                              </div>
+                              <div class="space-1 text-muted" *ngIf="!inAmenities(amenity)">
+                                <del>{{ amenity.name }}</del>
+                              </div>
+                            </div>
+                            <button class="expandable-trigger-more btn-link btn-link--bold" type="button" *ngIf="this.showAmenities == false" (click)="this.showAmenities = true">
+                              <span>{{ '+ More'|translate }}</span>
+                            </button>
+                          </div>
+                          <div class="col-sm-6">
+                            <div *ngFor="let amenity of currentAmenities|arrayRight">
+                              <div class="space-1" *ngIf="inAmenities(amenity)">
+                                <span>
+                                  <i [class]="'icon h3 ' + (amenity.icon ? 'icon-' + amenity.icon : '')"></i>
+                                  <span>   </span>
+                                </span>
+                                <span>
+                                  <span>{{ amenity.name }}</span>
+                                </span>
+                              </div>
+                              <div class="space-1 text-muted" *ngIf="!inAmenities(amenity)">
+                                <del>{{ amenity.name }}</del>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-3 text-muted">
+                      <div>
+                        <span>{{ 'Prices'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div>
+                              <span>{{ 'Extra people'|translate }}:</span>
+                              <span> </span>
+                              <strong>{{ ad.extra_people }}</strong>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div>
+                              <span>{{ 'Cancellation'|translate }}:</span>
+                              <span> </span>
+                              <a href="{{ cancellationUrl }}" id="cancellation-policy">
+                                <strong>{{ cancellation }}</strong>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row description" id="description">
+                    <div class="col-md-3 text-muted">
+                      <div>
+                        <span>{{ 'Description'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div>
+                        <div>
+                          <div class="react-expandable" [class.expanded]="showFullDescription">
+                            <div class="expandable-content expandable-content-long">
+                              <div [innerHTML]="ad.description"></div>
+                              <div class="expandable-indicator"></div>
+                            </div>
+                            <span class="react-expandable-trigger-more">
+                              <button class="btn-link btn-link--bold" type="button" (click)="showFullDescription = true">
+                                <span>{{ '+ More'|translate }}</span></button>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row react-house-rules" id="house-rules">
+                    <div class="col-md-3">
+                      <div class="text-muted">
+                        <span>{{ 'House Rules'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div>
+                        <div class="react-expandable" [class.expanded]="showFullHouseRules">
+                          <div class="expandable-content">
+                            <div>
+                              <div [innerHTML]="ad.house_rules"></div>
+                            </div>
+                            <div class="expandable-indicator"></div>
+                          </div>
+                          <span class="react-expandable-trigger-more">
+                            <button class="btn-link btn-link--bold" type="button" (click)="showFullHouseRules = true">
+                              <span>{{ '+ More'|translate }}</span>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-3 text-muted">
+                      <div>
+                        <span>{{ 'Availability'|translate }}</span>
+                      </div>
+                    </div>
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <strong>{{ ad.minimum_stay }} night</strong> minimum stay
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="reviews" class="webkit-render-fix">
+          <div class="panel">
+            <div class="page-container-responsive space-2">
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="review-wrapper">
+                    <div>
+                      <div class="row space-2 space-top-8 row-table">
+                        <div class="review-header col-md-12">
+                          <div class="va-container va-container-v va-container-h">
+                            <div class="va-bottom review-header-text">
+                              <h4 class="col-middle text-center-sm">
+                                <span>{{ ad.reviews }} Reviews</span>
+                                <div style="display:inline-block;">
+                                  <app-star [star]="ad.ratings.summary"></app-star>
+                                </div>
+                              </h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <hr />
+                      </div>
+                    </div>
+                    <div class="review-main">
+                      <div class="review-inner space-top-2 space-2">
+                        <div class="row">
+                          <div class="col-lg-3 show-lg">
+                            <div class="text-muted">
+                              <span>Summary</span>
+                            </div>
+                          </div>
+                          <div class="col-lg-9">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div>
+                                  <strong>Accuracy</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.accuracy"></app-star>
+                                  </div>
+                                </div>
+                                <div>
+                                  <strong>Communication</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.communication"></app-star>
+                                  </div>
+                                </div>
+                                <div>
+                                  <strong>Cleanliness</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.cleanliness"></app-star>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6">
+                                <div>
+                                  <strong>Location</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.location"></app-star>
+                                  </div>
+                                </div>
+                                <div>
+                                  <strong>Check In</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.check_in"></app-star>
+                                  </div>
+                                </div>
+                                <div>
+                                  <strong>Value</strong>
+                                  <div class="pull-right">
+                                    <app-star [star]="ad.ratings.value"></app-star>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="review-content" *ngIf="(ad != null) && (reviews.length > 0)">
+                        <div>
+                          <div>
+                            <div class="row review" *ngFor="let review of reviews; let index = index">
+                              <div class="space-2">
+                                <div class="col-12">
+                                  <div class="pull-left">
+                                    <div class="show-inline-block">
+                                      <div class="show-inline-block va-middle space-top-2 space-2">
+                                        <div class="media-photo-badge">
+                                          <a href="{{ review.author.url }}" rel="nofollow" class="media-photo media-round"><img
+                                                                        alt="User Profile Image" height="48" width="48"
+                                                                        data-pin-nopin="true"
+                                                                        [src]="review.author.image"
+                                                                        [title]="review.author.name"></a>
+                                        </div>
+                                      </div>
+                                      <div class="show-inline-block va-middle">
+                                        <div style="margin-left:16px;">
+                                          <div class="name">
+                                            <a href="{{ review.author.url }}" class="text-muted link-reset" target="_blank" rel="nofollow">
+                                              <p class="text_1lobov3-o_O-size_regular_1n7tijc">
+                                                <span>{{ review.author.name }}</span>
+                                              </p>
+                                            </a>
+                                          </div>
+                                          <div class="date">
+                                            <p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu">
+                                              <span>{{ review.created_at | registrationDate }}</span>
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="space-2">
+                                <div class="col-sm-12">
+                                  <div class="space-2">
+                                    <div class="review-text space-top-2 space-2">
+                                      <div class="react-expandable expanded">
+                                        <div class="expandable-content">
+                                          <p class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu">
+                                            <span>{{ review.review }}</span>
+                                          </p>
+                                          <div class="expandable-indicator"></div>
+                                        </div>
+                                        <span class="react-expandable-trigger-more text-muted">
+                                          <span class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu-o_O-inline_10f0ge3">
+                                            <button class="component_mbfsxg-o_O-component_button_r21s1q" type="button">
+                                              <span>+ More</span>
+                                            </button>
+                                          </span>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div style="margin-top:8px;margin-left:16px;" *ngIf="review.answer != null">
+                                    <div class="media space-2">
+                                      <div class="pull-left">
+                                        <div class="media-photo-badge">
+                                          <a href="{{ ad.author.url }}" rel="nofollow" class="media-photo media-round">
+                                            <img alt="User Profile Image" height="40" width="40" [src]="ad.author.image" [title]="ad.author.name">
+                                          </a>
+                                        </div>
+                                      </div>
+                                      <div class="media-body">
+                                        <p class="text_1lobov3-o_O-size_regular_1n7tijc">
+                                          <span>Response from {{ ad.author.name }}:</span>
+                                        </p>
+                                        <p class="text_1lobov3-o_O-size_regular_1n7tijc-o_O-weight_light_1s4oduu">
+                                          <span>{{ review.answer }}</span>
+                                        </p>
+                                        <div class="space-top-2">
+                                          <div class="date">
+                                            <p class="text_1lobov3-o_O-size_small_h25x8d-o_O-weight_light_1s4oduu-o_O-color_mutedLarge_1v78oro">
+                                              <span>{{ review.answer_created_at | registrationDate }}</span>
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12" *ngIf="index < reviews.length-1">
+                                <hr>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="host-profile" class="webkit-render-fix" *ngIf="ad.author != null">
+          <div class="page-container-responsive space-top-8 space-8">
+            <div class="row">
+              <div class="col-lg-8">
+                <div>
+                  <h4 class="space-2 text-center-sm">
+                    <span>Your Host</span>
+                  </h4>
+                  <hr class="space-4 space-top-2" />
+                </div>
+                <div class="row">
+                  <div class="col-md-3 text-center">
+                    <div class="media-photo-badge">
+                      <a [href]="ad.author.url" rel="nofollow" class="media-photo media-round"><img [alt]="ad.author.image" class="media-photo media-round" height="90" width="90" data-pin-nopin="true" [src]="ad.author.image" [title]="ad.author.name" /></a>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <h3 class="space-1">
+                      <a class="link-reset" [href]="ad.author.url" rel="nofollow">{{ ad.author.name }}</a>
+                    </h3>
+                    <div class="row row-condensed space-2">
+                      <div class="col-md-12 text-muted">
+                        <span>{{ ad.author.country | countryCode }}</span>
+                        <span> · </span>
+                        <span>Member since {{ ad.author.created_at | registrationDate }}</span>
+                      </div>
+                    </div>
+                    <div class="row row-condensed space-2">
+                      <div class="col-md-6">
+                        <span *ngIf="ad.author.response_rate > 0">
+                          <span>Response rate:</span>
+                          <span> </span>
+                          <strong>{{ ad.author.response_rate }}%</strong>
+                        </span>
+                        <div *ngIf="ad.author.response_time != null">
+                          <span>Response time:</span>
+                          <span> </span>
+                          <strong>{{ ad.author.response_time | responseTime }}</strong>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-top-3">
+                      <div class="badge-container space-4" *ngIf="ad.author.reviews > 0">
+                        <a class="link-reset" rel="nofollow" [href]="ad.author.url + '#reviews'">
+                          <div class="text-center text-wrap">
+                            <div class="badge-pill h3">
+                              <span class="badge-pill-count">{{ ad.author.reviews }}</span>
+                            </div>
+                            <br class="show-sm" />
+                            <div class="va-middle show-inline-block">
+                              <span class="badge-pill-label">Reviews</span>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="badge-container space-4" *ngIf="ad.author.verified">
+                        <div>
+                          <a class="link-reset" rel="nofollow">
+                            <div class="text-center text-wrap" id="verified-id-icon">
+                              <img alt="Verified" src="https://a1.muscache.com/airbnb/static/badges/verified_badge-6ee370f5ca86a52ed6198fac858ac1f4.png" width="32" height="32">
+                              <br class="show-sm" />
+                              <div class="va-middle show-inline-block">
+                                <span class="badge-pill-label">Verified</span>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-primary btn-small"><span>Contact host</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="js-business-details"></div>
+
+    <div id="neighborhood" class="room-section"></div>
+
+    <div id="similar-listings"></div>
+  </div>
+
+
+
+
+
+</main>
+<app-bottom-menu></app-bottom-menu>

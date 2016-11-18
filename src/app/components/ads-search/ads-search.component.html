@@ -155,6 +155,7 @@
                                             Minimum number of bedrooms
                                         </label>
                                         <select [(ngModel)]="active.bedrooms" class="min-bedrooms" id="map-search-min-bedrooms">
+                                            <option value="-1">Bedrooms</option>
                                             <option *ngFor="let bedroom of filter.bedrooms" [value]="bedroom.value">{{ bedroom.name }}</option>
                                         </select>
                                     </div>
@@ -166,6 +167,7 @@
                                             Minimum number of bathrooms
                                         </label>
                                         <select [(ngModel)]="active.bathrooms" class="min-bathrooms input-medium" id="map-search-min-bathrooms">
+                                            <option value="-1">Bathrooms</option>
                                             <option *ngFor="let bathroom of filter.bathrooms" [value]="bathroom.value">{{ bathroom.name }}</option>
                                         </select>
                                     </div>
@@ -177,6 +179,7 @@
                                             Minimum number of beds
                                         </label>
                                         <select [(ngModel)]="active.beds" class="min-beds input-medium" id="map-search-min-beds">
+                                            <option value="-1">Beds</option>
                                             <option *ngFor="let bed of filter.beds" [value]="bed.value">{{ bed.name }}</option>
                                         </select>
                                     </div>
@@ -270,28 +273,28 @@
 
                     <div class="col-lg-9 col-md-11">
                         <div class="row row-condensed filters-columns">
-                            <div *ngFor="let amentitie of filter.amentities|slice:0:3" class="col-md-4">
-                                <label class="media checkbox facet-checkbox" [title]="amentitie.name">
+                            <div *ngFor="let amenity of filter.amenities|slice:0:3" class="col-md-4">
+                                <label class="media checkbox facet-checkbox" [title]="amenity.name">
                                     <div>
-                                        <input type="checkbox" name="amenities" [value]="isChecked('amenities', amentitie.value)" (change)="changeFilter($event, 'amenities', amentitie.value)">
+                                        <input type="checkbox" name="amenities" [value]="isChecked('amenities', amenity.id)" (change)="changeFilter($event, 'amenities', amenity.id)">
                                     </div>
                                     <div>
-                                        <span>{{ amentitie.name }}</span>
+                                        <span>{{ amenity.name }}</span>
                                     </div>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="filters-more collapse" [class.collapse]="!showFilterAmentities">
+                        <div class="filters-more collapse" [class.collapse]="!showFilterAmenities">
                             <hr>
                             <div class="row row-condensed filters-columns">
-                                <div *ngFor="let amentitie of filter.amentities|slice:3" class="col-md-4">
-                                    <label class="media checkbox facet-checkbox" [title]="amentitie.name">
+                                <div *ngFor="let amenity of filter.amenities|slice:3" class="col-md-4">
+                                    <label class="media checkbox facet-checkbox" [title]="amenity.name">
                                         <div>
-                                            <input type="checkbox" name="amenities" [value]="isChecked('amenities', amentitie.value)" (change)="changeFilter($event, 'amenities', amentitie.value)">
+                                            <input type="checkbox" name="amenities" [value]="isChecked('amenities', amenity.id)" (change)="changeFilter($event, 'amenities', amenity.id)">
                                         </div>
                                         <div>
-                                            <span>{{ amentitie.name }}</span>
+                                            <span>{{ amenity.name }}</span>
                                         </div>
                                     </label>
                                 </div>
@@ -300,9 +303,9 @@
                     </div>
 
                     <div class="col-md-1">
-                        <label class="show-more" (click)="showFilterAmentities = !showFilterAmentities">
+                        <label class="show-more" (click)="showFilterAmenities = !showFilterAmenities">
                             <span>
-                              <i class="icon hide-sm" [class.icon-caret-down]="!showFilterAmentities" [class.icon-caret-up]="showFilterAmentities"></i>
+                              <i class="icon hide-sm" [class.icon-caret-down]="!showFilterAmenities" [class.icon-caret-up]="showFilterAmenities"></i>
                               <strong class="text-muted show-sm">+ More</strong>
                             </span>
                         </label>
@@ -321,7 +324,7 @@
                                 <div *ngFor="let language of filter.languages|slice:0:3" class="col-md-4">
                                     <label class="media checkbox facet-checkbox" [title]="language.name">
                                         <div>
-                                            <input type="checkbox" name="languages" [value]="isChecked('languages', language.value)" (change)="changeFilter($event, 'languages', language.value)" class="pull-left">
+                                            <input type="checkbox" name="languages" [value]="isChecked('languages', language.id)" (change)="changeFilter($event, 'languages', language.id)" class="pull-left">
                                         </div>
                                         <div>
                                             <span>{{ language.name }}</span>
@@ -336,7 +339,7 @@
                                     <div *ngFor="let language of filter.languages|slice:3" class="col-md-4">
                                         <label class="media checkbox facet-checkbox" [title]="language.name">
                                             <div>
-                                                <input type="checkbox" name="languages" [value]="isChecked('languages', language.value)" (change)="changeFilter($event, 'languages', language.value)" class="pull-left">
+                                                <input type="checkbox" name="languages" [value]="isChecked('languages', language.id)" (change)="changeFilter($event, 'languages', language.id)" class="pull-left">
                                             </div>
                                             <div>
                                                 <span>{{ language.name }}</span>
@@ -467,7 +470,6 @@
                             <div aria-live="polite" class="search-results">
                                 <div></div>
                                 <div></div>
-                                {{ diagnostic }}
                                 <div class="outer-listings-container space-2" [class.loading]="loading">
                                     <div class="listings-container">
                 <div class="row">
@@ -547,7 +549,12 @@
                                                     <span> · </span>
                                                     <span>{{ ad.guests }} guests</span>
                                                 </span>
-                                                <app-star [star]="ad.rating"></app-star>
+                                                <span *ngIf="ad.rating >= 0.5">
+                                                    <span> · </span>
+                                                    <small>
+                                                        <app-star [star]="ad.rating"></app-star>
+                                                    </small>
+                                                </span>
                                                 <span *ngIf="ad.reviews > 0">
                                                     <span> · </span>
                                                     <span>{{ ad.reviews }} review</span>

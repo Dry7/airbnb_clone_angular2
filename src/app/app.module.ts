@@ -35,6 +35,22 @@ import { LocalStorageService } from "angular2-localstorage/LocalStorageEmitter"
 import {AgmCoreModule, MarkerManager} from "angular2-google-maps/core";
 import {Ng2SliderComponent} from "ng2-slider-component/ng2-slider.component";
 import {Ng2SliderModule} from "ng2-slider-component/ng2-slider.module";
+import { AdsDetailsComponent } from './components/ads-details/ads-details.component';
+import {AmenitiesService} from "./services/amenities.service";
+import {LanguagesService} from "./services/languages.service";
+import { RoomTypeClassPipe } from './pipes/room-type-class.pipe';
+import { HouseTypePipe } from './pipes/house-type.pipe';
+import {HouseTypeService} from "./services/house-type.service";
+import { ArrayLeftPipe } from './pipes/array-left.pipe';
+import { ArrayRightPipe } from './pipes/array-right.pipe';
+import { CountryCodePipe } from './pipes/country-code.pipe';
+import { RegistrationDatePipe } from './pipes/registration-date.pipe';
+import { ResponseTimePipe } from './pipes/response-time.pipe';
+import { PricePipe } from './pipes/price.pipe';
+import { LargePhotoPipe } from './pipes/large-photo.pipe';
+import { PriceDiscountPipe } from './pipes/price-discount.pipe';
+import { PriceFormatPipe } from './pipes/price-format.pipe';
+import {ReviewsService} from "./services/reviews.service";
 
 
 @NgModule({
@@ -60,7 +76,19 @@ import {Ng2SliderModule} from "ng2-slider-component/ng2-slider.module";
     AdsSearchComponent,
     StarComponent,
     RoomTypePipe,
-    AdsMapComponent
+    AdsMapComponent,
+    AdsDetailsComponent,
+    RoomTypeClassPipe,
+    HouseTypePipe,
+    ArrayLeftPipe,
+    ArrayRightPipe,
+    CountryCodePipe,
+    RegistrationDatePipe,
+    ResponseTimePipe,
+    PricePipe,
+    LargePhotoPipe,
+    PriceDiscountPipe,
+    PriceFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -79,7 +107,11 @@ import {Ng2SliderModule} from "ng2-slider-component/ng2-slider.module";
     HelpService,
     MapService,
     AdsService,
+    AmenitiesService,
+    LanguagesService,
+    HouseTypeService,
     WishListService,
+    ReviewsService,
     MarkerManager,
     LocalStorageService
   ],

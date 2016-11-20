@@ -11,6 +11,7 @@ import {HelpGettingStartedComponent} from "./components/help-getting-started/hel
 import {AdsSearchComponent} from "./components/ads-search/ads-search.component";
 import {AdsMapComponent} from "./components/ads-map/ads-map.component";
 import {AdsDetailsComponent} from "./components/ads-details/ads-details.component";
+import {UsersDetailsComponent} from "./components/users/users-details/users-details.component";
 
 const appRoutes : Routes = [
     { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const appRoutes : Routes = [
     { path: 's', component: AdsSearchComponent },
     { path: 's/:slug', component: AdsSearchComponent },
     { path: 'rooms/:id', component: AdsDetailsComponent },
+    { path: 'users/show/:id', component: UsersDetailsComponent },
     { path: 'map', component: AdsMapComponent }
 ];
 

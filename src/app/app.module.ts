@@ -51,6 +51,8 @@ import { LargePhotoPipe } from './pipes/large-photo.pipe';
 import { PriceDiscountPipe } from './pipes/price-discount.pipe';
 import { PriceFormatPipe } from './pipes/price-format.pipe';
 import {ReviewsService} from "./services/reviews.service";
+import { UsersDetailsComponent } from './components/users/users-details/users-details.component';
+import {UsersService} from "./services/users.service";
 
 
 @NgModule({
@@ -88,7 +90,8 @@ import {ReviewsService} from "./services/reviews.service";
     PricePipe,
     LargePhotoPipe,
     PriceDiscountPipe,
-    PriceFormatPipe
+    PriceFormatPipe,
+    UsersDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -112,6 +115,7 @@ import {ReviewsService} from "./services/reviews.service";
     HouseTypeService,
     WishListService,
     ReviewsService,
+    UsersService,
     MarkerManager,
     LocalStorageService
   ],

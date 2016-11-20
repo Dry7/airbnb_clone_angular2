@@ -1,0 +1,280 @@
+<app-top-menu></app-top-menu>
+<main id="site-content" role="main">
+  <div id="recommendation_container" class="clearfix container"></div>
+  <div class="page-container page-container-responsive space-top-4 space-8" *ngIf="user != null">
+    <div class="row">
+      <div class="col-lg-3 col-md-4 hide-sm">
+        <div id="user" class="space-4">
+          <div>
+            <div class="space-2" id="user-media-container">
+              <div id="slideshow" class="slideshow">
+                <div class="slideshow-preload"></div>
+                <ul class="slideshow-images">
+                  <li class="active media-photo media-photo-block">
+                    <img [alt]="user.name" class="img-responsive" height="225" [src]="user.image" [title]="user.name" width="225" />
+                  </li>
+                  <li class="media-photo media-photo-block"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel space-4">
+          <div class="panel-header">
+            Verified info
+          </div>
+          <div class="panel-body">
+            <ul class="list-unstyled space-3">
+              <li class="row row-table space-2" *ngIf="user.verified">
+                <div class="col-12 col-middle">
+                  Personal info
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+              <li class="row row-table space-2" *ngIf="user.verified_passport">
+                <div class="col-12 col-middle">
+                  Government ID
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+              <li class="row row-table space-2" *ngIf="user.verified_email">
+                <div class="col-12 col-middle">
+                  Email address
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+              <li class="row row-table space-2" *ngIf="user.verified_phone">
+                <div class="col-12 col-middle">
+                  Phone number
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+            </ul>
+
+            <a routerLink="/help/article/1237" >
+              Learn more &raquo;
+            </a>
+          </div>
+        </div>
+
+        <div class="panel space-4">
+          <div class="panel-header">
+            Connected accounts
+          </div>
+          <div class="panel-body">
+            <ul class="list-unstyled space-3">
+              <li class="row row-table space-2" *ngIf="user.facebook">
+                <div class="col-12 col-middle">
+                  Facebook
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+              <li class="row row-table space-2" *ngIf="user.google">
+                <div class="col-12 col-middle">
+                  Google
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+              <li class="row row-table space-2" *ngIf="user.linkedin">
+                <div class="col-12 col-middle">
+                  LinkedIn
+                </div>
+                <div class="col-3 col-middle">
+                  <i class="icon icon-ok h3"></i>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-9 col-md-8 col-sm-12">
+        <div class="row space-4">
+          <div class="col-sm-4 show-sm">
+            <div class="media-photo media-photo-block media-round">
+              <img [alt]="user.name" class="img-responsive" height="225" [src]="user.image" [title]="user.name" width="225" />
+            </div>
+          </div>
+          <div class="col-sm-8 col-md-12 col-lg-12">
+            <h1>
+              {{ 'HEY_USER'|translate:{name: user.name} }}
+            </h1>
+            <div class="h5 space-top-2">
+              {{ user.country }}
+              &middot;
+              <span class="text-normal">
+                {{ 'MEMBER_SINCE'|translate:{created_at: user.created_at | registrationDate} }}
+              </span>
+            </div>
+            <div class="edit_profile_container space-3">
+            </div>
+          </div>
+        </div>
+        <div class="space-top-2" [innerHTML]="user.about"></div>
+
+        <div>
+          <div class="space-6 space-top-2">
+            <div class="badge-container space-top-4" *ngIf="user.is_superhost">
+              <div>
+                <a class="link-reset" rel="nofollow">
+                  <div class="text-center text-wrap" id="superhost-badge-profile">
+                    <img alt="Superhost" src="https://a1.muscache.com/airbnb/static/badges/super_host_50-d63c965cd54f6b2569fbcf19c54f60e7.png" width="28" height="50" />
+                    <br class="show-sm" />
+                    <div class="va-middle show-inline-block">
+                      <span class="badge-pill-label">{{ 'Superhost'|translate }}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="badge-container space-top-4" *ngIf="user.reviews > 0">
+              <a class="link-reset" rel="nofollow" routerLink="user.url">
+                <div class="text-center text-wrap">
+                  <div class="badge-pill h3">
+                    <span class="badge-pill-count">{{ user.reviews }}</span>
+                  </div>
+                  <br class="show-sm" />
+                  <div class="va-middle show-inline-block">
+                    <span class="badge-pill-label">{{ 'Reviews'|translate }}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="badge-container space-top-4" *ngIf="user.verified">
+              <div>
+                <a class="link-reset" rel="nofollow">
+                  <div class="text-center text-wrap" id="verified-id-icon">
+                    <img alt="Verified" src="https://a1.muscache.com/airbnb/static/badges/verified_badge-6ee370f5ca86a52ed6198fac858ac1f4.png" width="32" height="32" />
+                    <br class="show-sm" />
+                    <div class="va-middle show-inline-block">
+                      <span class="badge-pill-label">{{ 'Verified'|translate }}</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social_connections_and_reviews">
+          <div class="reviews row-space-4" id="reviews">
+            <h2>
+              {{ 'Reviews'|translate }}
+              <small>({{ user.reviews }})</small>
+            </h2>
+            <div>
+              <div class="reviews_section as_host" *ngIf="reviews.guests.length > 0">
+                <h4 class="space-4">
+                  {{ 'Reviews From Guests'|translate }}
+                </h4>
+                <div class="reviews">
+                  <span *ngFor="let review of reviews.guests">
+                    <div class="row text-center-sm">
+                      <div class="col-md-2 col-sm-12">
+                        <div class="avatar-wrapper">
+                          <a routerLink="review.author.url" class="text-muted" rel="nofollow">
+                            <div class="media-photo media-round space-1">
+                              <img [alt]="review.author.name" class="lazy" height="68" [src]="review.author.image" [title]="review.author.name" width="68" />
+                            </div>
+                            <div class="text-center profile-name text-wrap">{{ review.author.name }}</div>
+                          </a>
+                          <span class="show-sm">
+                            <span class="text-muted date">{{ review.created_at | registrationDate }}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-10 col-sm-12">
+                        <div class="space-2">
+                          <div class="comment-container expandable expandable-trigger-more space-2">
+                            <div class="expandable-content">
+                              <p [innerHTML]="review.review"></p>
+                              <div class="expandable-indicator"></div>
+                            </div>
+                          </div>
+                          <span class="text-muted date hide-sm pull-left">
+                            <span>
+                              {{ review.created_at | registrationDate }}
+                            </span>
+                          </span>
+                          <span class="listing-name text-center-sm">
+                            <span class="icon icon-home"></span>
+                            <a routerLink="review.ad.url">{{ review.ad.name }}</a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row space-2 line-separation">
+                      <div class="col-10 col-offset-2">
+                        <hr>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+              <div class="reviews_section as_guest space-top-3" *ngIf="reviews.hosts.length > 0">
+                <h4 class="space-4">
+                  {{ 'Reviews From Hosts'|translate }}
+                </h4>
+                <div class="reviews">
+                  <span *ngFor="let review of reviews.hosts">
+                    <div class="row text-center-sm">
+                      <div class="col-md-2 col-sm-12">
+                        <div class="avatar-wrapper">
+                          <a routerLink="review.author.url" class="text-muted" rel="nofollow">
+                            <div class="media-photo media-round space-1">
+                              <img [alt]="review.author.name" class="lazy" height="68" [src]="review.author.image" [title]="review.author.name" width="68" />
+                            </div>
+                            <div class="text-center profile-name text-wrap">{{ review.author.name }}</div>
+                          </a>
+                          <span class="show-sm">
+                            <span class="text-muted date">{{ review.created_at | registrationDate }}</span>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-md-10 col-sm-12">
+                        <div class="space-2">
+                          <div class="comment-container expandable expandable-trigger-more space-2">
+                            <div class="expandable-content">
+                              <p>{{ review.review }}</p>
+                            </div>
+                          </div>
+                          <span class="text-muted date hide-sm pull-left">
+                            <span>{{ review.created_at | registrationDate }}</span>
+                          </span>
+                          <span class="listing-name text-center-sm">
+                            <span class="icon icon-home"></span>
+                            <a routerLink="review.ad.url">{{ review.ad.name }}</a>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row space-2 line-separation">
+                      <div class="col-10 col-offset-2">
+                        <hr>
+                      </div>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<app-bottom-menu></app-bottom-menu>

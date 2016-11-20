@@ -1,8 +1,301 @@
-<div class="row">
-    <div class="col-md-1"><a routerLink="/">{{ 'Logo'|translate }}</a></div>
-    <div class="col-md-7">{{ 'Where to?'|translate }}</div>
-    <div class="col-md-1">{{ 'Become a Host'|translate }}</div>
-    <div class="col-md-1"><a routerLink="/help">{{ 'Help'|translate }}</a></div>
-    <div class="col-md-1">{{ 'Sign Up'|translate }}</div>
-    <div class="col-md-1">{{ 'Log In'|translate }}</div>
+<div id="header" class="airbnb-header new logged_in is_host">
+    <div class="header--sm show-sm clearfix" aria-hidden="true">
+        <a href="#" aria-label="Homepage" data-prevent-default="" class="link-reset burger--sm">
+            <i class="icon icon-airbnb-alt show-login pull-left"></i>
+            <i class="icon icon-chevron-small icon-chevron-down icon-black pull-left"></i>
+            <span class="screen-reader-only">{{ 'Airbnb'|translate }}</span>
+        </a>
+        <div class="title--sm text-center">
+            <button class="btn btn-block search-btn--sm search-modal-trigger " style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                <div id="icon-drawer-search"></div>
+                <span class="search-placeholder--sm">
+            {{ 'Search'|translate }}
+          </span>
+            </button>
+            <a routerLink="/" class="header-belo hide">
+            <span class="screen-reader-only">{{ 'Airbnb'|translate }}</span>
+            </a>
+        </div>
+        <div class="action--sm"></div>
+        <div class="nav-animate-cover"></div>
+        <nav class="nav--sm" role="navigation"></nav>
+        <div class="search-modal-container"></div>
+    </div>
+
+    <header class="regular-header clearfix hide-sm" id="new-header" role="banner">
+        <div class="comp pull-left">
+            <a routerLink="/" class="hdr-btn link-reset belo-container">
+                <i class="icon icon-pos--lower  icon-airbnb-alt h2 show-login"></i>
+                <i class="icon icon-pos--lower  icon-airbnb show-logout"></i>
+            </a>
+        </div>
+
+        <div class="comp pull-right show-login">
+            <a class="no-crawl hdr-btn link-reset header-avatar-trigger needsclick" rel="nofollow" routerLink="/trips">
+                <span class="value_name margin-right--tiny hide-md">{{ 'Андрей'|translate }}</span>
+                <div class="media-photo media-round user-profile-image header-icon icon-profile-alt-gray"><img width="28" height="28" src="https://a2.muscache.com/im/pictures/707633a0-1c14-4544-bed7-0cdf62d2c703.jpg?aki_policy=profile_small" alt=""></div>
+            </a>
+
+            <div class="panel tooltip-top-right drop-down-menu avatar-tooltip--new">
+                <a routerLink="/trips" class="js-your-trips-item panel-body link-reset hover-item no-crawl hide">
+                    <div class="hover-item__content">
+                        {{ 'Your Trips'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/city-hosts?source=hdr" class="hide city-host-button-md panel-body link-reset hover-item">
+                    <div class="hover-item__content">
+                        {{ 'City Hosts'|translate }}
+                        <img class="beta-badge" src="https://a0.muscache.com/airbnb/static/magical_trips/guest/beta-badge-56a0d5bc185adfe79992a46991964070.png" alt="Beta" height="18">
+                    </div>
+                </a>
+                <a routerLink="/wishlists/my" class="js-wishlists-item panel-body link-reset hover-item no-crawl hide">
+                    <div class="hover-item__content">
+                        {{ 'Wish Lists'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/users/edit" class=" panel-body link-reset hover-item no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Edit Profile'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/invite?r=3" class="travel-credit-item panel-body link-reset hover-item no-crawl">
+                    <div class="hover-item__content">{{ 'Travel Credit'|translate }}</div>
+                </a>
+                <a routerLink="/users/notifications" class=" panel-body link-reset hover-item no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Account Settings'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/business-travel?s=nav" class="business-travel  panel-body link-reset hover-item no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Business Travel'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/things-to-do" class="js-guidebook-item panel-body link-reset hover-item">
+                    <div class="hover-item__content">
+                        {{ 'My Guidebook'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/logout" class=" panel-body link-reset hover-item no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Log Out'|translate }}
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="comp pull-right show-logout">
+            <a routerLink="/login" class="hdr-btn link-reset">
+                {{ 'Log In'|translate }}
+            </a>
+        </div>
+        <div class="comp pull-right show-logout">
+            <a routerLink="/signup_login" class="hdr-btn link-reset">
+                {{ 'Sign Up'|translate }}
+            </a>
+        </div>
+
+        <div class="comp pull-right show-travel-credit js-travel-credit-menu-container hide">
+            <a class="needsclick no-crawl hdr-btn link-reset js-travel-credit-comp" routerLink="/invite?r=3" rel="nofollow">
+                <div class="gift-icon-container text-center">
+                    <span class="margin-right--tiny">{{ 'Credit'|translate }}</span>
+                    <i class="header-icon js-travel-credit-icon icon-gift-alt-gray">
+                        <i class="alert-count js-travel-credit-unread-count text-center fade in">1</i>
+                    </i>
+                </div>
+            </a>
+            <div class="panel  drop-down-menu travel-credit-dropdown"></div>
+        </div>
+
+        <div id="js-header-help-menu"><div class="comp pull-right no-border help-trigger-wrapper no-hover"><a class="hdr-btn js-help-toggle link-reset needsclick" routerLink="/help"><span class="margin-right--tiny">{{ 'Help'|translate }}</span><span>&nbsp;</span><i class="header-icon icon-lifesaver-alt-gray"></i></a><div class="field-guide panel help-side-panel"><div><div class="side-panel-header text-center"><a routerLink="/help" class="link-reset"><span>{{ 'Airbnb Help'|translate }}</span></a><a href="#" class="close-button pull-right link-reset"><i class="icon icon-remove"></i></a></div><div class="main-content"><div class="text-left search-container"><div class="search-input-container"><div class="search-input-inner-container"><div class="icon-search-container dls-search-bar-icon"><svg viewBox="0 0 24 24" style="fill:#767676;height:25px;width:25px;display:block;" data-reactid=".o.1.0.1.0.0.0.0.0"><path d="M23.53 22.47l-6.807-6.808A9.455 9.455 0 0 0 19 9.5 9.5 9.5 0 1 0 9.5 19c2.353 0 4.502-.86 6.162-2.277l6.808 6.807a.75.75 0 0 0 1.06-1.06zM9.5 17.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path></svg></div><input class="search-input dls-search-input" type="text" name="q" autocomplete="off" maxlength="1024" value="" placeholder="Ask a question or search by keyword"></div></div><div class="search-results-container text-dark-gray"><div><div class="search-results loading"></div></div><div class="expandable-indicator"></div></div></div></div><div class="help-link-bottom text-center"><a routerLink="/help"><span>{{ 'Visit the Help Center'|translate }}</span></a></div></div></div></div></div>
+
+        <div class="hide js-header-business-travel comp pull-right background-light-gray">
+            <a class="hdr-btn link-reset needsclick" routerLink="/business/dashboard?s=nav">
+                <span class="margin-right--tiny hide-md">{{ 'Business'|translate }}</span>
+                <i class="header-icon js-business-travel-icon icon-business-travel-gray"></i>
+            </a>
+        </div>
+
+        <div class="comp pull-right show-login">
+            <a class="needsclick no-crawl hdr-btn link-reset js-inbox-comp message-link" routerLink="/inbox" rel="nofollow">
+                <div class="inbox-icon-container text-center">
+                    <span class="margin-right--tiny message-text-container">{{ 'Messages'|translate }}</span>
+                    <i class="alert-count unread-count text-center fade">0</i>
+                </div>
+            </a>
+
+            <div class="panel tooltip-top-right drop-down-menu notifications-dropdown"><div class="loading"></div></div>
+        </div>
+
+
+        <div class="comp pull-right show-trips show-login js-trips-menu-container">
+            <a class="needsclick no-crawl hdr-btn link-reset js-trips-comp trips-comp" routerLink="/trips" rel="nofollow">
+                <div class="inbox-icon-container text-center">
+                    <span class="margin-right--tiny trip-text-container">{{ 'Trips'|translate }}</span>
+                    <i class="alert-count js-trips-unread-count text-center fade">0</i>
+                </div>
+            </a>
+
+            <div class="panel tooltip-top-right drop-down-menu trips-dropdown"><div class="loading"></div></div>
+        </div>
+
+
+        <div class="comp pull-right show-host">
+            <a class="needsclick host-icon-wrapper no-crawl hdr-btn link-reset js-host-menu-icon" routerLink="/rooms" rel="nofollow">
+                <span class="margin-right--tiny host-text-container">
+                  Host
+                </span>
+                <i class="alert-count js-host-item-count listing-count text-center fade in">!</i>
+            </a>
+
+            <div class="panel tooltip-top-right drop-down-menu host-tooltip--new">
+                <div class="hover-item panel-body relist-your-space">
+                    <a routerLink="/manage-listing/15936582" class="link-reset click-area">
+                        <div class="listing-image placeholder"></div><div class="cta-container va-container va-container-v">
+                        <div class="va-middle">
+                            <div class="cta-text">
+                                {{ 'Finish Your Listing'|translate }}
+                            </div>
+                            <p class="text-gray listing-name">werw</p>
+                            <div class="cta-text-v3-reactivate hide">
+                                {{ 'Reactivate'|translate }}
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 58%;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>    </div>
+
+                <a routerLink="/dashboard" class=" panel-body link-reset hover-item origin-item js-host-dashboard-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Dashboard'|translate }}
+                        <i class="alert-count js-pending-request-count--inline text-center fade">0</i>
+                    </div>
+                </a>
+                <a routerLink="/rooms" class=" panel-body link-reset hover-item origin-item js-host-calendar-link hide no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Calendar'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/rooms" class=" panel-body link-reset hover-item origin-item js-host-manage-listings-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Manage Listings'|translate }}
+                        <i class="alert-count listing-count listing-count--inline text-center fade in hide">1</i>
+                    </div>
+                </a>
+                <a routerLink="/rooms/new" class=" panel-body link-reset hover-item origin-item js-host-list-your-space-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'List Your Space'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/my_reservations" class=" panel-body link-reset hover-item origin-item js-host-my-reservations-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Your Reservations'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/users/transaction_history" class=" panel-body link-reset hover-item origin-item js-host-transaction-history-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Transaction History'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/refer?r=41" class=" panel-body link-reset hover-item origin-item hide item-refer-hosts js-host-refer-hosts-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Refer Hosts'|translate }}
+                        <span class="label label-pink label-new">{{ 'New'|translate }}</span>
+                    </div>
+                </a>
+                <a routerLink="/users/reviews" class=" panel-body link-reset hover-item origin-item js-host-reviews-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Reviews'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/host-assist" class=" panel-body link-reset hover-item origin-item hide item-host-assist js-host-assist-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Host Assist'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/hospitality" class=" panel-body link-reset hover-item origin-item js-host-hospitality-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Hospitality'|translate }}
+                    </div>
+                </a>
+                <a routerLink="/experience-host" class="panel-body link-reset hover-item origin-item js-host-experience-host-link no-crawl">
+                    <div class="hover-item__content">
+                        {{ 'Experience Hosting'|translate }}
+                        <span class="label label-pink label-new">{{ 'New'|translate }}</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="comp pull-right city-host-button hide">
+            <a class="hdr-btn link-reset js-host-menu-icon city-host-icon-wrapper" routerLink="/city-hosts?source=hdr">
+                <div>
+                    <span>{{ 'City Hosts'|translate }}</span>
+                    <img class="beta-badge" src="https://a0.muscache.com/airbnb/static/magical_trips/guest/beta-badge-56a0d5bc185adfe79992a46991964070.png" alt="Beta" height="15">
+                </div>
+            </a>
+        </div>
+
+        <div class="comp pull-right not-launched comp-hire-a-host">
+            <a class="hdr-btn link-reset lys-link hire-a-host-link" routerLink="/co-hosting?ref=header_button">
+                <span class="btn btn-small btn-hire-a-host"></span>
+            </a>
+            <div class="panel  drop-down-menu hire-a-host-dropdown">
+                <p class="panel-body">
+                    <a class="link-reset hire-a-host-tooltip" routerLink="/co-hosting?ref=header_button">
+                        {{ 'Tooltip content!'|translate }}
+                    </a>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="comp pull-right hide-host comp-become-a-host ">
+            <a class="hdr-btn link-reset lys-link js-become-a-host-link comp-become-a-host__link" routerLink="/host">
+                <span class="btn btn-small btn-become-a-host">
+                  {{ 'Become a Host'|translate }}
+                  <i class="icon icon-gift icon-host-referral-gift js-host-referral-gift-icon hide "></i>
+                </span>
+            </a>
+            <div class="panel tooltip-top-right drop-down-menu hide js-become-a-host-dropdown">
+                <a class="link-reset panel-body hover-item hide js-become-a-host-lys" routerLink="/become-a-host?from_nav=1&amp;link=2">
+                    <div class="hover-item__content">
+                        {{ 'List Your Space'|translate }}
+                    </div>
+                </a>
+                <a class="link-reset js-become-a-host-tooltip panel-body hover-item" routerLink="/rooms/new?from_nav=1&amp;link=3">
+                    <div class="tooltip-content">
+                        {{ 'Become a Host'|translate }}
+                    </div>
+                </a>
+                <a class="link-reset panel-body hover-item js-become-a-host-why-host hide" routerLink="/host?from_nav=1">
+                    <div class="hover-item__content">
+                        {{ 'How Hosting Works'|translate }}
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="comp pull-left back-to-search-results-wrapper">
+        </div>
+
+        <div class="comp search-bar-wrapper" role="search">
+            <form action="/s" class="search-form">
+                <div class="search-bar">
+                    <i class="header-icon icon-search-alt-gray search-icon"></i>
+                    <label class="screen-reader-only" for="header-search-form">{{ 'Search'|translate }}</label>
+                    <input type="text" placeholder="Search" autocomplete="off" name="location" id="header-search-form" class="location" value="">
+                    <div id="icon-drawer-search-icon">
+                        <svg viewBox="0 0 24 24" style="fill:currentColor;height:1em;width:1em;display:block;" data-reactid=".0.0.3.0"><path d="M23.53 22.47l-6.807-6.808A9.455 9.455 0 0 0 19 9.5 9.5 9.5 0 1 0 9.5 19c2.353 0 4.502-.86 6.162-2.277l6.808 6.807a.75.75 0 0 0 1.06-1.06zM9.5 17.5a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path></svg>
+                    </div>
+                    <input type="hidden" name="source" value="hdr">
+                    <input type="hidden" name="place_id">
+                </div>
+                <div id="header-search-settings" class="panel search-settings header-menu"></div>
+            </form>
+        </div>
+    </header>
 </div>

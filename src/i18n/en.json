@@ -4,5 +4,6 @@
   "GUESTS_2": "{{value}} guests",
   "GUESTS_16": "16+ Guests",
   "HEY_USER": "Hey, I’m {{name}}!",
-  "MEMBER_SINCE": "Member since {{created_at}}"
+  "MEMBER_SINCE": "Member since {{created_at}}",
+  "N_RENTALS": "{{ total }} Rentals"
 }

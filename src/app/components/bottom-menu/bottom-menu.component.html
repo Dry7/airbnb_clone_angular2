@@ -1,80 +1,35 @@
-<div id="footer" class="container-brand-dark footer-surround footer-container">
-    <footer class="page-container-responsive" role="contentinfo">
+<div id="footer" class="container-brand-light footer-container">
+    <footer class="page-container-responsive footer-container" role="contentinfo">
         <div class="row row-condensed">
-            <div class="col-md-3 col-md-offset-1">
-                <div class="language-curr-picker clearfix space-2">
-                    <div class="language-picker">
-                        <div class="select select-large select-block space-2">
-                            <label for="language-selector" class="screen-reader-only">
-                                <span>{{ 'Choose language'|translate }}</span>
-                            </label>
-                            <select class="language-selector" id="language-selector"><option value="id" data-reactid=".1.1.$id">Bahasa Indonesia</option><option value="ms" data-reactid=".1.1.$ms">Bahasa Melayu</option><option value="ca" data-reactid=".1.1.$ca">Català</option><option value="da" data-reactid=".1.1.$da">Dansk</option><option value="de" data-reactid=".1.1.$de">Deutsch</option><option selected="" value="en" data-reactid=".1.1.$en">English</option><option value="es" data-reactid=".1.1.$es">Español</option><option value="el" data-reactid=".1.1.$el">Eλληνικά</option><option value="fr" data-reactid=".1.1.$fr">Français</option><option value="it" data-reactid=".1.1.$it">Italiano</option><option value="hu" data-reactid=".1.1.$hu">Magyar</option><option value="nl" data-reactid=".1.1.$nl">Nederlands</option><option value="no" data-reactid=".1.1.$no">Norsk</option><option value="pl" data-reactid=".1.1.$pl">Polski</option><option value="pt" data-reactid=".1.1.$pt">Português</option><option value="fi" data-reactid=".1.1.$fi">Suomi</option><option value="sv" data-reactid=".1.1.$sv">Svenska</option><option value="tr" data-reactid=".1.1.$tr">Türkçe</option><option value="is" data-reactid=".1.1.$is">Íslenska</option><option value="cs" data-reactid=".1.1.$cs">Čeština</option><option value="ru" data-reactid=".1.1.$ru">Русский</option><option value="th" data-reactid=".1.1.$th">ภาษาไทย</option><option value="zh" data-reactid=".1.1.$zh">中文 (简体)</option><option value="zh-TW" data-reactid=".1.1.$zh-TW">中文 (繁體)</option><option value="ja" data-reactid=".1.1.$ja">日本語</option><option value="ko" data-reactid=".1.1.$ko">한국어</option></select>
-                        </div>
-                    </div>
-                    <div class="currency-picker">
-                        <div class="space-2">
-                            <label for="currency-selector" class="screen-reader-only">
-                                <span>{{ 'Choose currency'|translate }}</span>
-                            </label>
-                            <div class="select select-block select-large" data-reactid=".2.1">
-                                <select id="currency-selector" data-reactid=".2.1.0"><option value="AED" data-reactid=".2.1.0.$AED">AED</option><option value="ARS" data-reactid=".2.1.0.$ARS">ARS</option><option value="AUD" data-reactid=".2.1.0.$AUD">AUD</option><option value="BGN" data-reactid=".2.1.0.$BGN">BGN</option><option value="BRL" data-reactid=".2.1.0.$BRL">BRL</option><option value="CAD" data-reactid=".2.1.0.$CAD">CAD</option><option value="CHF" data-reactid=".2.1.0.$CHF">CHF</option><option value="CLP" data-reactid=".2.1.0.$CLP">CLP</option><option value="CNY" data-reactid=".2.1.0.$CNY">CNY</option><option value="COP" data-reactid=".2.1.0.$COP">COP</option><option value="CRC" data-reactid=".2.1.0.$CRC">CRC</option><option value="CZK" data-reactid=".2.1.0.$CZK">CZK</option><option value="DKK" data-reactid=".2.1.0.$DKK">DKK</option><option value="EUR" data-reactid=".2.1.0.$EUR">EUR</option><option value="GBP" data-reactid=".2.1.0.$GBP">GBP</option><option value="HKD" data-reactid=".2.1.0.$HKD">HKD</option><option value="HRK" data-reactid=".2.1.0.$HRK">HRK</option><option value="HUF" data-reactid=".2.1.0.$HUF">HUF</option><option value="IDR" data-reactid=".2.1.0.$IDR">IDR</option><option value="ILS" data-reactid=".2.1.0.$ILS">ILS</option><option value="INR" data-reactid=".2.1.0.$INR">INR</option><option value="JPY" data-reactid=".2.1.0.$JPY">JPY</option><option value="KRW" data-reactid=".2.1.0.$KRW">KRW</option><option value="MAD" data-reactid=".2.1.0.$MAD">MAD</option><option value="MXN" data-reactid=".2.1.0.$MXN">MXN</option><option value="MYR" data-reactid=".2.1.0.$MYR">MYR</option><option value="NOK" data-reactid=".2.1.0.$NOK">NOK</option><option value="NZD" data-reactid=".2.1.0.$NZD">NZD</option><option value="PEN" data-reactid=".2.1.0.$PEN">PEN</option><option value="PHP" data-reactid=".2.1.0.$PHP">PHP</option><option value="PLN" data-reactid=".2.1.0.$PLN">PLN</option><option value="RON" data-reactid=".2.1.0.$RON">RON</option><option selected="" value="RUB" data-reactid=".2.1.0.$RUB">RUB</option><option value="SAR" data-reactid=".2.1.0.$SAR">SAR</option><option value="SEK" data-reactid=".2.1.0.$SEK">SEK</option><option value="SGD" data-reactid=".2.1.0.$SGD">SGD</option><option value="THB" data-reactid=".2.1.0.$THB">THB</option><option value="TRY" data-reactid=".2.1.0.$TRY">TRY</option><option value="TWD" data-reactid=".2.1.0.$TWD">TWD</option><option value="UAH" data-reactid=".2.1.0.$UAH">UAH</option><option value="USD" data-reactid=".2.1.0.$USD">USD</option><option value="UYU" data-reactid=".2.1.0.$UYU">UYU</option><option value="VND" data-reactid=".2.1.0.$VND">VND</option><option value="ZAR" data-reactid=".2.1.0.$ZAR">ZAR</option></select>
-                            </div>
-                        </div>
-                    </div>
+            <div class="language-curr-picker col-md-2">
+                <div class="clearfix">
+                    <div class="language-picker col-sm-6 col-md-12"><div class="select select-large select-block space-2" data-reactid=".3"><label for="language-selector" class="screen-reader-only" data-reactid=".3.0"><span data-reactid=".3.0.0">Choose language</span></label><select class="language-selector" id="language-selector" data-reactid=".3.1"><option value="id" data-reactid=".3.1.$id">Bahasa Indonesia</option><option value="ms" data-reactid=".3.1.$ms">Bahasa Melayu</option><option value="ca" data-reactid=".3.1.$ca">Català</option><option value="da" data-reactid=".3.1.$da">Dansk</option><option value="de" data-reactid=".3.1.$de">Deutsch</option><option selected="" value="en" data-reactid=".3.1.$en">English</option><option value="es" data-reactid=".3.1.$es">Español</option><option value="el" data-reactid=".3.1.$el">Eλληνικά</option><option value="fr" data-reactid=".3.1.$fr">Français</option><option value="it" data-reactid=".3.1.$it">Italiano</option><option value="hu" data-reactid=".3.1.$hu">Magyar</option><option value="nl" data-reactid=".3.1.$nl">Nederlands</option><option value="no" data-reactid=".3.1.$no">Norsk</option><option value="pl" data-reactid=".3.1.$pl">Polski</option><option value="pt" data-reactid=".3.1.$pt">Português</option><option value="fi" data-reactid=".3.1.$fi">Suomi</option><option value="sv" data-reactid=".3.1.$sv">Svenska</option><option value="tr" data-reactid=".3.1.$tr">Türkçe</option><option value="is" data-reactid=".3.1.$is">Íslenska</option><option value="cs" data-reactid=".3.1.$cs">Čeština</option><option value="ru" data-reactid=".3.1.$ru">Русский</option><option value="th" data-reactid=".3.1.$th">ภาษาไทย</option><option value="zh" data-reactid=".3.1.$zh">中文 (简体)</option><option value="zh-TW" data-reactid=".3.1.$zh-TW">中文 (繁體)</option><option value="ja" data-reactid=".3.1.$ja">日本語</option><option value="ko" data-reactid=".3.1.$ko">한국어</option></select></div></div>
+                    <div class="currency-picker col-sm-6 col-md-12"><div class="space-2" data-reactid=".4"><label for="currency-selector" class="screen-reader-only" data-reactid=".4.0"><span data-reactid=".4.0.0">Choose currency</span></label><div class="select select-block select-large" data-reactid=".4.1"><select id="currency-selector" data-reactid=".4.1.0"><option value="AED" data-reactid=".4.1.0.$AED">AED</option><option value="ARS" data-reactid=".4.1.0.$ARS">ARS</option><option value="AUD" data-reactid=".4.1.0.$AUD">AUD</option><option value="BGN" data-reactid=".4.1.0.$BGN">BGN</option><option value="BRL" data-reactid=".4.1.0.$BRL">BRL</option><option value="CAD" data-reactid=".4.1.0.$CAD">CAD</option><option value="CHF" data-reactid=".4.1.0.$CHF">CHF</option><option value="CLP" data-reactid=".4.1.0.$CLP">CLP</option><option value="CNY" data-reactid=".4.1.0.$CNY">CNY</option><option value="COP" data-reactid=".4.1.0.$COP">COP</option><option value="CRC" data-reactid=".4.1.0.$CRC">CRC</option><option value="CZK" data-reactid=".4.1.0.$CZK">CZK</option><option value="DKK" data-reactid=".4.1.0.$DKK">DKK</option><option value="EUR" data-reactid=".4.1.0.$EUR">EUR</option><option value="GBP" data-reactid=".4.1.0.$GBP">GBP</option><option value="HKD" data-reactid=".4.1.0.$HKD">HKD</option><option value="HRK" data-reactid=".4.1.0.$HRK">HRK</option><option value="HUF" data-reactid=".4.1.0.$HUF">HUF</option><option value="IDR" data-reactid=".4.1.0.$IDR">IDR</option><option value="ILS" data-reactid=".4.1.0.$ILS">ILS</option><option value="INR" data-reactid=".4.1.0.$INR">INR</option><option value="JPY" data-reactid=".4.1.0.$JPY">JPY</option><option value="KRW" data-reactid=".4.1.0.$KRW">KRW</option><option value="MAD" data-reactid=".4.1.0.$MAD">MAD</option><option value="MXN" data-reactid=".4.1.0.$MXN">MXN</option><option value="MYR" data-reactid=".4.1.0.$MYR">MYR</option><option value="NOK" data-reactid=".4.1.0.$NOK">NOK</option><option value="NZD" data-reactid=".4.1.0.$NZD">NZD</option><option value="PEN" data-reactid=".4.1.0.$PEN">PEN</option><option value="PHP" data-reactid=".4.1.0.$PHP">PHP</option><option value="PLN" data-reactid=".4.1.0.$PLN">PLN</option><option value="RON" data-reactid=".4.1.0.$RON">RON</option><option selected="" value="RUB" data-reactid=".4.1.0.$RUB">RUB</option><option value="SAR" data-reactid=".4.1.0.$SAR">SAR</option><option value="SEK" data-reactid=".4.1.0.$SEK">SEK</option><option value="SGD" data-reactid=".4.1.0.$SGD">SGD</option><option value="THB" data-reactid=".4.1.0.$THB">THB</option><option value="TRY" data-reactid=".4.1.0.$TRY">TRY</option><option value="TWD" data-reactid=".4.1.0.$TWD">TWD</option><option value="UAH" data-reactid=".4.1.0.$UAH">UAH</option><option value="USD" data-reactid=".4.1.0.$USD">USD</option><option value="UYU" data-reactid=".4.1.0.$UYU">UYU</option><option value="VND" data-reactid=".4.1.0.$VND">VND</option><option value="ZAR" data-reactid=".4.1.0.$ZAR">ZAR</option></select></div></div></div>
                     <div class="cx-number"></div>
                 </div>
-
             </div>
-
             <div class="col-md-2 col-md-offset-1 hide-sm">
-                <h2 class="h5">{{ 'Company'|translate }}</h2>
+                <h2 class="h5">{{ 'Airbnb'|translate }}</h2>
                 <ul class="list-layout">
-                    <li><a routerLink="/about/about-us" class="link-contrast">{{ 'About'|translate }}</a></li>
-                    <li><a href="/careers" class="link-contrast">{{ 'Careers'|translate }}</a></li>
-                    <li><a href="/press/news" class="link-contrast">{{ 'Press'|translate }}</a></li>
-                    <li><a href="javascript:void(0);" class="link-contrast">{{ 'Blog'|translate }}</a></li>
                     <li><a routerLink="/help" class="link-contrast">{{ 'Help'|translate }}</a></li>
-                    <li><a href="/policies" class="link-contrast">{{ 'Policies'|translate }}</a></li>
-                    <li><a href="/disaster-response" class="link-contrast">{{ 'Disaster Response'|translate }}</a></li>
-                    <li><a href="/terms" class="link-contrast">{{ 'Terms &amp; Privacy'|translate }}</a></li>
+                    <li><a href="/policies" class="link-contrast">Policies</a></li>
+                    <li><a href="/terms" class="link-contrast">Terms &amp; Privacy</a></li>
                 </ul>
             </div>
-
-            <div class="col-md-2 hide-sm">
-                <h2 class="h5">{{ 'Discover'|translate }}</h2>
+            <div class="col-md-2 col-md-offset-1 hide-sm">
+                <h2 class="h5">Discover</h2>
                 <ul class="list-layout">
-                    <li><a href="/trust" class="link-contrast">{{ 'Trust &amp; Safety'|translate }}</a></li>
-                    <li><a href="/invite?r=6" class="link-contrast">{{ 'Travel Credit'|translate }}</a></li>
-                    <li><a href="/gift?s=footer" class="link-contrast">{{ 'Gift Cards'|translate }}</a></li>
-                    <li><a href="/wishlists/airbnb_picks" class="link-contrast">{{ 'Airbnb Picks'|translate }}</a></li>
-                    <li><a href="/mobile" class="link-contrast">{{ 'Mobile'|translate }}</a></li>
-                    <li><a href="javascript:void(0);" class="link-contrast">{{ 'Airbnb Action'|translate }}</a></li>
-                    <li><a href="/business-travel?s=footer" class="link-contrast">{{ 'Business Travel'|translate }}</a></li>
-                    <li><a href="/sitemaps" class="link-contrast">{{ 'Site Map'|translate }}</a></li>
+                    <li><a href="/trust" class="link-contrast">Trust &amp; Safety</a></li>
+                    <li><a href="/sitemaps" class="link-contrast">Site Map</a></li>
                 </ul>
             </div>
-
-            <div class="col-md-2 hide-sm">
-                <h2 class="h5">{{ 'Hosting'|translate }}</h2>
+            <div class="col-md-2 col-md-offset-1 hide-sm">
+                <h2 class="h5">Hosting</h2>
                 <ul class="list-layout">
-                    <li><a href="/host" class="link-contrast">{{ 'Why Host'|translate }}</a></li>
-                    <li><a href="/hospitality" class="link-contrast">{{ 'Hospitality'|translate }}</a></li>
-                    <li><a routerLink="/help/article/1376/responsible-hosting-in-the-united-states" class="link-contrast">{{ 'Responsible Hosting'|translate }}</a></li>
-                    <li><a href="/home-safety" class="link-contrast">{{ 'Home Safety'|translate }}</a></li>
-                    <li><a href="/host/instant" class="link-contrast">{{ 'Instant Book'|translate }}</a></li>
+                    <li><a href="/host" class="link-contrast">Why Host</a></li>
+                    <li><a href="/help/responsible-hosting" class="link-contrast">Responsible Hosting</a></li>
                 </ul>
             </div>
-        </div>
-
-        <div class="col-sm-12 space-4 space-top-4 show-sm">
-            <ul class="list-layout list-inline text-center h5">
-                <li><a routerLink="/about/about-us" class="link-contrast">{{ 'About'|translate }}</a></li>
-                <li><a href="/careers" class="link-contrast">{{ 'Careers'|translate }}</a></li>
-                <li><a href="/press/news" class="link-contrast">{{ 'Press'|translate }}</a></li>
-                <li><a href="javascript:void(0);" class="link-contrast">{{ 'Blog'|translate }}</a></li>
-                <li><a href="/terms" class="link-contrast">{{ 'Terms &amp; Privacy'|translate }}</a></li>
-            </ul>
         </div>
     </footer>
-
 </div>

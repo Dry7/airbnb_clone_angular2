@@ -193,6 +193,8 @@ export class AdsSearchComponent implements OnInit {
    * Apply filter
    */
   public applyFilter() {
+    this.showFilter = false;
+    this.load(1);
   }
 
   /**

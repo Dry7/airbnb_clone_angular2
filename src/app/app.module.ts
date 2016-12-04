@@ -53,6 +53,7 @@ import { PriceFormatPipe } from './pipes/price-format.pipe';
 import {ReviewsService} from "./services/reviews.service";
 import { UsersDetailsComponent } from './components/users/users-details/users-details.component';
 import {UsersService} from "./services/users.service";
+import { ImagePipe } from './pipes/image.pipe';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import {UsersService} from "./services/users.service";
     LargePhotoPipe,
     PriceDiscountPipe,
     PriceFormatPipe,
-    UsersDetailsComponent
+    UsersDetailsComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,

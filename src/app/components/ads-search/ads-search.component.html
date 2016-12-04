@@ -1,39 +1,39 @@
 <app-top-menu></app-top-menu>
 <main id="site-content">
     <div class="map-search">
-        <div class="sidebar">
-            <div class="filters collapse" style="bottom: 341px;">
+        <div class="sidebar" [class.filters-open]="showFilter">
+            <div class="filters" [class.collapse]="!showFilter">
                 <div class="panel-header filters-section show-sm">
-                    Filters
+                    {{ 'Filters'|translate }}
                 </div>
                 <div class="filters-section intro-filter panel-body panel-light">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 text-center-sm text-center-md space-sm-1 filter-label">
-                            <label>Dates</label>
+                            <label>{{ 'Dates'|translate }}</label>
                         </div>
 
                         <div class="col-lg-9 trip-form">
                             <div class="row row-condensed">
                                 <div class="search-checkin col-md-4 col-sm-6 space-1-sm">
                                     <label class="screen-reader-only">
-                                        Check In
+                                        {{ 'Check In'|translate }}
                                     </label>
-                                    <datepicker [(ngModel)]="active.date_start" [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                                    <datepicker [(ngModel)]="active.date_start" [expanded]="true" [viewFormat]="'MM/DD/YYYY'" (change)="applyFilter()"></datepicker>
                                 </div>
 
                                 <div class="search-checkout col-md-4 col-sm-6 space-1-sm">
                                     <label class="screen-reader-only">
-                                        Check Out
+                                        {{ 'Check Out'|translate }}
                                     </label>
-                                    <datepicker [(ngModel)]="active.date_end" [expanded]="true" [viewFormat]="'MM/DD/YYYY'"></datepicker>
+                                    <datepicker [(ngModel)]="active.date_end" [expanded]="true" [viewFormat]="'MM/DD/YYYY'" (change)="applyFilter()"></datepicker>
                                 </div>
 
                                 <div class="col-md-4 col-sm-12">
                                     <div class="select select-block">
                                         <label for="guest-select" class="screen-reader-only">
-                                            Number of guests
+                                            {{ 'Number of guests'|translate }}
                                         </label>
-                                        <select [(ngModel)]="active.guests" class="guest-select" id="guest-select">
+                                        <select [(ngModel)]="active.guests" class="guest-select" id="guest-select" (change)="applyFilter()">
                                             <option *ngFor="let guest of filter.guests" [value]="guest.value">{{ guest.name }}</option>
                                         </select>
                                     </div>
@@ -47,18 +47,17 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
                             <label>
-                                Room Type
-                                <i class="icon icon-question hide-sm hide-md" id="room-type-tooltip"></i>
+                                {{ 'Room Type'|translate }}
                             </label>
 
                             <div class="tooltip tooltip-left-middle show-lg">
                                 <dl class="panel-body">
-                                    <dt>Entire Home</dt>
-                                    <dd>Listings where you have the whole place to yourself.</dd>
-                                    <dt>Private Room</dt>
-                                    <dd>Listings where you have your own room but share some common spaces.</dd>
-                                    <dt>Shared Room</dt>
-                                    <dd>Listings where you'll share your room or your room may be a common space.</dd>
+                                    <dt>{{ 'Entire Home'|translate }}</dt>
+                                    <dd>{{ 'Listings where you have the whole place to yourself.'|translate }}</dd>
+                                    <dt>{{ 'Private Room'|translate }}</dt>
+                                    <dd>{{ 'Listings where you have your own room but share some common spaces.'|translate }}</dd>
+                                    <dt>{{ 'Shared Room'|translate }}</dt>
+                                    <dd>{{ 'Listings where you\'ll share your room or your room may be a common space.'|translate }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -72,7 +71,7 @@
                                             <i class="icon icon-entire-place h5 needsclick"></i>
                                         </div>
                                         <div class="facet-checkbox__label-col">
-                                            <span>Entire home/apt</span>
+                                            <span>{{ 'Entire home/apt'|translate }}</span>
                                         </div>
                                         <div class="facet-checkbox__input-col">
                                             <input type="checkbox" [value]="isChecked('room_type', 'entire_home')" (change)="changeFilter($event, 'room_type', 'entire_home')">
@@ -85,7 +84,7 @@
                                             <i class="icon icon-private-room h5 needsclick"></i>
                                         </div>
                                         <div class="facet-checkbox__label-col">
-                                            <span>Private room</span>
+                                            <span>{{ 'Private room'|translate }}</span>
                                         </div>
                                         <div class="facet-checkbox__input-col">
                                             <input type="checkbox" [value]="isChecked('room_type', 'private_room')" (change)="changeFilter($event, 'room_type', 'private_room')">
@@ -98,7 +97,7 @@
                                             <i class="icon icon-shared-room h5 needsclick"></i>
                                         </div>
                                         <div class="facet-checkbox__label-col">
-                                            <span>Shared room</span>
+                                            <span>{{ 'Shared room'|translate }}</span>
                                         </div>
                                         <div class="facet-checkbox__input-col">
                                             <input type="checkbox" [value]="isChecked('room_type', 'shared_room')" (change)="changeFilter($event, 'room_type', 'shared_room')">
@@ -114,7 +113,7 @@
                 <div class="filters-section price-range-group intro-filter panel-body panel-light">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
-                            <label>Price Range</label>
+                            <label>{{ 'Price Range'|translate }}</label>
                         </div>
                         <div class="col-lg-9 col-md-12">
                             <ng2-slider min="640"
@@ -141,10 +140,10 @@
                     </div>
                 </div>
 
-                <div class="filters-section size-group panel-body panel-light" *ngIf="showFilter == true">
+                <div class="filters-section size-group panel-body panel-light">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 text-center-sm text-center-md filter-label">
-                            <label>Size</label>
+                            <label>{{ 'Size'|translate }}</label>
                         </div>
 
                         <div class="col-lg-9">
@@ -152,10 +151,10 @@
                                 <div class="col-md-4 col-sm-12 space-1">
                                     <div class="select select-block" data-name="min_bedrooms">
                                         <label for="map-search-min-bedrooms" class="screen-reader-only">
-                                            Minimum number of bedrooms
+                                            {{ 'Minimum number of bedrooms'|translate }}
                                         </label>
                                         <select [(ngModel)]="active.bedrooms" class="min-bedrooms" id="map-search-min-bedrooms">
-                                            <option value="-1">Bedrooms</option>
+                                            <option value="-1">{{ 'Bedrooms'|translate }}</option>
                                             <option *ngFor="let bedroom of filter.bedrooms" [value]="bedroom.value">{{ bedroom.name }}</option>
                                         </select>
                                     </div>
@@ -164,10 +163,10 @@
                                 <div class="col-md-4 col-sm-12 space-1">
                                     <div class="select select-block" data-name="min_bathrooms">
                                         <label for="map-search-min-bathrooms" class="screen-reader-only">
-                                            Minimum number of bathrooms
+                                            {{ 'Minimum number of bathrooms'|translate }}
                                         </label>
                                         <select [(ngModel)]="active.bathrooms" class="min-bathrooms input-medium" id="map-search-min-bathrooms">
-                                            <option value="-1">Bathrooms</option>
+                                            <option value="-1">{{ 'Bathrooms'|translate }}</option>
                                             <option *ngFor="let bathroom of filter.bathrooms" [value]="bathroom.value">{{ bathroom.name }}</option>
                                         </select>
                                     </div>
@@ -176,10 +175,10 @@
                                 <div class="col-md-4 col-sm-12">
                                     <div class="select select-block" data-name="min_beds">
                                         <label for="map-search-min-beds" class="screen-reader-only">
-                                            Minimum number of beds
+                                            {{ 'Minimum number of beds'|translate }}
                                         </label>
                                         <select [(ngModel)]="active.beds" class="min-beds input-medium" id="map-search-min-beds">
-                                            <option value="-1">Beds</option>
+                                            <option value="-1">{{ 'Beds'|translate }}</option>
                                             <option *ngFor="let bed of filter.beds" [value]="bed.value">{{ bed.name }}</option>
                                         </select>
                                     </div>
@@ -189,11 +188,10 @@
                     </div>
                 </div>
 
-                <div class="filters-section options panel-body panel-light
-      " data-name="options_filters" *ngIf="showFilter">
+                <div class="filters-section options panel-body panel-light" data-name="options_filters" *ngIf="showFilter">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 filter-label">
-                            <label>Options</label>
+                            <label>{{ 'Options'|translate }}</label>
                         </div>
                         <div class="col-lg-9">
                             <div class="row row-condensed">
@@ -204,12 +202,12 @@
                                         </div>
                                         <div class="col-md-10 col-sm-11 col-middle-alt needsclick">
                                             <i class="icon icon-instant-book icon-beach needsclick"></i>
-                                            Instant Book
+                                            {{ 'Instant Book'|translate }}
                                             <br>
                                             <small class="text-muted needsclick">
-                                                Secure a reservation instantly.
-                                                <a class="instant-book-filter-link" href="/help/article/187" target="_blank">
-                                                    Learn More
+                                                {{ 'Secure a reservation instantly.'|translate }}
+                                                <a class="instant-book-filter-link" routerLink="/help/article/187" target="_blank">
+                                                    {{ 'Learn More'|translate }}
                                                 </a>
                                             </small>
                                         </div>
@@ -223,10 +221,10 @@
                                         </div>
                                         <div class="col-md-10 col-sm-11 col-middle-alt needsclick">
                                             <div class="superhost-badge"></div>
-                                            Superhost<br>
+                                            {{ 'Superhost'|translate }}<br>
                                             <small class="text-muted needsclick">
-                                                Stay with recognized hosts.
-                                                <a class="superhost-filter-link" href="/superhost" target="_blank">Learn More</a>
+                                                {{ 'Stay with recognized hosts.'|translate }}
+                                                <a class="superhost-filter-link" routerLink="/superhost" target="_blank">{{ 'Learn More'|translate }}</a>
                                             </small>
                                         </div>
                                     </label>
@@ -237,10 +235,10 @@
                     </div>
                 </div>
 
-                <div class="checkbox-group neighborhoods filters-section panel-body panel-light" data-name="neighborhoods" *ngIf="showFilter">
+                <div class="filters-section checkbox-group neighborhoods panel-body panel-light" data-name="neighborhoods" *ngIf="showFilter">
                     <div class="row">
                         <div class="col-lg-2 col-md-12 filter-label">
-                            <label>Neighborhoods</label>
+                            <label>{{ 'Neighborhoods'|translate }}</label>
                         </div>
 
                         <div class="col-lg-9 col-md-11">
@@ -256,19 +254,19 @@
 
                         <div class="col-md-1">
                             <label class="show-more">
-            <span>
-              <i class="icon icon-caret-down hide-sm"></i>
-              <strong class="text-muted show-sm">+ More</strong>
-            </span>
+                                <span>
+                                  <i class="icon icon-caret-down hide-sm"></i>
+                                  <strong class="text-muted show-sm">{{ '+ More'|translate }}</strong>
+                                </span>
                                 <span class="hide"><i class="icon icon-caret-up"></i></span>
                             </label>
                         </div>
                     </div>
                 </div>
-                <div class="checkbox-group hosting_amenities filters-section panel-body panel-light" data-name="hosting_amenities" *ngIf="showFilter">
+                <div class="filters-section checkbox-group hosting_amenities panel-body panel-light" data-name="hosting_amenities" *ngIf="showFilter">
                 <div class="row">
                     <div class="col-lg-2 col-md-12 filter-label">
-                        <label>Amenities</label>
+                        <label>{{ 'Amenities'|translate }}</label>
                     </div>
 
                     <div class="col-lg-9 col-md-11">
@@ -306,17 +304,17 @@
                         <label class="show-more" (click)="showFilterAmenities = !showFilterAmenities">
                             <span>
                               <i class="icon hide-sm" [class.icon-caret-down]="!showFilterAmenities" [class.icon-caret-up]="showFilterAmenities"></i>
-                              <strong class="text-muted show-sm">+ More</strong>
+                              <strong class="text-muted show-sm">{{ '+ More'|translate }}</strong>
                             </span>
                         </label>
                     </div>
                 </div>
             </div>
 
-                <div class="language-group languages filters-section panel-body panel-light" data-name="languages" *ngIf="showFilter">
+                <div class="filters-section language-group languages panel-body panel-light" data-name="languages" *ngIf="showFilter">
                     <div class="row">
                         <div id="filter-section-header-host_language" class="col-lg-2 col-md-12 filter-label">
-                            <label>Host Language</label>
+                            <label>{{ 'Host Language'|translate }}</label>
                         </div>
 
                         <div class="col-lg-9 col-md-11">
@@ -354,13 +352,12 @@
                             <label class="show-more" (click)="showFilterLanguages = !showFilterLanguages">
                                 <span>
                                   <i class="icon hide-sm" [class.icon-caret-down]="!showFilterLanguages" [class.icon-caret-up]="showFilterLanguages"></i>
-                                  <strong class="text-muted show-sm">+ More</strong>
+                                  <strong class="text-muted show-sm">{{ '+ More'|translate }}</strong>
                                 </span>
                             </label>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="panel-body panel-light show-sm">
                     <div class="sticky-apply-filters-placeholder"></div>
@@ -370,11 +367,11 @@
                         <div class="col-md-8 col-lg-7 col-md-offset-4 col-lg-offset-5">
                             <div class="row row-condensed space-sm-7">
                                 <div class="col-sm-6">
-                                    <button class="btn btn-block cancel-btn" (click)="hideFilter()">Cancel</button>
+                                    <button class="btn btn-block cancel-btn" (click)="hideFilter()">{{ 'Cancel'|translate }}</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button class="btn btn-block btn-primary apply-filters-btn" (click)="applyFilter()">
-                                        Apply Filters
+                                        {{ 'Apply Filters'|translate }}
                                     </button>
                                 </div>
                             </div>
@@ -389,22 +386,22 @@
                     <div class="panel airbnb-plus-banner__panel">
                         <div class="pull-left">
                             <div class="space-top-1 label-contrast airbnb-plus-tag">
-                                <span>SELECT</span>
+                                <span>{{ 'SELECT'|translate }}</span>
                             </div>
                         </div>
                         <div class="pull-right space-top-1">
                             <label class="toggle toggle--color-hackberry">
                                 <input type="checkbox" class="toggle__checkbox">
                                 <div class="toggle__track"></div>
-                                <div class="toggle__handle"><span>Off</span></div>
+                                <div class="toggle__handle"><span>{{ 'Off'|translate }}</span></div>
                             </label>
                         </div>
                         <div class="airbnb-plus-banner__body text-muted">
                             <span>
-                                <span>This July and August, you can try one of these 100 highly-rated homes, at all price points, and experience a local’s view of Sonoma. 24-hour check-in, Instant Book, and local wine and snacks let you just sit back and enjoy your trip. </span>
+                                <span>{{ 'This July and August, you can try one of these 100 highly-rated homes, at all price points, and experience a local’s view of Sonoma. 24-hour check-in, Instant Book, and local wine and snacks let you just sit back and enjoy your trip.'|translate }}</span>
                                 <span>
                                     <button class="btn-link" type="button">
-                                        <span>Learn More</span>
+                                        <span>{{ 'Learn More'|translate }}</span>
                                     </button>
                                 </span>
                             </span>
@@ -423,7 +420,7 @@
                                         <div class="applied-filters-container hide-sm">
                                             <span class="pull-left show-filters">
                                                 <button type="button" class="btn" (click)="toggleFilter()">
-                                                    <span>Filters</span>
+                                                    <span>{{ 'Filters'|translate }}</span>
                                                     <span> </span>
                                                 </button>
                                             </span>
@@ -435,7 +432,7 @@
                                     <div class="crossfading-panel__container text-right pull-right show-lg">
                                         <div class="crossfading-panel crossfading-panel__vertically-centered-container crossfading-panel--right">
                                             <h1 class="crossfading-panel--vertically-centered h6 text-right pull-right">
-                                                <span>{{ total }} Rentals</span>
+                                                <span>{{ 'N_RENTALS' | translate:{total: total} }}</span>
                                                 <span>
                                                     <span> · </span>
                                                     <span>Lipetsk Oblast</span>
@@ -446,22 +443,12 @@
                                     <div class="crossfading-panel__container text-left pull-left crossfading-panel__container--md show-md">
                                         <div class="crossfading-panel crossfading-panel__vertically-centered-container">
                                             <h1 class="crossfading-panel--vertically-centered h6 text-left crossfading-panel--margin-left">
-                                                <span>{{ total }} Rentals</span>
+                                                <span>{{ 'N_RENTALS' | translate:{total: total} }}</span>
                                                 <span>
                                                     <span> · </span>
                                                     <span>Lipetsk Oblast</span>
                                                 </span>
                                             </h1>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hide-filters-open-sm">
-                                    <div class="space-sm-1 space-top-sm-1">
-                                        <div class="disclaimer-wrapper">
-                                            <div class="pricing-disclaimer text-muted">
-                                                <i class="icon icon-currency-rub"></i>
-                                                <span>Enter dates to see full pricing. Additional fees apply. Taxes may be added.</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -472,205 +459,150 @@
                                 <div></div>
                                 <div class="outer-listings-container space-2" [class.loading]="loading">
                                     <div class="listings-container">
-                <div class="row">
-                    <div *ngFor="let ad of ads" class="listing-card-wrapper col-sm-12 space-2 col-md-6">
-                        <div class="listing" itemscope="" itemtype="http://schema.org/Enumeration">
-                            <div class="panel-image listing-img">
-                                <div>
-                                    <a href="{{ ad.url }}" class="media-photo media-cover">
-                                        <div class="listing-img-container media-cover text-center">
-                                            <img src="{{ ad.images[ad.current_image] }}" alt="{{ ad.name }}" />
-                                        </div>
-                                    </a>
-                                    <div class="slideshow-controls">
-                                        <div *ngIf="ad.current_image > 0" class="target-prev target-control block-link" (click)="prevImage(ad)"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div>
-                                        <div *ngIf="ad.current_image < ad.images.length-1" class="target-next target-control block-link" (click)="nextImage(ad)"><i class="icon icon-chevron-right icon-size-2 icon-white"></i></div>
-                                    </div>
-                                    <a href="{{ ad.url }}">
-                                        <div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
-                                            <div class="price-label">
-                                                <span>
-                                                    <span class="price-amount">{{ ad.price }}</span>
-                                                    <sup class="currency-suffix">₽</sup>
-                                                    <span> </span>
-                                                </span>
-                                                <span *ngIf="ad.is_instant_book">
-                                                    <span> </span>
-                                                    <span>
-                                                        <span> </span>
-                                                        <span class="instant-book-trigger-wrapper">
-                                                            <span>
-                                                                <i class="icon icon-instant-book icon-flush-sides icon-beach"></i>
-                                                            </span>
-                                                        </span>
-                                                    </span>
-                                                </span>
+                                        <div class="row">
+                                            <div *ngFor="let ad of ads" class="listing-card-wrapper col-sm-12 space-2 col-md-6">
+                                                <div class="listing" itemscope="" itemtype="http://schema.org/Enumeration">
+                                                    <div class="panel-image listing-img">
+                                                        <div>
+                                                            <a [routerLink]="ad.url" class="media-photo media-cover">
+                                                                <div class="listing-img-container media-cover text-center">
+                                                                    <img [src]="ad.images[ad.current_image]" [alt]="ad.name" />
+                                                                </div>
+                                                            </a>
+                                                            <div class="slideshow-controls">
+                                                                <div *ngIf="ad.current_image > 0" class="target-prev target-control block-link" (click)="prevImage(ad)"><i class="icon icon-chevron-left icon-size-2 icon-white"></i></div>
+                                                                <div *ngIf="ad.current_image < ad.images.length-1" class="target-next target-control block-link" (click)="nextImage(ad)"><i class="icon icon-chevron-right icon-size-2 icon-white"></i></div>
+                                                            </div>
+                                                            <a [routerLink]="ad.url">
+                                                                <div class="panel-overlay-bottom-left panel-overlay-label panel-overlay-listing-label">
+                                                                    <div class="price-label">
+                                                                        <span>
+                                                                            <span class="price-amount">{{ ad.price }}</span>
+                                                                            <sup class="currency-suffix">₽</sup>
+                                                                            <span> </span>
+                                                                        </span>
+                                                                        <span *ngIf="ad.is_instant_book">
+                                                                            <span> </span>
+                                                                            <span>
+                                                                                <span> </span>
+                                                                                <span class="instant-book-trigger-wrapper">
+                                                                                    <span>
+                                                                                        <i class="icon icon-instant-book icon-flush-sides icon-beach"></i>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <div class="panel-overlay-top-right wl-social-connection-panel">
+                                                                <span (click)="toggleWishList(ad.id)" class="rich-toggle wish_list_button wishlist-button" [class.saved]="isInWishList(ad.id)" style="display:block;width:32px;height:32px;">
+                                                                    <input type="checkbox" id="wishlist-widget-3942703" name="wishlist-widget-3942703" [checked]="isInWishList(ad.id)">
+                                                                    <label for="wishlist-widget-3942703" class="hide-sm">
+                                                                        <i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked"></i>
+                                                                        <i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked"></i>
+                                                                        <i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-3942703" class="icon icon-heart-alt icon-white icon-size-2"></i>
+                                                                    </label>
+                                                                    <div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip">
+                                                                        <p class="text-white wishlist-widget-tooltip__body"></p>
+                                                                    </div>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body panel-card-section">
+                                                        <div class="media">
+                                                            <a routerLink="ad.author.url" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset" rel="nofollow" [class.is-superhost]="ad.author.is_superhost">
+                                                                <div class="media-photo media-round">
+                                                                    <img [src]="ad.author.image|image:{policy:'profile_medium'}" [alt]="ad.author.name">
+                                                                </div>
+                                                            </a>
+                                                            <h3 [title]="ad.name" class="h5 listing-name text-truncate space-top-1">
+                                                                <a routerLink="ad.url" class="text-normal">
+                                                                    <span class="listing-name--display">{{ ad.name }}</span>
+                                                                </a>
+                                                            </h3>
+                                                            <a routerLink="ad.url" class="text-normal link-reset">
+                                                                <div class="text-muted listing-location text-truncate">
+                                                                    <div class="">
+                                                                        <span class="listing-card-room-type">{{ ad.type|roomType }}</span>
+                                                                        <span> · </span>
+                                                                        <span class="person-capacity hide-md">
+                                                    					    <span>{{ ad.guests }} guests</span>
+					                                                    </span>
+                                                                        <span> · </span>
+                                                                        <span *ngIf="ad.rating >= 0.5">
+                                                                            <span> · </span>
+                                                                            <small>
+                                                                                <app-star [star]="ad.rating"></app-star>
+                                                                            </small>
+                                                                        </span>
+                                                                        <span> · </span>
+                                                                        <span *ngIf="ad.reviews > 0">
+                                                                            <span> · </span>
+                                                                            <span>{{ ad.reviews }} review</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </a>
-                                    <div class="panel-overlay-top-right wl-social-connection-panel">
-                                        <span (click)="toggleWishList(ad.id)" class="rich-toggle wish_list_button wishlist-button" [class.saved]="isInWishList(ad.id)" style="display:block;width:32px;height:32px;">
-                                            <input type="checkbox" id="wishlist-widget-3942703" name="wishlist-widget-3942703" [checked]="isInWishList(ad.id)">
-                                            <label for="wishlist-widget-3942703" class="hide-sm">
-                                                <i name="heart" size="2" color="rausch" class="icon icon-heart icon-rausch icon-size-2 rich-toggle-checked"></i>
-                                                <i name="heart" size="2" class="icon icon-heart icon-size-2 wishlist-heart-unchecked rich-toggle-unchecked"></i>
-                                                <i name="heart-alt" size="2" color="white" id="wishlist-widget-icon-3942703" class="icon icon-heart-alt icon-white icon-size-2"></i>
-                                            </label>
-                                            <div class="tooltip tooltip-right-middle bg-dark-gray wishlist-widget-tooltip">
-                                                <p class="text-white wishlist-widget-tooltip__body"></p>
-                                            </div>
-                                        </span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="panel-body panel-card-section">
-                                <div class="media">
-                                    <a href="{{ ad.author.url }}" class="pull-right media-photo-badge card-profile-picture card-profile-picture-offset" [class.is-superhost]="ad.author.is_superhost">
-                                        <div class="media-photo media-round">
-                                            <img src="{{ ad.author.image }}" alt="{{ ad.author.name }}">
-                                        </div>
-                                    </a>
-                                    <h3 class="h5 listing-name text-truncate space-top-1">
-                                        <a href="{{ ad.url }}" class="text-normal">
-                                            <span class="listing-name--display">Test {{ ad.name }}</span>
-                                        </a>
-                                    </h3>
-                                    <a href="{{ ad.url }}" class="text-normal link-reset">
-                                        <div class="text-muted listing-location text-truncate">
-                                            <div>
-                                                <span *ngIf="ad.author.is_suitcase" class="btr-tooltip">
-                                                    <span>
-                                                        <i class="icon icon-suitcase icon-kazan icon-position-shifted"></i>
-                                                    </span>
-                                                    <span> · </span>
-                                                </span>
-                                                <span>{{ ad.type|roomType }}</span>
-                                                <span class="person-capacity hide-md">
-                                                    <span> · </span>
-                                                    <span>{{ ad.guests }} guests</span>
-                                                </span>
-                                                <span *ngIf="ad.rating >= 0.5">
-                                                    <span> · </span>
-                                                    <small>
-                                                        <app-star [star]="ad.rating"></app-star>
-                                                    </small>
-                                                </span>
-                                                <span *ngIf="ad.reviews > 0">
-                                                    <span> · </span>
-                                                    <span>{{ ad.reviews }} review</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
 
-            <div class="results-footer">
-                <div class="pagination-buttons-container space-8">
-                    <div class="results_count">
-                        <span>
-                            <span>{{ from }}</span>
-                            <span> </span>
-                            <span>–</span>
-                            <span> </span>
-                            <span>{{ to }}</span>
-                            <span> of </span>
-                            <span>
-                                <span>{{ total }} Rentals</span>
-                            </span>
-                        </span>
-                    </div>
-                    <div class="pagination pagination-responsive">
-                        <ul class="list-unstyled">
-                            <li *ngIf="current_page > 1" class="prev previous_page">
-                                <a [routerLink]="['./', {page: current_page-1}]" (click)="load(current_page-1)">
-                                    <span class="screen-reader-only">
-                                        <span>Previous</span>
-                                    </span>
-                                    <i class="icon icon-caret-left"></i>
-                                </a>
-                            </li>
-                            <li *ngFor="let page of pages" [class.active]="page == current_page"><a [routerLink]="['./', {page: page}]" (click)="load(page)">{{ page }}</a></li>
-                            <li *ngIf="current_page < pages.length" class="next next_page">
-                                <a [routerLink]="['./', {page: current_page+1}]" (click)="load(current_page+1)">
-                                    <span class="screen-reader-only">
-                                        <span>Next</span>
-                                    </span>
-                                    <i class="icon icon-caret-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="nearby-links">
-                    <div>
-                        <div>
-                            <div class="breadcrumbs space-top-1">
-                                <span>
-                                    <a routerLink="/s/Russia" itemprop="item">
-                                        <span itemprop="name">Russia</span>
-                                    </a>
-                                    <i class="icon icon-chevron-right breadcrumb-spacer"></i>
-                                </span>
-                                <span>Lipetsk Oblast</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space-top-1">
-                        <div class="container">
-                            <div class="row">
-                                <span class="col-lg-4">
-                                    <span>Places Nearby:</span>
-                                </span>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="pull-left col-lg-4">
-                                    <ul class="sidenav-list">
-                                        <li><a class="text-muted" routerLink="/s/Moscow--Russia">Moscow</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Kharkov--Ukraine">Kharkov</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Saint-Petersburg--Russia">Saint Petersburg</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Helsinki--Finland">Helsinki</a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-left col-lg-4">
-                                    <ul class="sidenav-list">
-                                        <li><a class="text-muted" routerLink="/s/Warsaw--Poland">Warsaw</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Irkutsk--Russia">Irkutsk</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Volgograd--Russia">Volgograd</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Ulan~Ude--Russia">Ulan-Ude</a></li>
-                                    </ul>
-                                </div>
-                                <div class="pull-left col-lg-4">
-                                    <ul class="sidenav-list">
-                                        <li><a class="text-muted" routerLink="/s/Orenburg--Russia">Orenburg</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Zelenograd--Russia">Zelenograd</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Barnaul--Russia">Barnaul</a></li>
-                                        <li><a class="text-muted" routerLink="/s/Oryol--Russia">Oryol</a></li>
-                                    </ul>
+                                <div class="results-footer">
+                                        <div class="pagination-buttons-container space-8">
+                                            <div class="results_count">
+                                                <span>
+                                                    <span>{{ from }}</span>
+                                                    <span> </span>
+                                                    <span>–</span>
+                                                    <span> </span>
+                                                    <span>{{ to }}</span>
+                                                    <span> of </span>
+                                                    <span>
+                                                        <span>{{ 'N_RENTALS' | translate:{total: total} }}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="pagination pagination-responsive">
+                                                <ul class="list-unstyled">
+                                                    <li *ngIf="current_page > 1" class="prev previous_page">
+                                                        <a [routerLink]="['./', {page: current_page-1}]" (click)="load(current_page-1)">
+                                                            <span class="screen-reader-only">
+                                                                <span>{{ 'Previous'|translate }}</span>
+                                                            </span>
+                                                            <i class="icon icon-caret-left"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li *ngFor="let page of pages" [class.active]="page == current_page"><a [routerLink]="['./', {page: page}]" (click)="load(page)">{{ page }}</a></li>
+                                                    <li *ngIf="current_page < pages.length" class="next next_page">
+                                                        <a [routerLink]="['./', {page: current_page+1}]" (click)="load(current_page+1)">
+                                                            <span class="screen-reader-only">
+                                                                <span>{{ 'Next'|translate }}</span>
+                                                            </span>
+                                                            <i class="icon icon-caret-right"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div>
+                                    <div class="show-sm panel-btn-sm fixed text-center">
+                                        <button aria-disabled="false" type="button" class="container_1atmsee-o_O-container_180u7sb">
+                                            <span class="text_10flerh-o_O-text_v1ofku">
+                                                <span>Filters</span>
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div class="show-sm panel-btn-sm fixed text-center">
-                    <button aria-disabled="false" type="button" class="container_1atmsee-o_O-container_180u7sb">
-                        <span class="text_10flerh-o_O-text_v1ofku">
-                            <span>Filters</span>
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
                 </div>
             </div>
         </div>
@@ -680,10 +612,18 @@
                     <div class="map-canvas" role="presentation">
                         <app-ads-map [city]="city" [ads]="ads"></app-ads-map>
                     </div>
-                    <div class="map-refresh-controls google" data-reactid=".1anhzui48w0.1">
-                    <a class="map-manual-refresh btn btn-primary hide" data-reactid=".1anhzui48w0.1.0"><span data-reactid=".1anhzui48w0.1.0.0">Redo Search Here</span><i class="icon icon-refresh icon-space-left" data-reactid=".1anhzui48w0.1.0.1"></i></a>
-                    <div class="map-auto-refresh panel" data-reactid=".1anhzui48w0.1.1">
-                    <label class="checkbox" for="map-auto-refresh-checkbox" data-reactid=".1anhzui48w0.1.1.0"><input type="checkbox" class="map-auto-refresh-checkbox" id="map-auto-refresh-checkbox" checked="" data-reactid=".1anhzui48w0.1.1.0.0"><small data-reactid=".1anhzui48w0.1.1.0.1"><span data-reactid=".1anhzui48w0.1.1.0.1.0">Search as I move the map</span></small></label>
+                    <div class="map-refresh-controls google">
+                    <a class="map-manual-refresh btn btn-primary hide">
+                        <span>Redo Search Here</span>
+                        <i class="icon icon-refresh icon-space-left"></i>
+                    </a>
+                    <div class="map-auto-refresh panel">
+                    <label class="checkbox" for="map-auto-refresh-checkbox">
+                        <input type="checkbox" class="map-auto-refresh-checkbox" id="map-auto-refresh-checkbox" checked="">
+                        <small>
+                            <span>Search as I move the map</span>
+                        </small>
+                    </label>
                 </div>
                 </div>
                     <div data-reactid=".1anhzui48w0.3"></div>
@@ -692,4 +632,3 @@
         </div>
     </div>
 </main>
-<app-bottom-menu></app-bottom-menu>
